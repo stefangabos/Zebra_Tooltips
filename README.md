@@ -48,7 +48,7 @@ Load the Zebra_Tooltips plugin
 Load the plugin’s stylesheet file
 
 ```html
-<link rel="stylesheet" href="path/to/zebra_tooltip.css" type="text/css">
+<link rel="stylesheet" href="path/to/zebra_tooltips.css" type="text/css">
 ```
 
 Now, within the DOM-ready event do
