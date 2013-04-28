@@ -4,9 +4,9 @@
 
 Zebra_Tooltips is a lightweight (around 5KB minified, 1.6KB gzipped) jQuery plugin for creating simple but smart and visually attractive tooltips, featuring nice transitions, and offering a wide range of configuration options. The plugin detects the edges of the browser window and makes sure that the tooltips always stay in the visible area of the browser window by placing them beneath or above the parent element, and shifting them left or right so that the tooltips are always visible.
 
-Besides the default behavior of tooltips showing when user hovers the element, tooltips may also be shown and hidden programatically using the API. When shown programatically, the tooltips will feature a "close" button, and clicking it will be the only way of closing tooltips opened this way. This is very useful for drawing users' attention to specific areas of a website (like error messages after validating a form).
+Besides the default behavior of tooltips showing when user hovers the element, tooltips may also be shown and hidden programmatically using the API. When shown programmatically, the tooltips will feature a "close" button, and clicking it will be the only way of closing tooltips opened this way. This is very useful for drawing users' attention to specific areas of a website (like error messages after validating a form).
 
-By default, the plugin will use the "title" attribute of the element for the tooltip's content, but the tooltip's content can also be specified programatically. Tooltips' appearance can be easily customized both through JavaScript and/or CSS. Also, tooltips can be aligned left, center or right, relative to the parent element.
+By default, the plugin will use the "title" attribute of the element for the tooltip's content, but the tooltip's content can also be specified programmatically. Tooltips' appearance can be easily customized both through JavaScript and/or CSS. Also, tooltips can be aligned left, center or right, relative to the parent element.
 
 Zebra_Tooltips uses NO IMAGES (everything is handled from CSS), and falls back gracefully for browsers that don't support all the fancy stuff; also, tooltips can be attached to any element not just anchor tags!
 
