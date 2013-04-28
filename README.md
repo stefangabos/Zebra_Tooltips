@@ -12,7 +12,7 @@ Zebra_Tooltips uses NO IMAGES (everything is handled from CSS), and falls back g
 
 Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 6+)
 
-<!-- ![Screenshot](https://raw.github.com/stefangabos/Zebra_Dialog/master/examples/screenshot.png) -->
+![Screenshot](https://raw.github.com/stefangabos/Zebra_Tooltips/master/examples/screenshot.png)
 
 ##Features
 
