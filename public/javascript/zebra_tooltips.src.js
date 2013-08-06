@@ -26,7 +26,7 @@
  *  For more resources visit {@link http://stefangabos.ro/}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    1.1.0 (last revision: April 28, 2013)
+ *  @version    1.1.0 (last revision: August 06, 2013)
  *  @copyright  (c) 2012 - 2013 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Tooltips
