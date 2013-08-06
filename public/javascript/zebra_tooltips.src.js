@@ -94,7 +94,7 @@
                                                 //
                                                 //  Default is 250
 
-            opacity:            .95,            //  The tooltip's opacity.
+            opacity:            '.95',          //  The tooltip's opacity.
                                                 //
                                                 //  Must be a value between 0 (completely transparent) and 1 (completely
                                                 //  opaque)
@@ -150,7 +150,7 @@
         // private variables used throughout the script
         window_width, window_height, horizontal_scroll, vertical_scroll, tooltip_info;
 
-        plugin.settings = {}
+        plugin.settings = {};
 
         /**
          *  Hides the tooltip attached to the element or the elements given as argument.
@@ -189,7 +189,7 @@
 
             }
 
-        }
+        };
 
         /**
          *  Shows the tooltip attached to the element or the elements given as argument.
@@ -238,7 +238,7 @@
 
             }
 
-        }
+        };
 
         /**
          *  Constructor method
@@ -262,10 +262,10 @@
                 $element.bind({
 
                     // show the attached tooltip when mouse cursor enters the parent element
-                    'mouseenter': function() { _show($element) },
+                    'mouseenter': function() { _show($element); },
 
                     // when mouse cursor leaves the parent element
-                    'mouseleave': function() { _hide($element) }
+                    'mouseleave': function() { _hide($element); }
 
                 });
 
@@ -313,7 +313,7 @@
 
             });
 
-        }
+        };
 
         /**
          *  Generates a tooltip's HTML code and inserts it into the DOM.
@@ -416,24 +416,25 @@
                     arrow_width = arrow.outerWidth(),
                     arrow_height = arrow.outerHeight(),
 
-                    // group all data together
-                    tooltip_info = {
-                        'tooltip':          tooltip,
-                        'tooltip_width':    tooltip_width,
-                        'tooltip_height':   tooltip_height + (arrow_height / 2),
-                        'message':          message,
-                        'arrow_container':  arrow_container,
-                        'arrow_width':      arrow_width,
-                        'arrow_height':     arrow_height,
-                        'arrow':            arrow
-                    };
-
-                // in IE9, after hardcoding the width (see below), the box's actual width changes with a few pixels,
-                // but enough to sometimes trigger the wrapping of the text; this results in the "message" element having
-                // a greater actual height than the one we're just about to hard-coded and this, in turn, results in the
-                // arrow not being visible; therefore, save the values now
-                var tmp_width = message.outerWidth(),
+                    // in IE9, after hardcoding the width (see below), the box's actual width changes with a few pixels,
+                    // but enough to sometimes trigger the wrapping of the text; this results in the "message" element having
+                    // a greater actual height than the one we're just about to hard-coded and this, in turn, results in the
+                    // arrow not being visible; therefore, save the values now
+                    tmp_width = message.outerWidth(),
                     tmp_height = message.outerHeight();
+
+                // group all data together
+                tooltip_info = {
+                    'tooltip':          tooltip,
+                    'tooltip_width':    tooltip_width,
+                    'tooltip_height':   tooltip_height + (arrow_height / 2),
+                    'message':          message,
+                    'arrow_container':  arrow_container,
+                    'arrow_width':      arrow_width,
+                    'arrow_height':     arrow_height,
+                    'arrow':            arrow
+                };
+
 
                 // hardcode the tooltip's width and height so it doesn't gets broken due to word wrapping when the
                 // tooltip is too close to the edges of the browser's window
@@ -660,7 +661,7 @@
             // return an object with tooltip data
             return tooltip_info;
 
-		}
+		};
 
         /**
          *  Hides the tooltip attached to the element given as argument.
@@ -745,7 +746,7 @@
 
             }
 
-        }
+        };
 
         /**
          *  Shows the tooltip attached to the element given as argument.
@@ -818,11 +819,11 @@
 
             }
 
-        }
+        };
 
         // fire it up!
         _init();
 
-    }
+    };
 
 })(jQuery);
