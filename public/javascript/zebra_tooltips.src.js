@@ -126,23 +126,23 @@
 
             onBeforeHide:       null,           //  Event fired before a tooltip is hidden.
                                                 //
-                                                //  The callback function (if any) receives as argument the
-                                                //  DOM element the tooltip is attached to.
+                                                //  The callback function (if any) receives as arguments the
+                                                //  element the tooltip is attached to, and the tooltip element.
 
             onHide:             null,           //  Event fired after a tooltip is hidden.
                                                 //
-                                                //  The callback function (if any) receives as argument the
-                                                //  DOM element the tooltip is attached to.
+                                                //  The callback function (if any) receives as arguments the
+                                                //  element the tooltip is attached to, and the tooltip element.
 
             onBeforeShow:       null,           //  Event fired before a tooltip is shown.
                                                 //
-                                                //  The callback function (if any) receives as argument the
-                                                //  DOM element the tooltip is attached to.
+                                                //  The callback function (if any) receives as arguments the
+                                                //  element the tooltip is attached to, and the tooltip element.
 
             onShow:             null            //  Event fired after a tooltip is shown.
                                                 //
-                                                //  The callback function (if any) receives as argument the
-                                                //  DOM element the tooltip is attached to.
+                                                //  The callback function (if any) receives as arguments the
+                                                //  element the tooltip is attached to, and the tooltip element.
 
         },
 
