@@ -725,7 +725,7 @@
                         if (plugin.settings.onBeforeHide && typeof plugin.settings.onBeforeHide == 'function')
 
                             // execute the callback function
-                            plugin.settings.onBeforeHide($element);
+                            plugin.settings.onBeforeHide($element, tooltip_info.tooltip);
 
                         // set this flag to FALSE so that the script knows that it has to add the "close" button again
                         // if the tooltip is shown using the API
@@ -763,7 +763,7 @@
                             if (plugin.settings.onHide && typeof plugin.settings.onHide == 'function')
 
                                 // execute the callback function
-                                plugin.settings.onHide($element);
+                                plugin.settings.onHide($element, tooltip_info.tooltip);
 
                         });
 
@@ -809,7 +809,7 @@
                     if (plugin.settings.onBeforeShow && typeof plugin.settings.onBeforeShow == 'function')
 
                         // execute the callback function
-                        plugin.settings.onBeforeShow($element);
+                        plugin.settings.onBeforeShow($element, tooltip_info.tooltip);
 
                     // if tooltip is not already being animated
                     if (tooltip_info.tooltip.css('display') != 'block')
@@ -838,7 +838,7 @@
                         if (plugin.settings.onShow && typeof plugin.settings.onShow == 'function')
 
                             // execute the callback function
-                            plugin.settings.onShow($element);
+                            plugin.settings.onShow($element, tooltip_info.tooltip);
 
                     });
 
