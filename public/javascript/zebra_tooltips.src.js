@@ -76,8 +76,8 @@
                                                 //  is attached to.
                                                 //
                                                 //  Setting this property to FALSE will use the property's value as the
-                                                //  content of all the tooltips rather than use the values of the "title"
-                                                //  attribute, or of the data attribute.
+                                                //  content of all the tooltips rather than using the values of the "title"
+                                                //  or the data attribute.
                                                 //
                                                 //  Default is FALSE
 
