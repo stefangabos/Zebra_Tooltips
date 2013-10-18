@@ -13,8 +13,9 @@
  *  specific areas of a website (like error messages after validating a form).
  *
  *  By default, the plugin will use the "title" attribute of the element for the tooltip's content, but the tooltip's
- *  content can also be specified programatically. Tooltips' appearance can be easily customized both through JavaScript
- *  and/or CSS. Also, tooltips can be aligned left, center or right, relative to the parent element.
+ *  content can also be specified via the "zebra-tooltip" data attribute, or programatically. Tooltips' appearance can be
+ *  easily customized both through JavaScript and/or CSS. Also, tooltips can be aligned left, center or right, relative
+ *  to the parent element.
  *
  *  Zebra_Tooltips uses NO IMAGES (everything is handled from CSS), and falls back gracefully for browsers that don't
  *  support all the fancy stuff; also, tooltips can be attached to any element not just anchor tags!
@@ -26,7 +27,7 @@
  *  For more resources visit {@link http://stefangabos.ro/}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    1.1.0 (last revision: August 06, 2013)
+ *  @version    1.2.0 (last revision: October 18, 2013)
  *  @copyright  (c) 2012 - 2013 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Tooltips
@@ -255,39 +256,60 @@
             // iterate through the elements we need to attach the plugin to
             elements.each(function() {
 
-                // reference to the jQuery version of the element
-                var $element = $(this);
+                var
 
-                // handlers for some of the element's events
-                $element.bind({
+                    // reference to the jQuery version of the element
+                    $element = $(this),
 
-                    // show the attached tooltip when mouse cursor enters the parent element
-                    'mouseenter': function() { _show($element); },
+                    // the element's title attribute (if any)
+                    title = $element.attr('title'),
 
-                    // when mouse cursor leaves the parent element
-                    'mouseleave': function() { _hide($element); }
+                    // the element's data attribute
+                    data_attribute = $element.data('zebra-tooltip');
 
-                });
+                // if
+                if (
 
-                // initialize and cache tooltip data
-                $element.data('Zebra_Tooltip', {
-                    'tooltip':              null,
-                    'content':              $element.attr('title') || '',
-                    'window_resized':       true,
-                    'window_scrolled':      true,
-                    'show_timeout':         null,
-                    'hide_timeout':         null,
-                    'animation_offset':     plugin.settings.animation_offset,
-                    'sticky':               false,
-                    'destroy':              false,
-                    'muted':                false
-                });
+                    // element has a "title" attribute and is not empty OR
+                    (title && title != '') ||
 
-                // prevent the browser's behaviour of showing "title" attributes as tooltips
-                $element.attr('title', '');
+                    // element has the proper data attribute set, and is not empty
+                    (data_attribute && data_attribute != '')
 
-                // if tooltips are to be pre-generated, generate them now
-                if (plugin.settings.prerender) _create_tooltip($element);
+                ) {
+
+                    // handlers for some of the element's events
+                    $element.bind({
+
+                        // show the attached tooltip when mouse cursor enters the parent element
+                        'mouseenter': function() { _show($element); },
+
+                        // when mouse cursor leaves the parent element
+                        'mouseleave': function() { _hide($element); }
+
+                    });
+
+                    // initialize and cache tooltip data
+                    $element.data('Zebra_Tooltip', {
+                        'tooltip':              null,
+                        'content':              data_attribute || title || '',
+                        'window_resized':       true,
+                        'window_scrolled':      true,
+                        'show_timeout':         null,
+                        'hide_timeout':         null,
+                        'animation_offset':     plugin.settings.animation_offset,
+                        'sticky':               false,
+                        'destroy':              false,
+                        'muted':                false
+                    });
+
+                    // prevent the browser's behaviour of showing "title" attributes as tooltips
+                    $element.attr('title', '');
+
+                    // if tooltips are to be pre-generated, generate them now
+                    if (plugin.settings.prerender) _create_tooltip($element);
+
+                }
 
             });
 
@@ -300,14 +322,20 @@
                     // get a reference to the attached tooltip and its components
                     var tooltip_info = $(this).data('Zebra_Tooltip');
 
-                    // if window was scrolled, set a flag
-                    if (event.type == 'scroll') tooltip_info.window_scrolled = true;
+                    // if element has a tooltip attached
+                    // (it may not have if it had no "title" attribute or the attribute was empty)
+                    if (tooltip_info) {
 
-                    // if window was resized, set a flag
-                    else tooltip_info.window_resized = true;
+                        // if window was scrolled, set a flag
+                        if (event.type == 'scroll') tooltip_info.window_scrolled = true;
 
-                    // cache updated tooltip data
-                    $(this).data('Zebra_Tooltip', tooltip_info);
+                        // if window was resized, set a flag
+                        else tooltip_info.window_resized = true;
+
+                        // cache updated tooltip data
+                        $(this).data('Zebra_Tooltip', tooltip_info);
+
+                    }
 
                 });
 
