@@ -149,7 +149,7 @@
         plugin = this,
 
         // private variables used throughout the script
-        window_width, window_height, horizontal_scroll, vertical_scroll, tooltip_info;
+        window_width, window_height, horizontal_scroll, vertical_scroll;
 
         plugin.settings = {};
 
@@ -271,10 +271,10 @@
                 if (
 
                     // element has a "title" attribute and is not empty OR
-                    (title && title != '') ||
+                    (title && title !== '') ||
 
                     // element has the proper data attribute set, and is not empty
-                    (data_attribute && data_attribute != '')
+                    (data_attribute && data_attribute !== '')
 
                 ) {
 
@@ -494,7 +494,7 @@
             if (tooltip_info.sticky && !tooltip_info.close) {
 
                 // create the "close" button
-                var close = jQuery('<a>', {
+                jQuery('<a>', {
 
                         'class':    'Zebra_Tooltip_Close',
                         'href':     'javascript:void(0)'
