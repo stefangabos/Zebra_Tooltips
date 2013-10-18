@@ -35,8 +35,8 @@ Zebra_Tooltips has no dependencies other than jQuery. The recommended jQuery ver
 First, load the latest version of jQuery from a CDN and provide a fallback to a local source, like:
 
 ```html
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="public/javascript/jquery-1.9.1.js"><\/script>')</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="path/to/jquery-1.10.2.js"><\/script>')</script>
 ```
 
 Load the Zebra_Tooltips plugin
