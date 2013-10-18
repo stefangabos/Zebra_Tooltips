@@ -72,11 +72,12 @@
             content:            false,          //  The content of the tooltip.
                                                 //
                                                 //  Usually, the content of the tooltip is given in the "title" attribute
-                                                //  of the DOM element the tooltip is attached to.
+                                                //  or as the "zebra-tooltip" data attribute of the element the tooltip
+                                                //  is attached to.
                                                 //
                                                 //  Setting this property to FALSE will use the property's value as the
-                                                //  content of all the tooltips rather than values the tooltips' "title"
-                                                //  attribute.
+                                                //  content of all the tooltips rather than use the values of the "title"
+                                                //  attribute, or of the data attribute.
                                                 //
                                                 //  Default is FALSE
 
