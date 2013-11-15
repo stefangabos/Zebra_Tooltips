@@ -27,7 +27,7 @@
  *  For more resources visit {@link http://stefangabos.ro/}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    1.2.0 (last revision: October 18, 2013)
+ *  @version    1.2.1 (last revision: November 15, 2013)
  *  @copyright  (c) 2012 - 2013 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Tooltips
@@ -155,9 +155,9 @@
         plugin.settings = {};
 
         /**
-         *  Hides the tooltip attached to the element or the elements given as argument.
+         *  Hides the tooltips attached to the element(s) given as argument.
          *
-         *  @param  jQuery  $element    An element or a collection of elements for which to hide the attached tooltips.
+         *  @param  jQuery  elements    A jQuery selector of element(s) for which to hide the attached tooltips.
          *
          *  @param  boolean destroy     If set to TRUE, once hidden, the tooltip will be "muted" and will *not* be
          *                              shown again when the user hovers the parent element with the mouse.
@@ -169,38 +169,48 @@
          *
          *  @return void
          */
-        plugin.hide = function($element, destroy) {
+        plugin.hide = function(elements, destroy) {
 
-            // get a reference to the attached tooltip and its components
-            var tooltip_info = $element.data('Zebra_Tooltip');
+            // iterate through the elements given as argument
+            elements.each(function() {
 
-            // if there is a tooltip attached
-            if (tooltip_info) {
+                var
 
-                // set this flag to FALSE so we can hide the tooltip
-                tooltip_info.sticky = false;
+                    // the current element
+                    $element = $(this),
 
-                // set a flag if tooltip needs to be "muted" after hiding it
-                if (destroy) tooltip_info.destroy = true;
+                    // get a reference to the attached tooltip and its components
+                    tooltip_info = $element.data('Zebra_Tooltip');
 
-                // cache updated tooltip data
-                $element.data('Zebra_Tooltip', tooltip_info);
+                // if there is a tooltip attached
+                if (tooltip_info) {
 
-                // show the tooltip
-                _hide($element);
+                    // set this flag to FALSE so we can hide the tooltip
+                    tooltip_info.sticky = false;
 
-            }
+                    // set a flag if tooltip needs to be "muted" after hiding it
+                    if (destroy) tooltip_info.destroy = true;
+
+                    // cache updated tooltip data
+                    $element.data('Zebra_Tooltip', tooltip_info);
+
+                    // show the tooltip
+                    _hide($element);
+
+                }
+
+            });
 
         };
 
         /**
-         *  Shows the tooltip attached to the element or the elements given as argument.
+         *  Shows the tooltips attached to the element(s) given as argument.
          *
          *  When showing a tooltip using this method, the tooltip can only be closed by the user clicking on the "close"
          *  icon on the tooltip (which is automatically added when using this method) or by calling the {@link hide()}
          *  method.
          *
-         *  @param  jQuery  $element    An element or a collection of elements for which to show the attached tooltips.
+         *  @param  jQuery  elements    A jQuery selector of element(s) for which to show the attached tooltips.
          *
          *  @param  boolean destroy     If set to TRUE, once the user clicks the "close" button, the tooltip will be
          *                              "muted" and will *not* be shown when the user hovers the parent element with
@@ -211,34 +221,44 @@
          *                              If set to FALSE, the tooltip will be shown whenever the user hovers the parent
          *                              element with the mouse, only it will not have the "close" button anymore.
          *
-         *                              Default is FALSE
+         *                              Default is FALSE.
          *
          *  @return void
          */
-        plugin.show = function($element, destroy) {
+        plugin.show = function(elements, destroy) {
 
-            // get a reference to the attached tooltip and its components
-            var tooltip_info = $element.data('Zebra_Tooltip');
+            // iterate through the elements given as argument
+            elements.each(function() {
 
-            // if there is a tooltip attached
-            if (tooltip_info) {
+                var
 
-                // when shown using the API, the tooltip can be hidden only by clicking on the "close" button
-                tooltip_info.sticky = true;
+                    // the current element
+                    $element = $(this),
 
-                // set this to FALSE so we can show the tooltip
-                tooltip_info.muted = false;
+                    // get a reference to the attached tooltip and its components
+                    tooltip_info = $element.data('Zebra_Tooltip');
 
-                // set a flag if tooltip needs to "muted" after hiding
-                if (destroy) tooltip_info.destroy = true;
+                // if there is a tooltip attached
+                if (tooltip_info) {
 
-                // cache updated tooltip data
-                $element.data('Zebra_Tooltip', tooltip_info);
+                    // when shown using the API, the tooltip can be hidden only by clicking on the "close" button
+                    tooltip_info.sticky = true;
 
-                // show the tooltip
-                _show($element);
+                    // set this to FALSE so we can show the tooltip
+                    tooltip_info.muted = false;
 
-            }
+                    // set a flag if tooltip needs to "muted" after hiding
+                    if (destroy) tooltip_info.destroy = true;
+
+                    // cache updated tooltip data
+                    $element.data('Zebra_Tooltip', tooltip_info);
+
+                    // show the tooltip
+                    _show($element);
+
+                }
+
+            });
 
         };
 
