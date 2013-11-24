@@ -8,12 +8,12 @@
  *  tooltips are always visible.
  *
  *  Besides the default behavior of tooltips showing when user hovers the element, tooltips may also be shown and hidden
- *  programatically using the API. When shown programatically, the tooltips will feature a "close" button, and clicking
+ *  programmatically using the API. When shown programmatically, the tooltips will feature a "close" button, and clicking
  *  it will be the only way of closing tooltips opened this way. This is very useful for drawing users' attention to
  *  specific areas of a website (like error messages after validating a form).
  *
  *  By default, the plugin will use the "title" attribute of the element for the tooltip's content, but the tooltip's
- *  content can also be specified via the "zebra-tooltip" data attribute, or programatically. Tooltips' appearance can be
+ *  content can also be specified via the "zebra-tooltip" data attribute, or programmatically. Tooltips' appearance can be
  *  easily customized both through JavaScript and/or CSS. Also, tooltips can be aligned left, center or right, relative
  *  to the parent element.
  *
@@ -27,7 +27,7 @@
  *  For more resources visit {@link http://stefangabos.ro/}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    1.2.1 (last revision: November 15, 2013)
+ *  @version    1.2.1 (last revision: November 24, 2013)
  *  @copyright  (c) 2012 - 2013 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Tooltips
@@ -294,8 +294,11 @@
                     // element has a "title" attribute and is not empty OR
                     (title && title !== '') ||
 
-                    // element has the proper data attribute set, and is not empty
-                    (data_attribute && data_attribute !== '')
+                    // element has the proper data attribute set, and is not empty OR
+                    (data_attribute && data_attribute !== '') ||
+
+                    // content is given via the "content" property
+                    undefined !== plugin.settings.content
 
                 ) {
 
@@ -581,7 +584,7 @@
 
                 }
 
-                // get the browser window's horizontal andvertical scroll offsets
+                // get the browser window's horizontal and vertical scroll offsets
                 vertical_scroll = browser_window.scrollTop();
                 horizontal_scroll = browser_window.scrollLeft();
 
