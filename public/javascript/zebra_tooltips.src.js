@@ -27,7 +27,7 @@
  *  For more resources visit {@link http://stefangabos.ro/}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    1.2.1 (last revision: November 24, 2013)
+ *  @version    1.2.1 (last revision: November 25, 2013)
  *  @copyright  (c) 2012 - 2013 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Tooltips
@@ -80,6 +80,18 @@
                                                 //  or the data attribute.
                                                 //
                                                 //  Default is FALSE
+
+            default_position:   'above',        //  By default, tooltips are shown above the elements they are attached to
+                                                //  and are shown below only if there isn't enough space above.
+                                                //
+                                                //  Set the value of this property to "below" if you want to reverse the
+                                                //  default behavior so that tooltips will be shown below the elements
+                                                //  they are attached to and will be shown above only there isn't enough
+                                                //  space below.
+                                                //
+                                                //  Possible values are "above" and "below".
+                                                //
+                                                //  Default is "above"
 
             hide_delay:         100,            //  The delay (in milliseconds) after which to hide the tooltip once the
                                                 //  mouse moves away from the trigger element or the tooltip.
@@ -648,8 +660,16 @@
                 // set the arrow's color (we set it for different sides depending if it points upwards or downwards)
                 tooltip_info.arrow.css('borderColor', plugin.settings.background_color + ' transparent transparent');
 
-                // if top of the tooltip is outside the visible part of the browser's window
-                if (tooltip_top < vertical_scroll) {
+                // if 
+                if (
+
+                    // top of the tooltip is outside the visible part of the browser's window OR
+                    tooltip_top < vertical_scroll ||
+
+                    // tooltips are to be shown from below the element, and there is enough space below the element to show the tooltip
+                    (plugin.settings.default_position == 'below' && tooltip_info.element_top + tooltip_info.element_height + plugin.settings.vertical_offset + tooltip_info.tooltip_height + tooltip_info.animation_offset < window_height + vertical_scroll)
+
+                ) {
 
                     // place the tooltip beneath the element, rather than above, also account for the offset
                     tooltip_top = tooltip_info.element_top + tooltip_info.element_height - plugin.settings.vertical_offset;
