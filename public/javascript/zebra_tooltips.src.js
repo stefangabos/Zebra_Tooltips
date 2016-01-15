@@ -27,8 +27,8 @@
  *  For more resources visit {@link http://stefangabos.ro/}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    1.2.1 (last revision: November 25, 2013)
- *  @copyright  (c) 2012 - 2013 Stefan Gabos
+ *  @version    1.2.2 (last revision: January 15, 2016)
+ *  @copyright  (c) 2012 - 2016 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Tooltips
  */
@@ -317,11 +317,27 @@
                     // handlers for some of the element's events
                     $element.bind({
 
-                        // show the attached tooltip when mouse cursor enters the parent element
-                        'mouseenter': function() { _show($element); },
+                        // when mouse cursor enters the parent element
+                        'mouseenter': function() {
+
+                            // clear the "title" attribute (if present) to prevent browser's default behavior
+                            if (title) $(this).attr('title', '');
+
+                            // show the attached tooltip 
+                            _show($element);
+
+                        },
 
                         // when mouse cursor leaves the parent element
-                        'mouseleave': function() { _hide($element); }
+                        'mouseleave': function() {
+
+                            // hide the attached tooltip
+                            _hide($element);
+
+                            // if "title" attribute was present, set it back to its original state
+                            if (title) $(this).attr('title', title);
+
+                        }
 
                     });
 
@@ -338,9 +354,6 @@
                         'destroy':              false,
                         'muted':                false
                     });
-
-                    // prevent the browser's behaviour of showing "title" attributes as tooltips
-                    $element.attr('title', '');
 
                     // if tooltips are to be pre-generated, generate them now
                     if (plugin.settings.prerender) _create_tooltip($element);
