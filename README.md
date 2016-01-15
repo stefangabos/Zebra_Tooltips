@@ -2,7 +2,7 @@
 
 ####A lightweight and highly configurable jQuery plugin for creating simple but smart and attractive tooltips
 
-Zebra_Tooltips is a lightweight (around 5KB minified, 1.6KB gzipped) jQuery plugin for creating simple but smart and visually attractive tooltips, featuring nice transitions, and offering a wide range of configuration options. The plugin detects the edges of the browser window and makes sure that the tooltips always stay in the visible area of the browser window by placing them beneath or above the parent element, and shifting them left or right so that the tooltips are always visible.
+Zebra_Tooltips is a lightweight (around 6KB minified, 1.9KB gzipped) jQuery plugin for creating simple but smart and visually attractive tooltips, featuring nice transitions, and offering a wide range of configuration options. The plugin detects the edges of the browser window and makes sure that the tooltips always stay in the visible area of the browser window by placing them beneath or above the parent element, and shifting them left or right so that the tooltips are always visible.
 
 Besides the default behavior of tooltips showing when user hovers the element, tooltips may also be shown and hidden programmatically using the API. When shown programmatically, the tooltips will feature a "close" button, and clicking it will be the only way of closing tooltips opened this way. This is very useful for drawing users' attention to specific areas of a website (like error messages after validating a form).
 
@@ -16,7 +16,7 @@ Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 6
 
 ##Features
 
- - lightweight (around 5KB minified, 1.6KB gzipped)
+ - lightweight (around 6KB minified, 1.9KB gzipped)
  - features nice transitions
  - detects the edges of the browser window and makes sure that the tooltips always stay in the visible area of the browser window by placing them beneath or above the elements and shifting them left or right so that the tooltips are always visible
  - tooltips may also be shown and hidden using the API
@@ -35,8 +35,8 @@ Zebra_Tooltips has no dependencies other than jQuery. The recommended jQuery ver
 First, load the latest version of jQuery from a CDN and provide a fallback to a local source, like:
 
 ```html
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="path/to/jquery-1.10.2.js"><\/script>')</script>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script>window.jQuery || document.write('<script src="path/to/jquery-1.12.0.js"><\/script>')</script>
 ```
 
 Load the Zebra_Tooltips plugin
