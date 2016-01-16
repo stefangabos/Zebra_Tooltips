@@ -30,6 +30,12 @@ Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 6
 
 Zebra_Tooltips has no dependencies other than jQuery. The recommended jQuery version is 1.7+ (due to the fact that the library makes use of something that the previous versions of jQuery have done in a way that it it now deprecated in WebKit powered browsers)
 
+##Installation
+
+```
+bower install zebra_tooltips
+```
+
 ##How to use
 
 First, load the latest version of jQuery from a CDN and provide a fallback to a local source, like:
