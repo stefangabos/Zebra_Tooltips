@@ -27,12 +27,14 @@
  *  For more resources visit {@link http://stefangabos.ro/}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    1.2.2 (last revision: January 15, 2016)
+ *  @version    1.2.3 (last revision: January 16, 2016)
  *  @copyright  (c) 2012 - 2016 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Tooltips
  */
 ;(function($) {
+
+    'use strict';
 
     $.Zebra_Tooltips = function(elements, options) {
 
