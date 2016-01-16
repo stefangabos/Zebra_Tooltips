@@ -34,7 +34,7 @@ module.exports = function(grunt) {
 
         'watch': {
             files: source_files,
-            tasks: ['uglify']
+            tasks: ['jshint', 'uglify']
         }
 
     });
@@ -47,6 +47,6 @@ module.exports = function(grunt) {
 
     // register tasks
 
-    grunt.registerTask('default', ['uglify', 'watch']);
+    grunt.registerTask('default', ['jshint', 'uglify', 'watch']);
 
 };
