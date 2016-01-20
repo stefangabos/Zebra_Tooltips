@@ -1,17 +1,29 @@
 {
   "name": "zebra_tooltips",
-  "description": "A lightweight and highly configurable jQuery plugin for creating simple but smart and attractive tooltips",
   "version": "1.2.3",
-  "license": "LGPL",
   "main": "public/javascript/zebra_tooltips.js",
-  "authors": ["Stefan Gabos"],
-  "ignore": {},
+  "homepage": "https://github.com/stefangabos/Zebra_Tooltips",
+  "authors": [
+    "Stefan Gabos <contact@stefangabos.ro>"
+  ],
+  "description": "A lightweight and highly configurable jQuery plugin for creating simple but smart and attractive tooltips",
   "keywords": [
     "tooltip",
     "tooltips",
-    "jquery"
+    "tips",
+    "jquery",
+    "ui"
   ],
   "dependencies": {
-    "jquery": ">= 1.7.0"
-  }
+    "jquery": ">=1.7.0 <2.x"
+  },
+  "license": "LGPL",
+  "ignore": [
+    ".gitattributes",
+    ".gitignore",
+    "Gruntfile.js",
+    "package.json",
+    "README.md",
+    "bower.json"
+  ]
 }
