@@ -42,7 +42,7 @@ First, load the latest version of jQuery from a CDN and provide a fallback to a 
 
 ```html
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-<script>window.jQuery || document.write('<script src="path/to/jquery-1.12.0.js"></script>')</script>
+<script>window.jQuery || document.write('<script src="path/to/jquery-1.12.0.js"><\/script>')</script>
 ```
 
 Load the Zebra_Tooltips plugin
