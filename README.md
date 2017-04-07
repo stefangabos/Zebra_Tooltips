@@ -1,6 +1,6 @@
-##Zebra_Tooltips
+# Zebra_Tooltips
 
-####A lightweight and highly configurable jQuery plugin for creating simple but smart and attractive tooltips
+#### A lightweight and highly configurable jQuery plugin for creating simple but smart and attractive tooltips
 
 Zebra_Tooltips is a lightweight (around 6KB minified, 1.9KB gzipped) jQuery plugin for creating simple but smart and visually attractive tooltips, featuring nice transitions, and offering a wide range of configuration options. The plugin detects the edges of the browser window and makes sure that the tooltips always stay in the visible area of the browser window by placing them beneath or above the parent element, and shifting them left or right so that the tooltips are always visible.
 
@@ -14,7 +14,7 @@ Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 6
 
 ![Screenshot](https://raw.github.com/stefangabos/Zebra_Tooltips/master/examples/screenshot.png)
 
-##Features
+## Features
 
  - lightweight (around 6KB minified, 1.9KB gzipped)
  - features nice transitions
@@ -26,17 +26,17 @@ Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 6
  - can be attached to any elements not just anchors
  - works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 6+)
 
-##Requirements
+## Requirements
 
 Zebra_Tooltips has no dependencies other than jQuery. The recommended jQuery version is 1.7+ (due to the fact that the library makes use of something that the previous versions of jQuery have done in a way that it it now deprecated in WebKit powered browsers)
 
-##Installation
+## Installation
 
 ```
 bower install zebra_tooltips
 ```
 
-##How to use
+## How to use
 
 First, load the latest version of jQuery from a CDN and provide a fallback to a local source, like:
 
