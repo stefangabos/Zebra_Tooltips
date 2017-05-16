@@ -32,6 +32,10 @@
     "grunt-cli": "*",
     "grunt-contrib-jshint": "*",
     "grunt-contrib-uglify": "*",
-    "grunt-contrib-watch": "*"
+    "grunt-contrib-watch": "*",
+    "grunt-eslint": "*",
+    "grunt-newer": "*",
+    "grunt-notify": "*",
+    "time-grunt": "*"
   }
 }
