@@ -5,7 +5,7 @@
     "name": "Stefan Gabos",
     "email": "contact@stefangabos.ro"
   },
-  "homepage": "http://www.stefangabos.ro/jquery/zebra-tooltips/",
+  "homepage": "https://github.com/stefangabos/Zebra_Tooltips/",
   "main": "public/javascript/zebra_tooltips.js",
   "repository": {
     "type": "git",
