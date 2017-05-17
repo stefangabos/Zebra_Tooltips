@@ -322,3 +322,7 @@ var element = $('#tooltip'),
 
 zt.hide(element);
 ```
+
+## Demo
+
+See the [demos](http://stefangabos.github.io/Zebra_Tooltips/)
