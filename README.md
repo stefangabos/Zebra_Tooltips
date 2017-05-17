@@ -20,13 +20,13 @@ Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 6
 
 ## Features
 
- - lightweight (around 6KB minified, 1.9KB gzipped)
+ - lightweight - it weights around 6KB minified and 1.9KB gzipped
  - features nice transitions
- - detects the edges of the browser window and makes sure that the tooltips always stay in the visible area of the browser window by placing them beneath or above the elements and shifting them left or right so that the tooltips are always visible
- - tooltips may also be shown and hidden using the API
- - appearance can be easily customized both through JavaScript and/or CSS
+ - detects the edges of the browser window and makes sure that the tooltips always stay in the viewport
+ - tooltips may be shown and hidden using the API
+ - appearance can be easily customized both through exposed JavaScript properties and/or CSS
  - tooltips can be aligned left, center or right, relative to the parent element
- - makes use of NO IMAGES (everything is handled from CSS), and falls back gracefully for browsers that don't support all the fancy stuff
+ - uses NO IMAGES and falls back gracefully for browsers that don't support all the fancy stuff
  - can be attached to any elements not just anchors
  - works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 6+)
 
