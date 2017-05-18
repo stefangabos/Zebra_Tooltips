@@ -1,5 +1,5 @@
 {
-  "name": "zebra_tooltips",
+  "name": "Zebra_Tooltips",
   "description": "A lightweight and highly configurable jQuery tooltips plugin",
   "author": {
     "name": "Stefan Gabos",
@@ -25,12 +25,14 @@
   "devDependencies": {
     "grunt": "*",
     "grunt-cli": "*",
+    "grunt-contrib-copy": "*",
     "grunt-contrib-jshint": "*",
     "grunt-contrib-uglify": "*",
     "grunt-contrib-watch": "*",
     "grunt-eslint": "*",
     "grunt-newer": "*",
     "grunt-notify": "*",
+    "grunt-sass": "*",
     "time-grunt": "*"
   }
 }

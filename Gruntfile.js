@@ -24,6 +24,30 @@ module.exports = function(grunt) {
         },
 
         /***************************************************************************************************************
+         *  SASS
+         *  https://www.npmjs.org/package/grunt-sass
+         **************************************************************************************************************/
+        'sass': {
+            minified: {
+                options: {
+                    outputStyle: 'expanded',
+                    indentWidth: 4
+                },
+                files: {
+                    'dist/zebra_tooltips.css': 'src/zebra_tooltips.scss'
+                }
+            },
+            expanded: {
+                options: {
+                    outputStyle: 'compressed'
+                },
+                files: {
+                    'dist/zebra_tooltips.min.css': 'src/zebra_tooltips.scss'
+                }
+            }
+        },
+
+        /***************************************************************************************************************
          *  ESLINT
          *  http://eslint.org/docs/rules/
          **************************************************************************************************************/
@@ -31,7 +55,7 @@ module.exports = function(grunt) {
             options: {
                 configFile: 'eslint.json'
             },
-            src: ['public/javascript/zebra_tooltips.src.js']
+            src: ['src/zebra_tooltips.src.js']
         },
 
         /***************************************************************************************************************
@@ -60,7 +84,7 @@ module.exports = function(grunt) {
                 loopfunc:   true,       //  allow functions to be defined inside loops
                 undef:      true        //  this option prohibits the use of explicitly undeclared variables
             },
-            src: ['public/javascript/zebra_tooltips.src.js']
+            src: ['src/zebra_tooltips.src.js']
         },
 
         /***************************************************************************************************************
@@ -74,8 +98,19 @@ module.exports = function(grunt) {
                 beautify: false
             },
             build: {
-                src: 'public/javascript/zebra_tooltips.src.js',
-                dest: 'public/javascript/zebra_tooltips.min.js'
+                src: 'src/zebra_tooltips.src.js',
+                dest: 'dist/zebra_tooltips.min.js'
+            }
+        },
+
+        /***************************************************************************************************************
+         *  COPY
+         *  https://github.com/gruntjs/grunt-contrib-copy
+         **************************************************************************************************************/
+        'copy': {
+            all: {
+                src: 'src/zebra_tooltips.src.js',
+                dest: 'dist/zebra_tooltips.src.js'
             }
         },
 
@@ -84,23 +119,34 @@ module.exports = function(grunt) {
          *  https://npmjs.org/package/grunt-contrib-watch
          **************************************************************************************************************/
         'watch': {
-            files: ['public/javascript/zebra_tooltips.src.js'],
-            tasks: ['newer:eslint', 'newer:jshint', 'newer:uglify', 'notify:done'],
-            options: {
-                livereload: true
+            js: {
+                files: ['src/zebra_tooltips.src.js'],
+                tasks: ['newer:eslint', 'newer:jshint', 'newer:uglify', 'notify:done'],
+                options: {
+                    livereload: true
+                }
+            },
+            css: {
+                files: ['src/zebra_tooltips.scss'],
+                tasks: ['newer:sass', 'notify:done'],
+                options: {
+                    livereload: true
+                }
             }
         }
 
     });
 
     // register plugins
-    grunt.loadNpmTasks('grunt-notify');
-    grunt.loadNpmTasks('grunt-newer');
-    grunt.loadNpmTasks('grunt-eslint');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-eslint');
+    grunt.loadNpmTasks('grunt-newer');
+    grunt.loadNpmTasks('grunt-notify');
+    grunt.loadNpmTasks('grunt-sass');
 
-    grunt.registerTask('default', ['eslint', 'jshint', 'uglify', 'watch']);
+    grunt.registerTask('default', ['sass', 'eslint', 'jshint', 'uglify', 'copy', 'watch']);
 
 };
