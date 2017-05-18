@@ -1,6 +1,6 @@
 ## version 1.2.9 (May 18, 2017)
 
-- figured out how to update the the npm package
+- figured out how to update the npm package
 - files required in the build process are not included anymore when installing via npm nor when downloading from GitHub
 
 ## version 1.2.5 (May 18, 2017)
