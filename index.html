@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCoreDefault.css" />
 
         <link rel="stylesheet" href="examples.css" type="text/css">
-        <link rel="stylesheet" href="https://rawgit.com/stefangabos/Zebra_Tooltips/master/public/css/zebra_tooltips.css" type="text/css">
+        <link rel="stylesheet" href="https://rawgit.com/stefangabos/Zebra_Tooltips/master/dist/zebra_tooltips.min.css" type="text/css">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shCore.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushJScript.min.js"></script>
@@ -59,13 +59,8 @@
                     <h5><strong>HTML</strong></h5>
 
                     <pre class="brush:xml">
-                    &lt;p>Lorem ipsum dolor sit amet consectetuer facilisis lacinia sapien ac et. Quis
-                    hendrerit neque congue pretium iaculis justo laoreet orci elit
-                    &lt;a href="#" class="zebra_tips1" title=&quot;Zebra_Tooltips is a lightweight (around 5KB
-                    minified, 1.6KB gzipped) tooltip jQuery plugin for creating simple, but smart and
-                    visually attractive tooltips, featuring nice transitions and offering a wide range of
-                    configuration options.&quot;>condimentum&lt;/a>. Eros natoque Curabitur accumsan eget quis
-                    porttitor Sed Vestibulum amet sed.&lt;/p>
+                    &lt;p>&lt;a href="javascript: void(0)" class="zebra_tips1" title=&quot;Zebra_Tooltips is a lightweight
+                    and highly configurable jQuery tooltips plugin&quot;>Over here!&lt;/a>&lt;/p>
                     </pre>
 
                     <h5><strong>JavaScript</strong></h5>
@@ -78,9 +73,8 @@
 
                     <br><h5><strong>Result</strong></h5><br>
 
-                    <blockquote>Lorem ipsum dolor sit amet consectetuer facilisis lacinia sapien ac et. Quis hendrerit neque congue
-                    pretium iaculis justo laoreet orci elit <a href="#" class="zebra_tips1" title="Zebra_Tooltips is a lightweight (around 5KB minified, 1.6KB gzipped) tooltip jQuery plugin for creating simple, but smart and visually attractive tooltips, featuring nice transitions and offering a wide range of configuration options.">condimentum</a>.
-                    Eros natoque Curabitur accumsan eget quis porttitor Sed Vestibulum amet sed.</blockquote>
+                    <blockquote><a href="javascript: void(0)" class="zebra_tips1" title="Zebra_Tooltips is a lightweight
+                    and highly configurable jQuery tooltips plugin">Over here!</a></blockquote>
 
                     <hr>
 
@@ -89,12 +83,9 @@
                     <h5><strong>HTML</strong></h5>
 
                     <pre class="brush:xml">
-                    &lt;p>Lorem ipsum dolor sit amet consectetuer facilisis lacinia sapien ac et. Quis
-                    hendrerit neque congue pretium iaculis justo laoreet orci elit &lt;a href="#"
-                    class="zebra_tips2" title="Appearance can be easily customized both through JavaScript
-                    and/or CSS. Also, tooltips can be aligned left, center or right relative to the parent
-                    element.">condimentum&lt;/a>. Eros natoque Curabitur accumsan eget quis porttitor Sed
-                    Vestibulum amet sed.&lt;/p>
+                    &lt;p>&lt;a href="javascript: void(0)" class="zebra_tips1" title=&quot;Appearance can be easily
+                    customized both through JavaScript and/or CSS. Tooltips can be aligned left, center or right, relative
+                    to the parent element.&quot;>Over here!&lt;/a>&lt;/p>
                     </pre>
 
                     <h5><strong>JavaScript</strong></h5>
@@ -110,9 +101,9 @@
 
                     <br><h5><strong>Result</strong></h5><br>
 
-                    <blockquote>Lorem ipsum dolor sit amet consectetuer facilisis lacinia sapien ac et. Quis hendrerit neque congue
-                    pretium iaculis justo laoreet orci elit <a href="#" class="zebra_tips2" title="Appearance can be easily customized both through JavaScript and/or CSS. Also, tooltips can be aligned left, center or right relative to the parent element.">condimentum</a>.
-                    Eros natoque Curabitur accumsan eget quis porttitor Sed Vestibulum amet sed.</blockquote>
+                    <blockquote><a href="javascript: void(0)" class="zebra_tips2" title="Appearance can be easily customized
+                    both through JavaScript and/or CSS. Tooltips can be aligned left, center or right, relative to the parent
+                    element.">Over here!</a></blockquote>
 
                     <hr>
 
@@ -121,14 +112,9 @@
                     <h5>HTML</h5>
 
                     <pre class="brush:xml">
-                    &lt;p>Lorem ipsum dolor sit amet consectetuer facilisis lacinia sapien ac et. Quis
-                    hendrerit neque congue pretium iaculis justo laoreet orci elit &lt;a href="#"
-                    class="zebra_tips4" title="Hello! I am aligned to the left of the element. Also, my
-                    width is different.">left&lt;/a>. Lorem ipsum dolor sit amet consectetuer facilisis
-                    lacinia sapien ac et. Quis hendrerit neque congue pretium iaculis justo laoreet orci
-                    elit &lt;a href="#" class="zebra_tips5" title="Hello! I am aligned to the right of the
-                    element. Also, my width is different.">right&lt;/a>. Eros natoque Curabitur accumsan eget
-                    quis porttitor Sed Vestibulum amet sed.&lt;/p>
+                    &lt;p>Tooltip on the &lt;a href="javascript: void(0)" class="zebra_tips4" title="Hello! I am aligned to the left of
+                    the element!">left&lt;/a>. Tooltip on the &lt;a href="javascript: void(0)" class="zebra_tips5" title="Hello! I am
+                    aligned to the right of the element. Also, my width is different.">right&lt;/a>&lt;/p>
                     </pre>
 
                     <h5>JavaScript</h5>
@@ -148,11 +134,9 @@
 
                     <br><h5><strong>Result</strong></h5><br>
 
-                    <blockquote>Lorem ipsum dolor sit amet consectetuer facilisis lacinia sapien ac et. Quis hendrerit neque congue
-                    pretium iaculis justo laoreet orci elit <a href="#" class="zebra_tips4" title="Hello! I am aligned to the left of the element. Also, my width is different.">left</a>.
-                    Lorem ipsum dolor sit amet consectetuer facilisis lacinia sapien ac et. Quis hendrerit neque congue
-                    pretium iaculis justo laoreet orci elit <a href="#" class="zebra_tips5" title="Hello! I am aligned to the right of the element. Also, my width is different.">right</a>.
-                    Eros natoque Curabitur accumsan eget quis porttitor Sed Vestibulum amet sed.</blockquote>
+                    <blockquote>Tooltip on the <a href="javascript: void(0)" class="zebra_tips4" title="Hello! I am aligned to the left
+                    of the element!">left</a>. Tooltip on the <a href="javascript: void(0)" class="zebra_tips5" title="Hello! I am aligned
+                    to the right of the element. Also, my width is different.">right</a></blockquote>
 
                     <hr>
 
@@ -161,14 +145,10 @@
                     <h5><strong>HTML</strong></h5>
 
                     <pre class="brush:xml">
-                    &lt;p>Lorem ipsum dolor sit amet consectetuer facilisis lacinia sapien ac et. Quis
-                    hendrerit neque congue pretium iaculis justo laoreet orci elit &lt;a href="#"
-                    class="zebra_tips3" title="Zebra_Tooltips makes use of NO IMAGES (everything is
-                    handled from CSS), and falls back gracefully for browsers that don't support all the
-                    fancy stuff; also tooltips can be attached to any element not just anchor tags!<br>
-                    <br>Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer
-                    6+)">condimentum&lt;/a>. Eros natoque Curabitur accumsan eget quis porttitor Sed
-                    Vestibulum amet sed.&lt;/p>
+                    &lt;p>&lt;a href="javascript: void(0)" class="zebra_tips3" title="Zebra_Tooltips uses NO IMAGES and
+                    falls back gracefully for browsers that don't support all the fancy stuff; also, tooltips can be attached
+                     to any element not just anchor tags!&lt;br>Works in all major browsers (Firefox, Opera, Safari, Chrome,
+                     Internet Explorer 6+)">Over here!&lt;/a>&lt;/p>
                     </pre>
 
                     <h5><strong>JavaScript</strong></h5>
@@ -182,9 +162,10 @@
 
                     <br><h5><strong>Result</strong></h5><br>
 
-                    <p>Lorem ipsum dolor sit amet consectetuer facilisis lacinia sapien ac et. Quis hendrerit neque congue
-                    pretium iaculis justo laoreet orci elit <a href="#" class="zebra_tips3" title="Zebra_Tooltips makes use of NO IMAGES (everything is handled from CSS), and falls back gracefully for browsers that don't support all the fancy stuff; also tooltips can be attached to any element not just anchor tags!<br><br>Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 6+)">condimentum</a>.
-                    Eros natoque Curabitur accumsan eget quis porttitor Sed Vestibulum amet sed.</p>
+                    <p><a href="javascript: void(0)" class="zebra_tips3 pull-right" title="Zebra_Tooltips uses NO IMAGES and falls
+                    back gracefully for browsers that don't support all the fancy stuff; also, tooltips can be attached
+                    to any element not just anchor tags!&lt;br>Works in all major browsers (Firefox, Opera, Safari, Chrome,
+                    Internet Explorer 6+)">Over here!</a></p>
 
                     <br><br><br>
 
@@ -195,7 +176,7 @@
         </div>
 
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="https://rawgit.com/stefangabos/Zebra_Tooltips/master/public/javascript/zebra_tooltips.min.js"></script>
+        <script type="text/javascript" src="https://rawgit.com/stefangabos/Zebra_Tooltips/master/dist/zebra_tooltips.min.js"></script>
         <script type="text/javascript" src="examples.js"></script>
 
     </body>
