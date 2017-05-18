@@ -1,29 +1,29 @@
 /**
  *  Zebra_Tooltips
  *
- *  Zebra_Tooltips is a lightweight (around 5KB minified, 1.6KB gzipped) jQuery plugin for creating simple but smart and
- *  visually attractive tooltips, featuring nice transitions, and offering a wide range of configuration options. The
- *  plugin detects the edges of the browser window and makes sure that the tooltips always stay in the visible area of
- *  the browser window by placing them beneath or above the parent element, and shifting them left or right so that the
- *  tooltips are always visible.
+ *  Zebra_Tooltips is a lightweight (around 6KB minified, 1.9KB gzipped) jQuery tooltips plugin, featuring nice transitions
+ *  and offering a wide range of configuration options. The plugin detects the edges of the browser window and makes sure
+ *  that the tooltips always stay in the viewport.
  *
  *  Besides the default behavior of tooltips showing when user hovers the element, tooltips may also be shown and hidden
- *  programmatically using the API. When shown programmatically, the tooltips will feature a "close" button, and clicking
+ *  programmatically using the API. When shown programmatically, the tooltips will feature a "close" button and clicking
  *  it will be the only way of closing tooltips opened this way. This is very useful for drawing users' attention to
  *  specific areas of a website (like error messages after validating a form).
  *
  *  By default, the plugin will use the "title" attribute of the element for the tooltip's content, but the tooltip's
- *  content can also be specified via the "zebra-tooltip" data attribute, or programmatically. Tooltips' appearance can be
- *  easily customized both through JavaScript and/or CSS. Also, tooltips can be aligned left, center or right, relative
- *  to the parent element.
+ *  content can also be specified via the *zebra-tooltip* data attribute, or programmatically. Tooltips' appearance can
+ *  be easily customized both through JavaScript and/or CSS. Tooltips can be aligned left, center or right, relative to
+ *  the parent element.
  *
- *  Zebra_Tooltips uses NO IMAGES (everything is handled from CSS), and falls back gracefully for browsers that don't
- *  support all the fancy stuff; also, tooltips can be attached to any element not just anchor tags!
+ *  Zebra_Tooltips uses NO IMAGES and falls back gracefully for browsers that don't support all the fancy stuff; also,
+ *  tooltips can be attached to any element not just anchor tags!
  *
  *  Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 6+)
  *
+ *  Read more {@link https://github.com/stefangabos/Zebra_Tooltips/ here}
+ *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    1.2.5 (last revision: May 16, 2017)
+ *  @version    1.2.5 (last revision: May 18, 2017)
  *  @copyright  (c) 2012 - 2017 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Tooltips
