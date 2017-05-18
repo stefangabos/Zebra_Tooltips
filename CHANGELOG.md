@@ -1,3 +1,11 @@
+## version 1.2.5 (May 18, 2017)
+
+- the plugin is now available as a [npm package](https://www.npmjs.com/package/zebra_tooltips)
+- new folder structure
+- ported CSS to SASS
+- minor source code tweaks
+- the home of the library is now exclusively on GitHub
+
 ## version 1.2.4 (January 20, 2016)
 
 - better integration with [Bower](http://bower.io/)
