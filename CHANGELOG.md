@@ -1,3 +1,7 @@
+## version 1.2.8 (May 18, 2017)
+
+- figured out how to update version on the npm
+
 ## version 1.2.5 (May 18, 2017)
 
 - the plugin is now available as a [npm package](https://www.npmjs.com/package/zebra_tooltips)
