@@ -4,7 +4,7 @@
 
 *A lightweight and highly configurable jQuery tooltips plugin*
 
-[![npm](https://img.shields.io/npm/v/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![Total](https://img.shields.io/npm/dt/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![Monthly](https://img.shields.io/npm/dm/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips)
+[![npm](https://img.shields.io/npm/v/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![Total](https://img.shields.io/npm/dt/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![Monthly](https://img.shields.io/npm/dm/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![License](https://img.shields.io/npm/l/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips)
 
 Zebra_Tooltips is a lightweight (around 6KB minified, 1.9KB gzipped) jQuery tooltips plugin, featuring nice transitions and offering a wide range of configuration options. The plugin detects the edges of the browser window and makes sure that the tooltips always stay in the viewport.
 
@@ -17,6 +17,10 @@ Zebra_Tooltips uses NO IMAGES and falls back gracefully for browsers that don't 
 Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 6+)
 
 ![Screenshot](https://raw.github.com/stefangabos/Zebra_Tooltips/master/examples/screenshot.png)
+
+## Support the development of this project
+
+[![Donate](https://img.shields.io/badge/Be%20kind%20%7C%20Donate%20$3%20with%20-%20PayPal%20-brightgreen.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4MP9EBKNTF9E)
 
 ## Features
 
