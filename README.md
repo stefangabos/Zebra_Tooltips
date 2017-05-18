@@ -285,7 +285,7 @@ $(document).ready(function() {
 
 ## Methods
 
-> `show(element, [destroy = FALSE])`
+### `show(element, [destroy = FALSE])`
 
 Shows the tooltip attached to the element or the elements given as argument.
 
@@ -310,9 +310,7 @@ var element = $('#tooltip'),
 zt.show(element);
 ```
 
----
-
-> `hide(element, [destroy = FALSE])`
+### `hide(element, [destroy = FALSE])`
 
 Hides the tooltip attached to the element or the elements given as argument.
 
