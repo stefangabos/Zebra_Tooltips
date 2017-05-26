@@ -28,7 +28,7 @@ module.exports = function(grunt) {
          *  https://www.npmjs.org/package/grunt-sass
          **************************************************************************************************************/
         'sass': {
-            minified: {
+            expanded: {
                 options: {
                     outputStyle: 'expanded',
                     indentWidth: 4
@@ -37,7 +37,7 @@ module.exports = function(grunt) {
                     'dist/zebra_tooltips.css': 'src/zebra_tooltips.scss'
                 }
             },
-            expanded: {
+            minified: {
                 options: {
                     outputStyle: 'compressed'
                 },
