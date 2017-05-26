@@ -40,7 +40,7 @@ Zebra_Tooltips has no dependencies other than jQuery 1.7+
 
 ## Installation
 
-Zebra_Tooltips is available as a [npm package](https://www.npmjs.com/). To install it use:
+Zebra_Tooltips is available as a [npm package](https://www.npmjs.com/package/zebra_tooltips). To install it use:
 
 ```
 npm install zebra_tooltips
