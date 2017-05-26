@@ -6,7 +6,7 @@
     "email": "contact@stefangabos.ro"
   },
   "homepage": "https://github.com/stefangabos/Zebra_Tooltips/",
-  "main": "public/javascript/zebra_tooltips.js",
+  "main": "dist/zebra_tooltips.min.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/stefangabos/Zebra_Tooltips.git"
