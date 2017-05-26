@@ -64,13 +64,13 @@ First, load the latest version of jQuery from a CDN and provide a fallback to a 
 Load the Zebra_Tooltips plugin
 
 ```html
-<script type="text/javascript" src="path/to/zebra_tooltips.js"></script>
+<script type="text/javascript" src="path/to/zebra_tooltips.min.js"></script>
 ```
 
 Load the plugin's style sheet file
 
 ```html
-<link rel="stylesheet" href="path/to/zebra_tooltips.css" type="text/css">
+<link rel="stylesheet" href="path/to/zebra_tooltips.min.css" type="text/css">
 ```
 
 Now, within the DOM-ready event do
