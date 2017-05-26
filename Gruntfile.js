@@ -118,7 +118,7 @@ module.exports = function(grunt) {
         'watch': {
             js: {
                 files: ['src/zebra_tooltips.src.js'],
-                tasks: ['newer:eslint', 'newer:jshint', 'newer:uglify', 'notify:done'],
+                tasks: ['newer:eslint', 'newer:jshint', 'newer:uglify', 'copy', 'notify:done'],
                 options: {
                     livereload: true
                 }
