@@ -69,10 +69,7 @@ module.exports = function(grunt) {
                 globals: {              //  white list of global variables that are not formally defined in the source code
                     '$':                true,
                     'alert':            true,
-                    'console':          true,
-                    'elements':         true,
-                    'internal_counter': true,
-                    'event_listeners':  true
+                    'console':          true
                 },
                 browser:    true,       //  defines globals exposed by modern browsers (like `document` and `navigator`)
                 bitwise:    true,       //  prohibits the use of bitwise operators such as ^ (XOR), | (OR) and others
