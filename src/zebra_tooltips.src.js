@@ -23,7 +23,7 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Tooltips/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    1.2.9 (last revision: May 18, 2017)
+ *  @version    1.3.0 (last revision: May 30, 2017)
  *  @copyright  (c) 2012 - 2017 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Tooltips
@@ -48,8 +48,8 @@
 
                 background_color:   '#000',         //  Tooltip's background color.
                                                     //
-                                                    //  May be a hexadecimal color (like #BADA55) or a supported named color
-                                                    //  (like "limegreen")
+                                                    //  May be a hexadecimal color (like #BADA55), a RGBA value or a
+                                                    //  supported named color (like "limegreen")
                                                     //
                                                     //  Default is #000
 
