@@ -3,7 +3,7 @@ $(document).ready(function() {
     new $.Zebra_Tooltips($('.zebra_tips1'));
 
     new $.Zebra_Tooltips($('.zebra_tips2'), {
-        'background_color': '#C40000',
+        background_color:   '#C40000',
         color:              '#FFF'
     });
 
