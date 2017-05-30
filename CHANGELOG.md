@@ -1,4 +1,4 @@
-## version 1.3.0 (May 30, 2017)
+## version 1.3.1 (May 30, 2017)
 
 - some style updates
 - figured out how to update the npm package
