@@ -2,21 +2,14 @@
     position: absolute;
     z-index: 8000;
     background: transparent;
-    font-family: Geneva, 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
 }
 
 .Zebra_Tooltip .Zebra_Tooltip_Message {
     position: relative;
-    padding: 20px;
-    font-size: inherit;
+    padding: 15px;
+    font-size: 12px;
     text-align: left;
-    font-weight: normal;
-    line-height: inherit;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
     border-radius: 5px;
-    -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
-    -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
     *margin-right: 0;
     _width: expression(document.body.clientWidth > 250 ? '250px': 'auto');
@@ -64,12 +57,14 @@
     text-decoration: none;
     color: #FFF;
     position: absolute;
-    right: 8px;
-    top: 1px;
-    font-size: inherit;
+    right: 4px;
+    top: 3px;
     font-weight: bold;
+    padding: 0 4px;
 }
 
 .Zebra_Tooltip .Zebra_Tooltip_Close:hover {
-    color: #C40000;
+    color: #000;
+    background: #FFF;
+    border-radius: 15px;
 }
