@@ -4,7 +4,7 @@
 
 *A lightweight and highly configurable jQuery tooltips plugin*
 
-[![npm](https://img.shields.io/npm/v/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![Total](https://img.shields.io/npm/dt/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![Monthly](https://img.shields.io/npm/dm/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![License](https://img.shields.io/npm/l/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips)
+[![npm](https://img.shields.io/npm/v/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![Total](https://img.shields.io/npm/dt/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![Monthly](https://img.shields.io/npm/dm/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![](https://data.jsdelivr.com/v1/package/npm/zebra_tooltips/badge?style=rounded)](https://www.jsdelivr.com/package/npm/zebra_tooltips) [![License](https://img.shields.io/npm/l/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips)
 
 Zebra_Tooltips is a lightweight (around 6KB minified, 1.9KB gzipped) jQuery tooltips plugin, featuring nice transitions and offering a wide range of configuration options. The plugin detects the edges of the browser window and makes sure that the tooltips always stay in the viewport.
 
@@ -54,23 +54,43 @@ bower install zebra_tooltips
 
 ## How to use
 
-First, load the latest version of jQuery from a CDN and provide a fallback to a local source, like:
+First, load jQuery from a CDN and provide a fallback to a local source like:
 
 ```html
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>window.jQuery || document.write('<script src="path/to/jquery-3.2.1.js"><\/script>')</script>
 ```
 
-Load the Zebra_Tooltips plugin
+Load the Zebra_Tooltips jQuery plugin
 
 ```html
 <script type="text/javascript" src="path/to/zebra_tooltips.min.js"></script>
 ```
 
+Alternatively, you can load Zebra_Tooltips from [JSDelivr CDN](https://www.jsdelivr.com/package/npm/zebra_tooltips) like this:
+
+```html
+<!-- for the most recent version -->
+<script src="https://cdn.jsdelivr.net/npm/zebra_tooltips/dist/zebra_tooltips.min.js"></script>
+
+<!-- for a specific version -->
+<script src="https://cdn.jsdelivr.net/npm/zebra_tooltips@1.3.1/dist/zebra_tooltips.min.js"></script>
+
+<!-- replacing "min" with "src" will serve you the non-compressed version -->
+```
+
 Load the plugin's style sheet file
 
 ```html
-<link rel="stylesheet" href="path/to/zebra_tooltips.min.css" type="text/css">
+<link rel="stylesheet" href="path/to/zebra_tooltips.min.css">
+```
+
+...or from [JSDelivr CDN](https://www.jsdelivr.com/package/npm/zebra_tooltips)
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/zebra_tooltips/dist/zebra_tooltips.min.css">
+
+<!-- replacing "min" with "src" will serve you the non-compressed version -->
 ```
 
 Now, within the DOM-ready event do
