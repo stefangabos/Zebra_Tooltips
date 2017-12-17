@@ -276,7 +276,8 @@ $(document).ready(function() {
         <td valign="top"><code>onBeforeHide</code></td>
         <td valign="top">
             Event fired <em>before</em> a tooltip is hidden.<br>
-            The callback function receives as argument the element the tooltip is attached to, and the tooltip element.
+            The callback function receives as argument the element the tooltip is attached to, and the tooltip element.<br>
+            If the callback function returns boolean <code>FALSE</code>, the tooltip will not be hidden.
         </td>
     </tr>
     <tr>
@@ -290,7 +291,8 @@ $(document).ready(function() {
         <td valign="top"><code>onBeforeShow</code></td>
         <td valign="top">
             Event fired <em>before</em> a tooltip is shown.<br>
-            The callback function receives as argument the element the tooltip is attached to, and the tooltip element.
+            The callback function receives as argument the element the tooltip is attached to, and the tooltip element.<br>
+            If the callback function returns boolean <code>FALSE</code>, the tooltip will not be shown.
         </td>
     </tr>
     <tr>

@@ -1,3 +1,7 @@
+## version 1.3.2 (TBA)
+
+- if the callback functions attached to the `onBeforeShow` and `onBeforeHide` events return boolean FALSE, the respective actions will be cancelled
+
 ## version 1.3.1 (May 30, 2017)
 
 - some style updates

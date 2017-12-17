@@ -23,7 +23,7 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Tooltips/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    1.3.1 (last revision: May 30, 2017)
+ *  @version    1.3.2 (last revision: December 17, 2017)
  *  @copyright  (c) 2012 - 2017 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Tooltips
@@ -136,23 +136,29 @@
 
                 onBeforeHide:       null,           //  Event fired before a tooltip is hidden.
                                                     //
-                                                    //  The callback function (if any) receives as arguments the
-                                                    //  element the tooltip is attached to, and the tooltip element.
+                                                    //  The callback function receives as arguments the element the
+                                                    //  tooltip is attached to, and the tooltip element.
+                                                    //
+                                                    //  If the callback function returns boolean FALSE, the tooltip will
+                                                    //  not be hidden.
 
                 onHide:             null,           //  Event fired after a tooltip is hidden.
                                                     //
-                                                    //  The callback function (if any) receives as arguments the
-                                                    //  element the tooltip is attached to, and the tooltip element.
+                                                    //  The callback function receives as arguments the element the
+                                                    //  tooltip is attached to, and the tooltip element.
 
                 onBeforeShow:       null,           //  Event fired before a tooltip is shown.
                                                     //
-                                                    //  The callback function (if any) receives as arguments the
-                                                    //  element the tooltip is attached to, and the tooltip element.
+                                                    //  The callback function receives as arguments the element the
+                                                    //  tooltip is attached to, and the tooltip element.
+                                                    //
+                                                    //  If the callback function returns boolean FALSE, the tooltip will
+                                                    //  not be shown.
 
                 onShow:             null            //  Event fired after a tooltip is shown.
                                                     //
-                                                    //  The callback function (if any) receives as arguments the
-                                                    //  element the tooltip is attached to, and the tooltip element.
+                                                    //  The callback function receives as arguments the element the
+                                                    //  tooltip is attached to, and the tooltip element.
 
             },
 
@@ -666,7 +672,8 @@
                         if (plugin.settings.onBeforeShow && typeof plugin.settings.onBeforeShow === 'function')
 
                             // execute the callback function
-                            plugin.settings.onBeforeShow($element, tooltip_info.tooltip);
+                            // don't go further if the callback function returned boolean FALSE
+                            if (plugin.settings.onBeforeShow($element, tooltip_info.tooltip) === false) return;
 
                         // if tooltip is not already being animated
                         if (tooltip_info.tooltip.css('display') !== 'block')
@@ -740,7 +747,8 @@
                             if (plugin.settings.onBeforeHide && typeof plugin.settings.onBeforeHide === 'function')
 
                                 // execute the callback function
-                                plugin.settings.onBeforeHide($element, tooltip_info.tooltip);
+                                // don't go further if the callback function returned boolean FALSE
+                                if (plugin.settings.onBeforeHide($element, tooltip_info.tooltip) === false) return;
 
                             // set this flag to FALSE so that the script knows that it has to add the "close" button again
                             // if the tooltip is shown using the API
