@@ -252,11 +252,6 @@ $(document).ready(function() {
         <td valign="top">100</td>
         <td>
             The delay (in milliseconds) after which to show the tooltip once the mouse is over the trigger element.
-            <ul>
-                <li>center</li>
-                <li>left</li>
-                <li>right</li>
-            </ul>
         </td>
     </tr>
     <tr>
