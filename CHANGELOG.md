@@ -1,6 +1,10 @@
-## version 1.3.2 (TBA)
+## version 2.0.0 (July 07, 2018)
 
+- removed the `background-color` and `color` properties
+- using `&times;` for the close button instead of `x`
+- renamed property `default_position` to `vertical_alignment`
 - if the callback functions attached to the `onBeforeShow` and `onBeforeHide` events return boolean FALSE, the respective actions will be cancelled
+- the tooltip's style has been updated and 3 more themes have been added
 
 ## version 1.3.1 (May 30, 2017)
 
