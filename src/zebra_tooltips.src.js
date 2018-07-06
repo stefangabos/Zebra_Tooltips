@@ -23,8 +23,8 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Tooltips/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    1.3.2 (last revision: December 17, 2017)
- *  @copyright  (c) 2012 - 2017 Stefan Gabos
+ *  @version    2.0.0 (last revision: July 06, 2018)
+ *  @copyright  (c) 2012 - 2018 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Tooltips
  */
@@ -65,18 +65,6 @@
                                                     //
                                                     //  Default is FALSE
 
-                default_position:   'above',        //  By default, tooltips are shown above the elements they are attached to
-                                                    //  and are shown below only if there isn't enough space above.
-                                                    //
-                                                    //  Set the value of this property to "below" if you want to reverse the
-                                                    //  default behavior so that tooltips will be shown below the elements
-                                                    //  they are attached to and will be shown above only there isn't enough
-                                                    //  space below.
-                                                    //
-                                                    //  Possible values are "above" and "below".
-                                                    //
-                                                    //  Default is "above"
-
                 hide_delay:         100,            //  The delay (in milliseconds) after which to hide the tooltip once the
                                                     //  mouse moves away from the trigger element or the tooltip.
                                                     //
@@ -114,6 +102,18 @@
                                                     //  mouse is over the trigger element.
                                                     //
                                                     //  Default is 100
+
+                vertical_alignment: 'above',        //  By default, tooltips are shown above the elements they are attached to
+                                                    //  and are shown below only if there isn't enough space above.
+                                                    //
+                                                    //  Set the value of this property to "below" if you want to reverse the
+                                                    //  default behavior so that tooltips will be shown below the elements
+                                                    //  they are attached to and will be shown above only there isn't enough
+                                                    //  space below.
+                                                    //
+                                                    //  Possible values are "above" and "below".
+                                                    //
+                                                    //  Default is "above"
 
                 vertical_offset:    0,              //  How close (in pixels) should the tip of the tooltip be relative to
                                                     //  the parent element.
@@ -561,7 +561,7 @@
                         tooltip_top < vertical_scroll ||
 
                         // tooltips are to be shown from below the element, and there is enough space below the element to show the tooltip
-                        (plugin.settings.default_position === 'below' && tooltip_info.element_top + tooltip_info.element_height + plugin.settings.vertical_offset + tooltip_info.tooltip_height + tooltip_info.animation_offset < window_height + vertical_scroll)
+                        (plugin.settings.vertical_alignment === 'below' && tooltip_info.element_top + tooltip_info.element_height + plugin.settings.vertical_offset + tooltip_info.tooltip_height + tooltip_info.animation_offset < window_height + vertical_scroll)
 
                     ) {
 

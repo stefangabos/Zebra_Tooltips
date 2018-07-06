@@ -12,12 +12,12 @@ $(document).ready(function() {
 
     new $.Zebra_Tooltips($('.zebra_tooltips_left_below'), {
         position:           'left',
-        default_position:   'below'
+        vertical_alignment: 'below'
     });
 
     new $.Zebra_Tooltips($('.zebra_tooltips_right_below'), {
         position:           'right',
-        default_position:   'below'
+        vertical_alignment: 'below'
     });
 
     new $.Zebra_Tooltips($('.zebra_tooltips_custom_width_more'), {

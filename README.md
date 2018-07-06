@@ -164,16 +164,6 @@ $(document).ready(function() {
         </td>
     </tr>
     <tr>
-        <td valign="top"><code>default_position</code></td>
-        <td valign="top"><em>string</em></td>
-        <td valign="top">above</td>
-        <td>
-            By default, tooltips are shown above the elements they are attached to and are shown below only if there isn't enough space above.<br>
-            Set the value of this property to <code>below</code> if you want to reverse the default behavior so that tooltips will be shown below the elements they are attached to and will be shown above only there isn't enough space below.<br>
-            Possible values are <code>above</code> and <code>below</code>.
-        </td>
-    </tr>
-    <tr>
         <td valign="top"><code>hide_delay</code></td>
         <td valign="top"><em>integer</em></td>
         <td valign="top">100</td>
@@ -229,6 +219,16 @@ $(document).ready(function() {
         <td valign="top">100</td>
         <td>
             The delay (in milliseconds) after which to show the tooltip once the mouse is over the trigger element.
+        </td>
+    </tr>
+    <tr>
+        <td valign="top"><code>vertical_alignment</code></td>
+        <td valign="top"><em>string</em></td>
+        <td valign="top">above</td>
+        <td>
+            By default, tooltips are shown above the elements they are attached to and are shown below only if there isn't enough space above.<br>
+            Set the value of this property to <code>below</code> if you want to reverse the default behavior so that tooltips will be shown below the elements they are attached to and will be shown above only there isn't enough space below.<br>
+            Possible values are <code>above</code> and <code>below</code>.
         </td>
     </tr>
     <tr>

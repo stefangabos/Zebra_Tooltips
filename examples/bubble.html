@@ -157,19 +157,19 @@
                         Tooltip on the <a href="javascript: void(0)" class="zebra_tooltips_right" title="The arrow of the tooltip is on the right side of the element. Try making the browser window smaller and notice that no matter how the tooltip needs to be repositioned in order to stay inside the viewport, its arrow will always be on the right side of the element.">right</a>
                     </div>
 
-                    <p>By default, tooltips are shown <strong>above</strong> the element they are attached to. If there is not enought space above the parent element for the tooltip to fit in and still be visible, the tooltips will be shown <em>below</em> its parent element. This behaviour can be changed via the <code>default_position</code> property:</p>
+                    <p>By default, tooltips are shown <strong>above</strong> the element they are attached to. If there is not enought space above the parent element for the tooltip to fit in and still be visible, the tooltips will be shown <em>below</em> its parent element. This behaviour can be changed via the <code>vertical_alignment</code> property:</p>
 
                     <pre class="brush:js">
                     $(document).ready(function() {
 
                         new $.Zebra_Tooltips($('.zebra_tooltips_left_below'), {
                             position:           'left',
-                            default_position:   'below'
+                            vertical_alignment: 'below'
                         });
 
                         new $.Zebra_Tooltips($('.zebra_tooltips_right_below'), {
                             position:           'right',
-                            default_position:   'below'
+                            vertical_alignment: 'below'
                         });
 
                     });
