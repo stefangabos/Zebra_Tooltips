@@ -364,6 +364,10 @@
                     // (so that we can get its dimensions)
                     tooltip.appendTo('body');
 
+                    // if the "close" button needs to be shown
+                    // we need to add a class to extend the padding on the right side of the tooltip in order to accommodate the button's presence
+                    if (tooltip_info.sticky) message.addClass('Zebra_Tooltip_Has_Close');
+
                     // get tooltip's width and height
                     tooltip_width = tooltip.outerWidth();
                     tooltip_height = tooltip.outerHeight();
@@ -444,7 +448,7 @@
                         _hide($element);
 
                     // add the "close" button to the tooltip
-                    }).appendTo(tooltip_info.message.addClass('Zebra_Tooltip_Has_Close'));
+                    }).appendTo(tooltip_info.message);
 
                     // make sure we only create the "close" button once
                     tooltip_info.close = true;
