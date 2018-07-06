@@ -424,7 +424,7 @@
                         href:   'javascript:void(0)'
 
                     // when the button is clicked
-                    }).html('x').on('click', function(e) {
+                    }).html('&times;').on('click', function(e) {
 
                         e.preventDefault();
 
