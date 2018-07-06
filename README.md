@@ -141,7 +141,7 @@ $(document).ready(function() {
         <td valign="top">20</td>
         <td>
             The number of pixels the tooltips should use to slide into position.<br>
-            Set to 0 for no sliding.
+            Set to <code>0</code> for no sliding.
         </td>
     </tr>
     <tr>
@@ -150,7 +150,7 @@ $(document).ready(function() {
         <td valign="top">#000</td>
         <td>
             Tooltip's background color.<br>
-            May be a hexadecimal color (like #BADA55) or a supported named color (like <em>limegreen</em>).
+            May be a hexadecimal color (like <code>#BADA55</code>) or a supported named color (like <code>limegreen</code>).
         </td>
     </tr>
     <tr>
@@ -158,8 +158,8 @@ $(document).ready(function() {
         <td valign="top"><em>boolean</em></td>
         <td valign="top">TRUE</td>
         <td>
-            By default, if the users clicks when over a tooltip, the tooltip will close (if the tooltip was not open using the API, that is).<br>
-            Set this property to FALSE to prevent this behavior.
+            By default, if the users clicks when over a tooltip, the tooltip will close (if the tooltip was not open programatically, that is).<br>
+            Set this property to <code>FALSE</code> to prevent this behavior.
         </td>
     </tr>
     <tr>
@@ -168,7 +168,7 @@ $(document).ready(function() {
         <td valign="top">#FFF</td>
         <td>
             Tooltip's text color.<br>
-            May be a hexadecimal color (like #FFF) or a supported named color (like <em>white</em>).
+            May be a hexadecimal color (like <code>#FFF</code>) or a supported named color (like <code>white</code>).
         </td>
     </tr>
     <tr>
@@ -177,8 +177,8 @@ $(document).ready(function() {
         <td valign="top">""</td>
         <td>
             The content of the tooltip.<br>
-            Usually, the content of the tooltip is given in the <em>title</em> attribute or as the <em>zebra-tooltip</em> data attribute of the element the tooltip is attached to.<br>
-            Setting this property to FALSE will use the property's value as the content of all the tooltips rather than using the values of the <em>title</em> or the data attribute.
+            Usually, the content of the tooltip is given in the <code>title</code> attribute or as the <code>zebra-tooltip</code> data attribute of the element the tooltip is attached to.<br>
+            Setting this property to <code>FALSE</code> will use the property's value as the content of the tooltips instead.
         </td>
     </tr>
     <tr>
@@ -187,8 +187,8 @@ $(document).ready(function() {
         <td valign="top">above</td>
         <td>
             By default, tooltips are shown above the elements they are attached to and are shown below only if there isn't enough space above.<br>
-            Set the value of this property to <em>below</em> if you want to reverse the default behavior so that tooltips will be shown below the elements they are attached to and will be shown above only there isn't enough space below.<br>
-            Possible values are <em>above</em> and <em>below</em>.
+            Set the value of this property to <code>below</code> if you want to reverse the default behavior so that tooltips will be shown below the elements they are attached to and will be shown above only there isn't enough space below.<br>
+            Possible values are <code>above</code> and <code>below</code>.
         </td>
     </tr>
     <tr>
@@ -204,7 +204,7 @@ $(document).ready(function() {
         <td valign="top"><em>boolean</em></td>
         <td valign="top">TRUE</td>
         <td>
-            Should tooltips remain visible also when the mouse cursor is over the tooltips or should the tooltips be visible strictly when the mouse cursor is over the parent elements.
+            Should tooltips remain visible also when the mouse cursor is over the tooltips or should the tooltips be visible strictly when the mouse cursor is over the parent elements?
         </td>
     </tr>
     <tr>
@@ -221,7 +221,7 @@ $(document).ready(function() {
         <td valign="top">0.85</td>
         <td>
             The tooltip's opacity.<br>
-            Must be a value between 0 (completely transparent) and 1 (completely opaque)
+            Must be a value between <code>0</code> (completely transparent) and <code>1</code> (completely opaque)
         </td>
     </tr>
     <tr>
@@ -230,12 +230,7 @@ $(document).ready(function() {
         <td valign="top">center</td>
         <td>
             The tooltip's position, relative to the trigger element.<br>
-            Can be any of the following:
-            <ul>
-                <li>center</li>
-                <li>left</li>
-                <li>right</li>
-            </ul>
+            Can be <code>center</code>, <code>left</code> or <code>right</code>
         </td>
     </tr>
     <tr>
@@ -243,7 +238,7 @@ $(document).ready(function() {
         <td valign="top"><em>boolean</em></td>
         <td valign="top">FALSE</td>
         <td>
-            If set to TRUE, tooltips will be created on document load, rather than only when needed.
+            If set to <code>TRUE</code>, tooltips will be created on document load, rather than only when needed.
         </td>
     </tr>
     <tr>
