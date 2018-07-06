@@ -332,9 +332,12 @@
                     // append the element to the main container
                     }).appendTo(tooltip);
 
-                    // create the actual arrow
-                    // and append it to the arrow container
-                    arrow = $('<div>').appendTo(arrow_container);
+                    // the actual arrow will consist of 2 divs
+                    // a larger one for emulating the border...
+                    arrow = $('<div>').addClass('Zebra_Tooltip_Arrow_Border').appendTo(arrow_container);
+
+                    // ...and another one for emulating the tooltip's background
+                    $('<div>').appendTo(arrow_container);
 
                     // if tooltip is to be kept visible when mouse cursor is over the tooltip
                     if (plugin.settings.keep_visible) {
@@ -441,7 +444,7 @@
                         _hide($element);
 
                     // add the "close" button to the tooltip
-                    }).appendTo(tooltip_info.message);
+                    }).appendTo(tooltip_info.message.addClass('Zebra_Tooltip_Has_Close'));
 
                     // make sure we only create the "close" button once
                     tooltip_info.close = true;
@@ -541,12 +544,11 @@
 
                     // by default, we assume the tooltip is centered above the element and therefore the arrow is at bottom of the tooltip
                     // (we remove everything that might have been set on a previous iteration)
-                    tooltip_info.arrow_container.removeClass('Zebra_Tooltip_Arrow_Top');
-                    tooltip_info.arrow_container.addClass('Zebra_Tooltip_Arrow_Bottom');
                     tooltip_info.message.css('margin-top', '');
 
-                    // set the arrow's color (we set it for different sides depending if it points upwards or downwards)
-                    tooltip_info.arrow.css('borderColor', plugin.settings.background_color + ' transparent transparent');
+                    // in this case, the arrow need to point downwards rather than upwards
+                    // and be placed beneath the body of the tooltip and not above
+                    tooltip_info.arrow_container.removeClass('Zebra_Tooltip_Arrow_Top').addClass('Zebra_Tooltip_Arrow_Bottom');
 
                     // if
                     if (
@@ -570,11 +572,7 @@
 
                         // in this case, the arrow need to point upwards rather than downwards
                         // and be placed above the body of the tooltip and not beneath
-                        tooltip_info.arrow_container.removeClass('Zebra_Tooltip_Arrow_Bottom');
-                        tooltip_info.arrow_container.addClass('Zebra_Tooltip_Arrow_Top');
-
-                        // set the arrow's color (we set it for different sides depending if it points upwards or downwards)
-                        tooltip_info.arrow.css('borderColor', 'transparent transparent ' + plugin.settings.background_color);
+                        tooltip_info.arrow_container.removeClass('Zebra_Tooltip_Arrow_Bottom').addClass('Zebra_Tooltip_Arrow_Top');
 
                     // if top of the tooltip is inside the visible part of the browser's window
                     } else {
