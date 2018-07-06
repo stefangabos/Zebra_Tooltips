@@ -34,7 +34,7 @@ module.exports = function(grunt) {
                     indentWidth: 4
                 },
                 files: {
-                    'dist/zebra_tooltips.css': 'src/zebra_tooltips.scss'
+                    'dist/css/default/zebra_tooltips.css': 'src/css/default/zebra_tooltips.scss'
                 }
             },
             minified: {
@@ -42,7 +42,7 @@ module.exports = function(grunt) {
                     outputStyle: 'compressed'
                 },
                 files: {
-                    'dist/zebra_tooltips.min.css': 'src/zebra_tooltips.scss'
+                    'dist/css/default/zebra_tooltips.min.css': 'src/css/default/zebra_tooltips.scss'
                 }
             }
         },
@@ -124,8 +124,8 @@ module.exports = function(grunt) {
                 }
             },
             css: {
-                files: ['src/zebra_tooltips.scss'],
-                tasks: ['newer:sass', 'notify:done'],
+                files: ['src/css/**/*.scss'],
+                tasks: ['sass', 'notify:done'],
                 options: {
                     livereload: true
                 }
