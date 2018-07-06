@@ -192,7 +192,10 @@
                         title = $element.attr('title'),
 
                         // the element's data attribute
-                        data_attribute = $element.data('zebra-tooltip');
+                        data_attribute = $element.data('zebra-tooltip'),
+                    
+                        // if the element is just a trigger
+                        data_trigger = $element.data('tooltip-trigger');
 
                     // if
                     if (
@@ -204,7 +207,10 @@
                         (data_attribute && data_attribute !== '') ||
 
                         // content is given via the "content" property
-                        undefined !== plugin.settings.content
+                        undefined !== plugin.settings.content ||
+
+                        // element is just a trigger, content is in the next element
+                        undefined !== data_trigger
 
                     ) {
 
@@ -234,6 +240,11 @@
                             }
 
                         });
+                        
+                        // get tooltip from next element if data_trigger is present
+                        if (undefined !== data_trigger) {
+                            title = $element.next('[data-tooltip]').css('display', 'none').html();
+                        }
 
                         // initialize and cache tooltip data
                         $element.data('Zebra_Tooltip', {
