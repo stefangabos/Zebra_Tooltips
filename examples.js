@@ -1,23 +1,36 @@
 $(document).ready(function() {
 
-    new $.Zebra_Tooltips($('.zebra_tips1'));
+    new $.Zebra_Tooltips($('.zebra_tooltips'));
 
-    new $.Zebra_Tooltips($('.zebra_tips2'), {
-        background_color:   '#C40000',
-        color:              '#FFF'
-    });
-
-    var zt = new $.Zebra_Tooltips($('.zebra_tips3'));
-    zt.show($('.zebra_tips3'), true);
-
-    new $.Zebra_Tooltips($('.zebra_tips4'), {
+    new $.Zebra_Tooltips($('.zebra_tooltips_left'), {
         position:   'left',
-        max_width:  300
     });
 
-    new $.Zebra_Tooltips($('.zebra_tips5'), {
+    new $.Zebra_Tooltips($('.zebra_tooltips_right'), {
         position:   'right',
-        max_width:  500
     });
+
+    new $.Zebra_Tooltips($('.zebra_tooltips_left_below'), {
+        position:           'left',
+        vertical_alignment: 'below'
+    });
+
+    new $.Zebra_Tooltips($('.zebra_tooltips_right_below'), {
+        position:           'right',
+        vertical_alignment: 'below'
+    });
+
+    new $.Zebra_Tooltips($('.zebra_tooltips_custom_width_more'), {
+        max_width:  470
+    });
+
+    new $.Zebra_Tooltips($('.zebra_tooltips_custom_width_less'), {
+        max_width:  90
+    });
+
+    new $.Zebra_Tooltips($('.zebra_tooltips_html_content'));
+
+    var tooltip = new $.Zebra_Tooltips($('.zebra_tooltips_programmatically'));
+    tooltip.show($('.zebra_tooltips_programmatically'), true);
 
 });
