@@ -145,30 +145,12 @@ $(document).ready(function() {
         </td>
     </tr>
     <tr>
-        <td valign="top"><code>background_color</code></td>
-        <td valign="top"><em>string</em></td>
-        <td valign="top">#000</td>
-        <td>
-            Tooltip's background color.<br>
-            May be a hexadecimal color (like <code>#BADA55</code>) or a supported named color (like <code>limegreen</code>).
-        </td>
-    </tr>
-    <tr>
         <td valign="top"><code>close_on_click</code></td>
         <td valign="top"><em>boolean</em></td>
         <td valign="top">TRUE</td>
         <td>
             By default, if the users clicks when over a tooltip, the tooltip will close (if the tooltip was not open programatically, that is).<br>
             Set this property to <code>FALSE</code> to prevent this behavior.
-        </td>
-    </tr>
-    <tr>
-        <td valign="top"><code>color</code></td>
-        <td valign="top"><em>string</em></td>
-        <td valign="top">#FFF</td>
-        <td>
-            Tooltip's text color.<br>
-            May be a hexadecimal color (like <code>#FFF</code>) or a supported named color (like <code>white</code>).
         </td>
     </tr>
     <tr>

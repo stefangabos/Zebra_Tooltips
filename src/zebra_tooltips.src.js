@@ -46,26 +46,12 @@
                                                     //
                                                     //  Default is 20
 
-                background_color:   '#000',         //  Tooltip's background color.
-                                                    //
-                                                    //  May be a hexadecimal color (like #BADA55), a RGBA value or a
-                                                    //  supported named color (like "limegreen")
-                                                    //
-                                                    //  Default is #000
-
                 close_on_click:     true,           //  By default, if the users clicks when over a tooltip, the tooltip will
                                                     //  close (if the tooltip was not open using the API, that is)
                                                     //
                                                     //  Set this property to FALSE to prevent this behavior.
                                                     //
                                                     //  Default is TRUE
-
-                color:              '#FFF',         //  Tooltip's text color.
-                                                    //
-                                                    //  May be a hexadecimal color (like #FFF) or a supported named color
-                                                    //  (like "white")
-                                                    //
-                                                    //  Default is #FFF
 
                 content:            false,          //  The content of the tooltip.
                                                     //
@@ -327,9 +313,7 @@
                         class: 'Zebra_Tooltip_Message',
 
                         css: {
-                            maxWidth:           plugin.settings.max_width,
-                            backgroundColor:    plugin.settings.background_color,
-                            color:              plugin.settings.color
+                            maxWidth:           plugin.settings.max_width
                         }
 
                     // add the content of the tooltip
