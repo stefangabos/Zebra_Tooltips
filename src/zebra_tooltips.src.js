@@ -56,7 +56,7 @@
                 close_on_click:     true,           //  By default, if the users clicks when over a tooltip, the tooltip will
                                                     //  close (if the tooltip was not open using the API, that is)
                                                     //
-                                                    //  Set this property to FALSE to prevent this behaviour.
+                                                    //  Set this property to FALSE to prevent this behavior.
                                                     //
                                                     //  Default is TRUE
 
@@ -385,7 +385,7 @@
                     arrow_width = arrow.outerWidth();
                     arrow_height = arrow.outerHeight();
 
-                    // in IE9, after hardcoding the width (see below), the box's actual width changes with a few pixels,
+                    // in IE9, after hard-coding the width (see below), the box's actual width changes with a few pixels,
                     // but enough to sometimes trigger the wrapping of the text; this results in the "message" element having
                     // a greater actual height than the one we're just about to hard-coded and this, in turn, results in the
                     // arrow not being visible; therefore, save the values now
@@ -404,18 +404,18 @@
                         arrow:              arrow
                     };
 
-                    // hardcode the tooltip's width and height so it doesn't gets broken due to word wrapping when the
+                    // hard-code the tooltip's width and height so it doesn't gets broken due to word wrapping when the
                     // tooltip is too close to the edges of the browser's window
                     tooltip.css({
                         width:  tooltip_info.tooltip_width,
                         height: tooltip_info.tooltip_height
                     });
 
-                    // adjust, if needed, the values representing the toolip's width/height
+                    // adjust, if needed, the values representing the tooltip's width/height
                     tooltip_info.tooltip_width = tooltip_info.tooltip_width + (message.outerWidth() - tmp_width);
                     tooltip_info.tooltip_height = tooltip_info.tooltip_height + (message.outerHeight() - tmp_height);
 
-                    // adjust, if needed, the toolip's width/height, and hide it for now
+                    // adjust, if needed, the tooltip's width/height, and hide it for now
                     tooltip.css({
                         width:      tooltip_info.tooltip_width,
                         height:     tooltip_info.tooltip_height,
