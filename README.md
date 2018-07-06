@@ -18,10 +18,6 @@ Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 6
 
 ![Screenshot](https://raw.github.com/stefangabos/Zebra_Tooltips/master/examples/screenshot.png)
 
-## Support the development of this project
-
-[![Donate](https://img.shields.io/badge/Be%20kind%20%7C%20Donate%20$3%20with%20-%20PayPal%20-brightgreen.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4MP9EBKNTF9E)
-
 ## Features
 
  - lightweight - it weights around 6KB minified and 1.9KB gzipped
@@ -34,6 +30,16 @@ Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 6
  - can be attached to any elements not just anchors
  - works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 6+)
 
+## Support the development of this project
+
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4MP9EBKNTF9E)
+
+## Sponsors
+
+Cross browser/device testing is done with
+
+[![BrowserStack](https://github.com/stefangabos/Zebra_Dialog/raw/master/examples/browserstack.png)](https://www.browserstack.com/)
+
 ## Requirements
 
 Zebra_Tooltips has no dependencies other than jQuery 1.7+
@@ -42,14 +48,16 @@ Zebra_Tooltips has no dependencies other than jQuery 1.7+
 
 Zebra_Tooltips is available as a [npm package](https://www.npmjs.com/package/zebra_tooltips). To install it use:
 
-```
-npm install zebra_tooltips
+```bash
+# the "--save" argument adds the plugin as a dependency in packages.json
+npm install zebra_tooltips --save
 ```
 
 Zebra_Tooltips is also available as a [Bower package](http://bower.io/). To install it use:
 
-```
-bower install zebra_tooltips
+```bash
+# the "--save" argument adds the plugin as a dependency in bower.json
+bower install zebra_tooltips --save
 ```
 
 ## How to use
@@ -57,8 +65,8 @@ bower install zebra_tooltips
 First, load jQuery from a CDN and provide a fallback to a local source like:
 
 ```html
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script>window.jQuery || document.write('<script src="path/to/jquery-3.2.1.js"><\/script>')</script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>window.jQuery || document.write('<script src="path/to/jquery-3.3.1.js"><\/script>')</script>
 ```
 
 Load the Zebra_Tooltips jQuery plugin
@@ -70,8 +78,8 @@ Load the Zebra_Tooltips jQuery plugin
 Alternatively, you can load Zebra_Tooltips from [JSDelivr CDN](https://www.jsdelivr.com/package/npm/zebra_tooltips) like this:
 
 ```html
-<!-- for the most recent version -->
-<script src="https://cdn.jsdelivr.net/npm/zebra_tooltips/dist/zebra_tooltips.min.js"></script>
+<!-- for the most recent version, not recommended in production -->
+<script src="https://cdn.jsdelivr.net/npm/zebra_tooltips@latest/dist/zebra_tooltips.min.js"></script>
 
 <!-- for a specific version -->
 <script src="https://cdn.jsdelivr.net/npm/zebra_tooltips@1.3.1/dist/zebra_tooltips.min.js"></script>
@@ -88,7 +96,7 @@ Load the plugin's style sheet file
 ...or from [JSDelivr CDN](https://www.jsdelivr.com/package/npm/zebra_tooltips)
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/zebra_tooltips/dist/zebra_tooltips.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/zebra_tooltips@latest/dist/zebra_tooltips.min.css">
 
 <!-- replacing "min" with "src" will serve you the non-compressed version -->
 ```
@@ -357,4 +365,4 @@ zt.hide(element);
 
 ## Demo
 
-See the [demos](http://stefangabos.github.io/Zebra_Tooltips/)
+See the [demos](https://stefangabos.github.io/Zebra_Tooltips/)
