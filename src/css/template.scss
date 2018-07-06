@@ -1,5 +1,7 @@
+$zt_arrow_width: 20px !default;
 $zt_border_width: 0 !default;
 $zt_border_color: $zt_content_background !default;
+$zt_max_width: 250px;
 
 .Zebra_Tooltip {
     background: transparent;
@@ -14,6 +16,9 @@ $zt_border_color: $zt_content_background !default;
         border-width: $zt_border_width;
         @if variable-exists(zt_box_shadow) { box-shadow: $zt_box_shadow; }
         color: $zt_content_color;
+        @if variable-exists(zt_content_font_size) { font-size: $zt_content_font_size; }
+        font-family: Tahoma, Arial, Helvetica, sans-serif;
+        @if variable-exists(zt_content_line_height) { line-height: $zt_content_line_height; }
         *margin-right: 0;
         max-width: $zt_max_width;
         padding: $zt_content_padding;
@@ -82,8 +87,8 @@ $zt_border_color: $zt_content_background !default;
     .Zebra_Tooltip_Close {
         @if variable-exists(zt_close_button_color) { color: $zt_close_button_color; }
         @if variable-exists(zt_close_button_background) { background: $zt_close_button_background; }
-        @if variable-exists(zt_close_button_border_radius) { background: $zt_close_button_border_radius; }
-        font-family: Arial;
+        @if variable-exists(zt_close_button_border_radius) { border-radius: $zt_close_button_border_radius; }
+        font-family: Arial, sans-serif;
         font-size: 18px;
         line-height: 1;
         padding: 0 4px;
@@ -93,9 +98,9 @@ $zt_border_color: $zt_content_background !default;
         top: 2px;
 
         &:hover {
-            color: $zt_close_button_hover_color;
-            background: $zt_close_button_hover_background;
-            border-radius: $zt_close_button_hover_border_radius;
+            @if variable-exists(zt_close_button_hover_color) and $zt_close_button_hover_color != if(variable_exists(zt_close_button_color), $zt_close_button_color, "") { color: $zt_close_button_hover_color; }
+            @if variable-exists(zt_close_button_hover_background) and $zt_close_button_hover_background != if(variable_exists(zt_close_button_background), $zt_close_button_background, "") { background: $zt_close_button_hover_background; }
+            @if variable-exists(zt_close_button_hover_border_radius) and $zt_close_button_hover_border_radius != if(variable_exists(zt_close_button_border_radius), $zt_close_button_border_radius, "") { border-radius: $zt_close_button_hover_border_radius; }
         }
     }
 }

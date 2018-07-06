@@ -1,0 +1,21 @@
+$zt_border_color: #FFF;
+$zt_border_width: 2px;
+$zt_border_radius: 15px;
+$zt_box_shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+
+$zt_content_background: #000;
+$zt_content_color: #FFF;
+$zt_content_font_size: 13px;
+$zt_content_line_height: 1.4;
+$zt_content_padding: 15px;
+
+$zt_arrow_width: 28px;
+
+$zt_close_button_background: #222;
+$zt_close_button_border_radius: 15px;
+$zt_close_button_color: #FFF;
+
+$zt_close_button_hover_background: #FFF;
+$zt_close_button_hover_color: #000;
+
+@import '../template'

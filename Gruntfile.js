@@ -34,7 +34,10 @@ module.exports = function(grunt) {
                     indentWidth: 4
                 },
                 files: {
-                    'dist/css/default/zebra_tooltips.css': 'src/css/default/zebra_tooltips.scss'
+                    'dist/css/bubble/zebra_tooltips.css': 'src/css/bubble/zebra_tooltips.scss',
+                    'dist/css/default/zebra_tooltips.css': 'src/css/default/zebra_tooltips.scss',
+                    'dist/css/mariner/zebra_tooltips.css': 'src/css/mariner/zebra_tooltips.scss',
+                    'dist/css/milan/zebra_tooltips.css': 'src/css/milan/zebra_tooltips.scss'
                 }
             },
             minified: {
@@ -42,7 +45,10 @@ module.exports = function(grunt) {
                     outputStyle: 'compressed'
                 },
                 files: {
-                    'dist/css/default/zebra_tooltips.min.css': 'src/css/default/zebra_tooltips.scss'
+                    'dist/css/bubble/zebra_tooltips.min.css': 'src/css/bubble/zebra_tooltips.scss',
+                    'dist/css/default/zebra_tooltips.min.css': 'src/css/default/zebra_tooltips.scss',
+                    'dist/css/milan/zebra_tooltips.min.css': 'src/css/milan/zebra_tooltips.scss',
+                    'dist/css/mariner/zebra_tooltips.min.css': 'src/css/mariner/zebra_tooltips.scss'
                 }
             }
         },

@@ -5,13 +5,12 @@
 }
 
 .Zebra_Tooltip .Zebra_Tooltip_Message {
-    border-color: #000;
-    background: #000;
-    border-radius: 5px;
+    border-color: #F1D031;
+    background: #FFFFA3;
     border-style: solid;
-    border-width: 0;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
-    color: #FFF;
+    border-width: 2px;
+    box-shadow: 0 0 6px rgba(153, 129, 11, 0.6);
+    color: #444;
     font-size: 12px;
     font-family: Tahoma, Arial, Helvetica, sans-serif;
     line-height: 1.4;
@@ -29,37 +28,37 @@
 
 .Zebra_Tooltip .Zebra_Tooltip_Arrow {
     position: absolute;
-    width: 20px;
-    height: 10px;
+    width: 28px;
+    height: 14px;
     overflow: hidden;
 }
 
 .Zebra_Tooltip .Zebra_Tooltip_Arrow.Zebra_Tooltip_Arrow_Bottom {
-    bottom: 0;
+    bottom: 2px;
 }
 
 .Zebra_Tooltip .Zebra_Tooltip_Arrow.Zebra_Tooltip_Arrow_Bottom div {
     top: 0;
-    border-color: #000 transparent transparent;
+    border-color: #FFFFA3 transparent transparent;
     _border-bottom-color: pink;
 }
 
 .Zebra_Tooltip .Zebra_Tooltip_Arrow.Zebra_Tooltip_Arrow_Bottom div.Zebra_Tooltip_Arrow_Border {
-    border-color: #000 transparent transparent;
+    border-color: #F1D031 transparent transparent;
 }
 
 .Zebra_Tooltip .Zebra_Tooltip_Arrow.Zebra_Tooltip_Arrow_Top {
-    top: 0;
+    top: 2px;
 }
 
 .Zebra_Tooltip .Zebra_Tooltip_Arrow.Zebra_Tooltip_Arrow_Top div {
     bottom: 0;
-    border-color: transparent transparent #000;
+    border-color: transparent transparent #FFFFA3;
     _border-top-color: pink;
 }
 
 .Zebra_Tooltip .Zebra_Tooltip_Arrow.Zebra_Tooltip_Arrow_Top div.Zebra_Tooltip_Arrow_Border {
-    border-color: transparent transparent #000;
+    border-color: transparent transparent #F1D031;
 }
 
 .Zebra_Tooltip .Zebra_Tooltip_Arrow div {
@@ -68,20 +67,20 @@
     border-width: 10px;
     width: 0;
     height: 0;
-    left: 0;
+    left: 4px;
     _border-left-color: pink;
     _border-right-color: pink;
     _filter: chroma(color=pink);
 }
 
 .Zebra_Tooltip .Zebra_Tooltip_Arrow div.Zebra_Tooltip_Arrow_Border {
-    border-width: 10px;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+    border-width: 14px;
+    box-shadow: 0 0 6px rgba(153, 129, 11, 0.6);
     left: 0;
 }
 
 .Zebra_Tooltip .Zebra_Tooltip_Close {
-    color: #FFF;
+    color: #F1D031;
     font-family: Arial, sans-serif;
     font-size: 18px;
     line-height: 1;
