@@ -2,7 +2,7 @@
 
 module.exports = function(grunt) {
 
-    // show time spent on each taks
+    // show time spent on each tasks
     require('time-grunt')(grunt);
 
     grunt.initConfig({
@@ -18,7 +18,7 @@ module.exports = function(grunt) {
             done: {
                 options: {
                     title: 'Grunt ',
-                    message: 'All taks were successfully completed!'
+                    message: 'All tasks were successfully completed!'
                 }
             }
         },
