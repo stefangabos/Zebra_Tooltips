@@ -87,7 +87,7 @@ Alternatively, you can load Zebra_Tooltips from [JSDelivr CDN](https://www.jsdel
 <!-- replacing "min" with "src" will serve you the non-compressed version -->
 ```
 
-Load the plugin's style sheet file
+Load one the plugin's theme
 
 ```html
 <link rel="stylesheet" href="path/to/zebra_tooltips.min.css">
@@ -96,7 +96,7 @@ Load the plugin's style sheet file
 ...or from [JSDelivr CDN](https://www.jsdelivr.com/package/npm/zebra_tooltips)
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/zebra_tooltips@latest/dist/zebra_tooltips.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/zebra_tooltips@latest/dist/css/default/zebra_tooltips.min.css">
 
 <!-- replacing "min" with "src" will serve you the non-compressed version -->
 ```
