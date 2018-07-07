@@ -10,15 +10,13 @@
  *  way of closing tooltips opened this way. This is useful for drawing users' attention to specific areas of a page
  *  (like error messages after validating a form).
  *
- *  By default, the plugin will use the title attribute of the element for the tooltip's content, but the content can also
- *  be specified via the zebra-tooltip data attribute, or programmatically. Tooltips can be aligned left, center or right,
- *  relative to the parent element, as well as above or below the parent element. The library detects the browser window's
- *  edges and will make sure that the tooltips are always in the viewport.
+ *  Tooltips can be aligned left, center or right, relative to the parent element, as well as above or below the parent
+ *  element. The library detects the browser window's edges and will make sure that the tooltips are always in the viewport.
  *
  *  The tooltips are created using NO IMAGES and falls back gracefully for browsers that don't support all the fancy stuff;
  *  also, tooltips can be attached to any element not just anchor tags!
  *
- *  Works in all major browsers (Firefox, Chrome, Safari, Edge, Opera and Internet Explorer 6+)
+ *  Works in pretty much any browser - Firefox, Chrome, Safari, Edge, Opera and Internet Explorer 6+
  *
  *  Read more {@link https://github.com/stefangabos/Zebra_Tooltips/ here}
  *
