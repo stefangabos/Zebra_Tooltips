@@ -122,6 +122,10 @@ $(document).ready(function() {
 
 ## Properties
 
+> All parameters are optional.
+
+*Note that any of the properties below may also be set via data attributes. To do this you have prefix the name of the property you want to set with `data-ztt_`.*
+
 <table width="100%">
     <thead>
     <tr>
@@ -164,8 +168,8 @@ $(document).ready(function() {
         <td valign="top">""</td>
         <td>
             The content of the tooltip.<br>
-            Usually, the content of the tooltip is given in the <code>title</code> attribute or as the <code>zebra-tooltip</code> data attribute of the element the tooltip is attached to.<br>
-            Setting this property to <code>FALSE</code> will use the property's value as the content of the tooltips instead.
+            By default, the content of the tooltip is taken from the <code>title</code> attribute of the element the tooltip is attached to and has priority over the <code>content</code> property (meaning that if the <code>title</code> attribute is set, the value of this property is ignored).<br>
+            Use this property to set the content of the tooltip when you can't or don't want to use the <code>title</code> attribute.
         </td>
     </tr>
     <tr>

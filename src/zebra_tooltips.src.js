@@ -56,13 +56,13 @@
 
                 content:            false,          //  The content of the tooltip.
                                                     //
-                                                    //  Usually, the content of the tooltip is given in the "title" attribute
-                                                    //  or as the "zebra-tooltip" data attribute of the element the tooltip
-                                                    //  is attached to.
+                                                    //  By default, the content of the tooltip is taken from the "title"
+                                                    //  attribute of the element the tooltip is attached to and has priority
+                                                    //  over this property (meaning that if the "title" attribute is set,
+                                                    //  the value of this property is ignored).
                                                     //
-                                                    //  Setting this property to FALSE will use the property's value as the
-                                                    //  content of all the tooltips rather than using the values of the "title"
-                                                    //  or the data attribute.
+                                                    //  Use this property to set the content of the tooltip when you can't
+                                                    //  or don't want to use the "title" attribute.
                                                     //
                                                     //  Default is FALSE
 
@@ -178,22 +178,30 @@
                         // the element's title attribute (if any)
                         title = $element.attr('title'),
 
-                        // the element's data attribute
-                        data_attribute = $element.data('zebra-tooltip');
+                        data;
 
-                    // if
-                    if (
+                    // iterate through the element's data attributes (if any)
+                    for (data in $element.data())
 
-                        // element has a "title" attribute and is not empty OR
-                        (title && title !== '') ||
+                        // if data attribute's name starts with "ztt_"
+                        if (data.indexOf('ztt_') === 0) {
 
-                        // element has the proper data attribute set, and is not empty OR
-                        (data_attribute && data_attribute !== '') ||
+                            // remove the "ztt_" prefix
+                            data = data.replace(/^ztt\_/, '');
 
-                        // content is given via the "content" property
-                        undefined !== plugin.settings.content
+                            // if such a property exists
+                            if (undefined !== defaults[data])
 
-                    ) {
+                                // update the property's value
+                                plugin.settings[data] = $element.data('ztt_' + data);
+
+                        }
+
+                    // if the element's title attribute is set, use that for content
+                    if (title) plugin.settings.content = $element.attr('title');
+
+                    // if tooltip has any content
+                    if (undefined !== plugin.settings.content && plugin.settings.content.trim() !== '') {
 
                         // handlers for some of the element's events
                         $element.on({
@@ -225,7 +233,7 @@
                         // initialize and cache tooltip data
                         $element.data('Zebra_Tooltip', {
                             tooltip:            null,
-                            content:            data_attribute || title || '',
+                            content:            plugin.settings.content,
                             window_resized:     true,
                             window_scrolled:    true,
                             show_timeout:       null,
@@ -314,7 +322,7 @@
                         class: 'Zebra_Tooltip_Message',
 
                         css: {
-                            maxWidth:           plugin.settings.max_width
+                            maxWidth:   plugin.settings.max_width
                         }
 
                     // add the content of the tooltip
