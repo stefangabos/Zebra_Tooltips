@@ -3,7 +3,11 @@ body {
 }
 
 .syntaxhighlighter {
-    padding: 1em 0;
+    padding: .5em 0;
+}
+
+.syntaxhighlighter .code {
+    font-size: 14px !important;
 }
 
 p a {
