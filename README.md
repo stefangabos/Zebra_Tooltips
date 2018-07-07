@@ -96,7 +96,8 @@ Load one the plugin's theme
 ...or from [JSDelivr CDN](https://www.jsdelivr.com/package/npm/zebra_tooltips)
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/zebra_tooltips@latest/dist/css/default/zebra_tooltips.min.css">
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/zebra_tooltips@latest/dist/css/default/zebra_tooltips.min.css">
 
 <!-- replacing "min" with "src" will serve you the non-compressed version -->
 ```
