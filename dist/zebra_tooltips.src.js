@@ -34,6 +34,9 @@
 
     $.Zebra_Tooltips = function(elements, options) {
 
+        // so you can tell the version number even if all you have is the minified source
+        this.version = '2.0.1';
+
         var defaults = {
 
                 animation_speed:    250,            //  The speed (in milliseconds) of the animation used to show/hide tooltips.
