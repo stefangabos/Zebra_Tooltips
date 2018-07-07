@@ -6,15 +6,15 @@
 
 [![npm](https://img.shields.io/npm/v/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![Total](https://img.shields.io/npm/dt/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![Monthly](https://img.shields.io/npm/dm/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![](https://data.jsdelivr.com/v1/package/npm/zebra_tooltips/badge?style=rounded)](https://www.jsdelivr.com/package/npm/zebra_tooltips) [![License](https://img.shields.io/npm/l/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips)
 
-Zebra_Tooltips is a lightweight (around 6KB minified, 1.9KB gzipped) jQuery tooltips plugin, featuring nice transitions and offering a wide range of configuration options. The plugin detects the edges of the browser window and makes sure that the tooltips always stay in the viewport.
+Zebra_Tooltips is a lightweight (around 6KB minified, 1.9KB gzipped) jQuery tooltips plugin for creating simple but smart and visually attractive tooltips, featuring nice transitions, 4 themes, and offering a wide range of configuration options.
 
-Besides the default behavior of tooltips showing when user hovers the element, tooltips may also be shown and hidden programmatically. When shown programmatically, the tooltips will feature a "close" button and clicking it will be the only way of closing tooltips opened this way. This is useful for drawing users' attention to specific areas of a page (like error messages after validating a form).
+Besides the default behavior of tooltips showing when user hovers the element, tooltips may also be shown and hidden programmatically. When shown programmatically, the tooltips feature a "close" button and clicking it will be the only way of closing tooltips opened this way. This is useful for drawing users' attention to specific areas of a page (like error messages after validating a form).
 
-By default, the plugin will use the "title" attribute of the element for the tooltip's content, but the tooltip's content can also be specified via the *zebra-tooltip* data attribute, or programmatically. 4 themes are include. Tooltips can be aligned left, center or right, relative to the parent element, as well as above or below the parent element. The library will make it so that the tooltips are *always* in the viewport.
+By default, the plugin will use the `title` attribute of the element for the tooltip's content, but the content can also be specified via the *zebra-tooltip* data attribute, or programmatically. Tooltips can be aligned left, center or right, relative to the parent element, as well as above or below the parent element. The library detects the browser window's edges and will make sure that the tooltips are *always* in the viewport.
 
-Zebra_Tooltips uses NO IMAGES and falls back gracefully for browsers that don't support all the fancy stuff; also, tooltips can be attached to any element not just anchor tags!
+The tooltips are created using **NO IMAGES** and falls back gracefully for browsers that don't support all the fancy stuff; also, tooltips can be attached to any element not just anchor tags!
 
-Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 6+)
+Works in all major browsers (Firefox, Chrome, Safari, Edge, Opera and Internet Explorer 6+)
 
 ![Screenshot](https://raw.github.com/stefangabos/Zebra_Tooltips/master/examples/screenshot.png)
 
@@ -28,7 +28,7 @@ Works in all major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 6
  - tooltips can be aligned left, center or right, relative to the parent element, as well as above or below the parent element
  - uses NO IMAGES and falls back gracefully for browsers that don't support all the fancy stuff
  - can be attached to any elements not just anchors
- - works in all major browsers (Firefox, Chrome, Safari, Edge, Opera Internet Explorer 6+)
+ - works in all major browsers (Firefox, Chrome, Safari, Edge, Opera and Internet Explorer 6+)
 
 ## Support the development of this project
 
@@ -297,19 +297,19 @@ When showing a tooltip using this method, the tooltip can only be closed by the 
 
 `element` - an element or a collection of elements for which to show the attached tooltips.
 
-`destroy` - *(optional)* - if set to TRUE, once the user clicks the *close* button, the tooltip will be *muted* and will **not** be shown anymore when the user hovers the parent element with the mouse.
+`destroy` - *(optional)* - if set to `TRUE`, once the user clicks the *close* button, the tooltip will be *muted* and will **not** be shown anymore when the user hovers the parent element with the mouse.
 
 In this case, the tooltip can be shown again only by calling this method.
 
-If set to FALSE, the tooltip will be shown whenever the user hovers the parent element with the mouse, only it will not have the *close* button anymore.
+If set to `FALSE`, the tooltip will be shown whenever the user hovers the parent element with the mouse, only it will not have the *close* button anymore.
 
-Default is FALSE
+Default is `FALSE`
 
 ```javascript
 var element = $('#tooltip'),
-    zt = new $.Zebra_Tooltips(element);
+    tooltip = new $.Zebra_Tooltips(element);
 
-zt.show(element);
+tooltip.show(element);
 ```
 
 ### `hide(element, [destroy = FALSE])`
@@ -330,9 +330,9 @@ Default is FALSE
 
 ```javascript
 var element = $('#tooltip'),
-    zt = new $.Zebra_Tooltips(element);
+    tooltip = new $.Zebra_Tooltips(element);
 
-zt.hide(element);
+tooltip.hide(element);
 ```
 
 ## Demo
