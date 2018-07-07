@@ -1,8 +1,6 @@
 <img src="https://raw.githubusercontent.com/stefangabos/zebrajs/master/docs/images/logo.png" alt="zebrajs" align="right">
 
-# Zebra_Tooltips
-
-[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Get%20over%20170%20free%20design%20blocks%20based%20on%20Bootstrap%204&url=https://www.froala.com/design-blocks&via=froala&hashtags=bootstrap,design,templates,blocks,developers)
+# Zebra_Tooltips [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Zebra_Tooltips%20-%20A%20lightweight%20and%20highly%20configurable%20jQuery%20tooltips%20plugin&url=https://github.com/stefangabos/Zebra_Tooltips&via=stefangabos&hashtags=jquery,tooltips,javascript)
 
 *A lightweight and highly configurable jQuery tooltips plugin*
 
