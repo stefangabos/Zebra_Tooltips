@@ -30,6 +30,10 @@ Works in all major browsers (Firefox, Chrome, Safari, Edge, Opera and Internet E
  - can be attached to any elements not just anchors
  - works in all major browsers (Firefox, Chrome, Safari, Edge, Opera and Internet Explorer 6+)
 
+## Demo
+
+See the [demos](https://stefangabos.github.io/Zebra_Tooltips/)
+
 ## Support the development of this project
 
 [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4MP9EBKNTF9E)
@@ -335,7 +339,3 @@ var element = $('#tooltip'),
 
 tooltip.hide(element);
 ```
-
-## Demo
-
-See the [demos](https://stefangabos.github.io/Zebra_Tooltips/)
