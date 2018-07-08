@@ -21,7 +21,7 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Tooltips/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    2.0.1 (last revision: July 07, 2018)
+ *  @version    2.0.1 (last revision: July 08, 2018)
  *  @copyright  (c) 2012 - 2018 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Tooltips
@@ -178,10 +178,10 @@
                         // the element's title attribute (if any)
                         title = $element.attr('title'),
 
-                        data;
+                        data_attributes = $element.data(), data;
 
                     // iterate through the element's data attributes (if any)
-                    for (data in $element.data())
+                    for (data in data_attributes)
 
                         // if data attribute's name starts with "ztt_"
                         if (data.indexOf('ztt_') === 0) {
@@ -234,8 +234,6 @@
                         $element.data('Zebra_Tooltip', {
                             tooltip:            null,
                             content:            plugin.settings.content,
-                            window_resized:     true,
-                            window_scrolled:    true,
                             show_timeout:       null,
                             hide_timeout:       null,
                             animation_offset:   plugin.settings.animation_offset,
@@ -248,34 +246,6 @@
                         if (plugin.settings.prerender) _create_tooltip($element);
 
                     }
-
-                });
-
-                // if the browser's window is resized or scrolled, we need to recompute the tooltips' positions
-                $(window).on('scroll resize', function(event) {
-
-                    // iterate through the elements that have tooltips attached
-                    elements.each(function() {
-
-                        // get a reference to the attached tooltip and its components
-                        var tooltip_info = $(this).data('Zebra_Tooltip');
-
-                        // if element has a tooltip attached
-                        // (it may not have if it had no "title" attribute or the attribute was empty)
-                        if (tooltip_info) {
-
-                            // if window was scrolled, set a flag
-                            if (event.type === 'scroll') tooltip_info.window_scrolled = true;
-
-                            // if window was resized, set a flag
-                            else tooltip_info.window_resized = true;
-
-                            // cache updated tooltip data
-                            $(this).data('Zebra_Tooltip', tooltip_info);
-
-                        }
-
-                    });
 
                 });
 
@@ -299,7 +269,7 @@
                 // get a reference to the tooltip and its components, if available
                 var tooltip_info = $element.data('Zebra_Tooltip'),
                     tooltip, message, arrow_container, arrow, tooltip_width, tooltip_height, arrow_width, arrow_height,
-                    tmp_width, tmp_height, browser_window, element_position, tooltip_left, tooltip_top, arrow_left;
+                    tmp_width, tmp_height, browser_window = $(window), element_position, tooltip_left, tooltip_top, arrow_left;
 
                 // if tooltip's HTML was not yet created
                 if (!tooltip_info.tooltip) {
@@ -430,7 +400,7 @@
 
                 }
 
-                // if tooltip was triggered through the API and the "close" button was not yet added
+                // if tooltip was triggered programmatically and the "close" button was not yet added
                 if (tooltip_info.sticky && !tooltip_info.close) {
 
                     // create the "close" button
@@ -470,164 +440,146 @@
 
                 }
 
-                // if browser window was resized or scrolled
-                if (tooltip_info.window_resized || tooltip_info.window_scrolled) {
+                // get the browser window's width
+                window_width = browser_window.width();
 
-                    // reference to the browser window
-                    browser_window = $(window);
+                // get the browser window's height
+                window_height = browser_window.height();
 
-                    // if the browser window was resized
-                    if (tooltip_info.window_resized) {
+                // get the element's position, relative to the document
+                element_position = $element.offset();
 
-                        // get the browser window's width
-                        window_width = browser_window.width();
+                // cache element's position and size
+                $.extend(tooltip_info, {
 
-                        // get the browser window's height
-                        window_height = browser_window.height();
+                    element_left:   element_position.left,
+                    element_top:    element_position.top,
+                    element_width:  $element.outerWidth(),
+                    element_height: $element.outerHeight()
 
-                        // get the element's position, relative to the document
-                        element_position = $element.offset();
+                });
 
-                        // cache element's position and size
-                        $.extend(tooltip_info, {
+                // get the browser window's horizontal and vertical scroll offsets
+                vertical_scroll = browser_window.scrollTop();
+                horizontal_scroll = browser_window.scrollLeft();
 
-                            element_left:   element_position.left,
-                            element_top:    element_position.top,
-                            element_width:  $element.outerWidth(),
-                            element_height: $element.outerHeight()
+                // compute tooltip's and the arrow's positions
+                tooltip_left = plugin.settings.position === 'left' ? tooltip_info.element_left - tooltip_info.tooltip_width + tooltip_info.arrow_width :
+                                (plugin.settings.position === 'right' ? tooltip_info.element_left + tooltip_info.element_width - tooltip_info.arrow_width :
+                                (tooltip_info.element_left + (tooltip_info.element_width - tooltip_info.tooltip_width) / 2));
 
-                        });
+                tooltip_top = tooltip_info.element_top - tooltip_info.tooltip_height;
 
-                    }
+                arrow_left = plugin.settings.position === 'left' ? tooltip_info.tooltip_width - tooltip_info.arrow_width - (tooltip_info.arrow_width / 2) :
+                                (plugin.settings.position === 'right' ? (tooltip_info.arrow_width / 2) :
+                                ((tooltip_info.tooltip_width - tooltip_info.arrow_width) / 2));
 
-                    // get the browser window's horizontal and vertical scroll offsets
-                    vertical_scroll = browser_window.scrollTop();
-                    horizontal_scroll = browser_window.scrollLeft();
+                // if tooltip's right side is outside te visible part of the browser's window
+                if (tooltip_left + tooltip_info.tooltip_width > window_width + horizontal_scroll) {
 
-                    // compute tooltip's and the arrow's positions
-                    tooltip_left = plugin.settings.position === 'left' ? tooltip_info.element_left - tooltip_info.tooltip_width + tooltip_info.arrow_width :
-                                    (plugin.settings.position === 'right' ? tooltip_info.element_left + tooltip_info.element_width - tooltip_info.arrow_width :
-                                    (tooltip_info.element_left + (tooltip_info.element_width - tooltip_info.tooltip_width) / 2));
+                    // adjust the arrow's position
+                    arrow_left -= (window_width + horizontal_scroll) - (tooltip_left + tooltip_info.tooltip_width) - 6;
 
-                    tooltip_top = tooltip_info.element_top - tooltip_info.tooltip_height;
+                    // adjust the tooltip's position
+                    tooltip_left = (window_width + horizontal_scroll) - tooltip_info.tooltip_width - 6;
 
-                    arrow_left = plugin.settings.position === 'left' ? tooltip_info.tooltip_width - tooltip_info.arrow_width - (tooltip_info.arrow_width / 2) :
-                                    (plugin.settings.position === 'right' ? (tooltip_info.arrow_width / 2) :
-                                    ((tooltip_info.tooltip_width - tooltip_info.arrow_width) / 2));
-
-                    // if tooltip's right side is outside te visible part of the browser's window
-                    if (tooltip_left + tooltip_info.tooltip_width > window_width + horizontal_scroll) {
+                    // if after the adjustment, the arrow still needs to be adjusted
+                    if (arrow_left + tooltip_info.arrow_width > tooltip_info.tooltip_width - 6)
 
                         // adjust the arrow's position
-                        arrow_left -= (window_width + horizontal_scroll) - (tooltip_left + tooltip_info.tooltip_width) - 6;
+                        arrow_left = tooltip_info.tooltip_width - 6 - tooltip_info.arrow_width;
 
-                        // adjust the tooltip's position
-                        tooltip_left = (window_width + horizontal_scroll) - tooltip_info.tooltip_width - 6;
-
-                        // if after the adjustment, the arrow still needs to be adjusted
-                        if (arrow_left + tooltip_info.arrow_width > tooltip_info.tooltip_width - 6)
-
-                            // adjust the arrow's position
-                            arrow_left = tooltip_info.tooltip_width - 6 - tooltip_info.arrow_width;
-
-                        // if there is no space to show the arrow, hide it
-                        if (tooltip_left + arrow_left + (tooltip_info.arrow_width / 2) < tooltip_info.element_left) arrow_left = -10000;
-
-                    }
-
-                    // if tooltip's left side is outside te visible part of the browser's window
-                    if (tooltip_left < horizontal_scroll) {
-
-                        // adjust the arrow's position
-                        arrow_left -= horizontal_scroll - tooltip_left;
-
-                        // adjust the tooltip's position
-                        tooltip_left = horizontal_scroll + 2;
-
-                        // if after the adjustment, the arrow still needs to be adjusted
-                        if (arrow_left < 0)
-
-                            // adjust the arrow's position
-                            arrow_left = (tooltip_info.arrow_width / 2);
-
-                        // if there is no space to show the arrow, hide it
-                        if (tooltip_left + arrow_left + (tooltip_info.arrow_width / 2) > tooltip_info.element_left + tooltip_info.element_width) arrow_left = -10000;
-
-                    }
-
-                    // by default, we assume the tooltip is centered above the element and therefore the arrow is at bottom of the tooltip
-                    // (we remove everything that might have been set on a previous iteration)
-                    tooltip_info.message.css('margin-top', '');
-
-                    // in this case, the arrow need to point downwards rather than upwards
-                    // and be placed beneath the body of the tooltip and not above
-                    tooltip_info.arrow_container.removeClass('Zebra_Tooltip_Arrow_Top').addClass('Zebra_Tooltip_Arrow_Bottom');
-
-                    // if
-                    if (
-
-                        // top of the tooltip is outside the visible part of the browser's window OR
-                        tooltip_top < vertical_scroll ||
-
-                        // tooltips are to be shown from below the element, and there is enough space below the element to show the tooltip
-                        (plugin.settings.vertical_alignment === 'below' && tooltip_info.element_top + tooltip_info.element_height + plugin.settings.vertical_offset + tooltip_info.tooltip_height + tooltip_info.animation_offset < window_height + vertical_scroll)
-
-                    ) {
-
-                        // place the tooltip beneath the element, rather than above, also account for the offset
-                        tooltip_top = tooltip_info.element_top + tooltip_info.element_height - plugin.settings.vertical_offset;
-
-                        // the tooltip will slide upwards, rather than downwards
-                        tooltip_info.animation_offset = Math.abs(tooltip_info.animation_offset);
-
-                        // the body of the tooltip needs to be vertically aligned at the bottom
-                        tooltip_info.message.css('margin-top', (tooltip_info.arrow_height / 2));
-
-                        // in this case, the arrow need to point upwards rather than downwards
-                        // and be placed above the body of the tooltip and not beneath
-                        tooltip_info.arrow_container.removeClass('Zebra_Tooltip_Arrow_Bottom').addClass('Zebra_Tooltip_Arrow_Top');
-
-                    // if top of the tooltip is inside the visible part of the browser's window
-                    } else {
-
-                        // the tooltip will slide downwards
-                        tooltip_info.animation_offset = -Math.abs(tooltip_info.animation_offset);
-
-                        // account for the offset
-                        tooltip_top += plugin.settings.vertical_offset;
-
-                    }
-
-                    // set the arrow's horizontal position within the tooltip
-                    tooltip_info.arrow_container.css('left', arrow_left);
-
-                    // set the tooltip's final position
-                    tooltip_info.tooltip.css({
-                        left:   tooltip_left,
-                        top:    tooltip_top
-                    });
-
-                    // update tooltip data
-                    $.extend(tooltip_info, {
-
-                        tooltip_left:   tooltip_left,
-                        tooltip_top:    tooltip_top,
-                        arrow_left:     arrow_left
-
-                    });
-
-                    // we set these two properties to FALSE so that no further computation takes place, unless the browser
-                    // window is resized or scrolled
-                    tooltip_info.window_resized = false;
-                    tooltip_info.window_scrolled = false;
-
-                    // update tooltip data
-                    tooltip_info = $.extend($element.data('Zebra_Tooltip'), tooltip_info);
-
-                    // cache updated tooltip data
-                    $element.data('Zebra_Tooltip', tooltip_info);
+                    // if there is no space to show the arrow, hide it
+                    if (tooltip_left + arrow_left + (tooltip_info.arrow_width / 2) < tooltip_info.element_left) arrow_left = -10000;
 
                 }
+
+                // if tooltip's left side is outside te visible part of the browser's window
+                if (tooltip_left < horizontal_scroll) {
+
+                    // adjust the arrow's position
+                    arrow_left -= horizontal_scroll - tooltip_left;
+
+                    // adjust the tooltip's position
+                    tooltip_left = horizontal_scroll + 2;
+
+                    // if after the adjustment, the arrow still needs to be adjusted
+                    if (arrow_left < 0)
+
+                        // adjust the arrow's position
+                        arrow_left = (tooltip_info.arrow_width / 2);
+
+                    // if there is no space to show the arrow, hide it
+                    if (tooltip_left + arrow_left + (tooltip_info.arrow_width / 2) > tooltip_info.element_left + tooltip_info.element_width) arrow_left = -10000;
+
+                }
+
+                // by default, we assume the tooltip is centered above the element and therefore the arrow is at bottom of the tooltip
+                // (we remove everything that might have been set on a previous iteration)
+                tooltip_info.message.css('margin-top', '');
+
+                // in this case, the arrow need to point downwards rather than upwards
+                // and be placed beneath the body of the tooltip and not above
+                tooltip_info.arrow_container.removeClass('Zebra_Tooltip_Arrow_Top').addClass('Zebra_Tooltip_Arrow_Bottom');
+
+                // if
+                if (
+
+                    // top of the tooltip is outside the visible part of the browser's window OR
+                    tooltip_top < vertical_scroll ||
+
+                    // tooltips are to be shown from below the element, and there is enough space below the element to show the tooltip
+                    (plugin.settings.vertical_alignment === 'below' && tooltip_info.element_top + tooltip_info.element_height + plugin.settings.vertical_offset + tooltip_info.tooltip_height + tooltip_info.animation_offset < window_height + vertical_scroll)
+
+                ) {
+
+                    // place the tooltip beneath the element, rather than above, also account for the offset
+                    tooltip_top = tooltip_info.element_top + tooltip_info.element_height - plugin.settings.vertical_offset;
+
+                    // the tooltip will slide upwards, rather than downwards
+                    tooltip_info.animation_offset = Math.abs(tooltip_info.animation_offset);
+
+                    // the body of the tooltip needs to be vertically aligned at the bottom
+                    tooltip_info.message.css('margin-top', (tooltip_info.arrow_height / 2));
+
+                    // in this case, the arrow need to point upwards rather than downwards
+                    // and be placed above the body of the tooltip and not beneath
+                    tooltip_info.arrow_container.removeClass('Zebra_Tooltip_Arrow_Bottom').addClass('Zebra_Tooltip_Arrow_Top');
+
+                // if top of the tooltip is inside the visible part of the browser's window
+                } else {
+
+                    // the tooltip will slide downwards
+                    tooltip_info.animation_offset = -Math.abs(tooltip_info.animation_offset);
+
+                    // account for the offset
+                    tooltip_top += plugin.settings.vertical_offset;
+
+                }
+
+                // set the arrow's horizontal position within the tooltip
+                tooltip_info.arrow_container.css('left', arrow_left);
+
+                // set the tooltip's final position
+                tooltip_info.tooltip.css({
+                    left:   tooltip_left,
+                    top:    tooltip_top
+                });
+
+                // update tooltip data
+                $.extend(tooltip_info, {
+
+                    tooltip_left:   tooltip_left,
+                    tooltip_top:    tooltip_top,
+                    arrow_left:     arrow_left
+
+                });
+
+                // update tooltip data
+                tooltip_info = $.extend($element.data('Zebra_Tooltip'), tooltip_info);
+
+                // cache updated tooltip data
+                $element.data('Zebra_Tooltip', tooltip_info);
 
                 // return an object with tooltip data
                 return tooltip_info;
