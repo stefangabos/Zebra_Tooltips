@@ -53,12 +53,30 @@
                     <blockquote><small>See the examples with the tooltips using the <a href="index.html">default</a>, the <a href="bubble.html">bubble</a> or the <a href="milan.html">milan</a> theme.</small></blockquote>
 
                     <p>
-                        Zebra_Tooltips is a lightweight (around 6KB minified, 1.9KB gzipped) jQuery tooltips plugin,
-                        featuring nice transitions and offering a wide range of configuration options. The plugin detects
-                        the edges of the browser window and makes sure that the tooltips always stay in the viewport.
-                        Zebra_Tooltips uses NO IMAGES and falls back gracefully for browsers that don't support all the
-                        fancy stuff; also, tooltips can be attached to any element not just anchor tags! Works in all
-                        major browsers (Firefox, Opera, Safari, Chrome, Internet Explorer 6+)
+                        Zebra_Tooltips is a lightweight (around 6KB minified, 1.9KB gzipped) jQuery tooltips plugin for
+                        creating simple but smart and visually attractive tooltips, featuring nice transitions, 4 themes,
+                        and offering a wide range of configuration options.
+                    </p>
+
+                    <p>
+                        Besides the default behavior of tooltips showing when user hovers the element, tooltips may also
+                        be shown and hidden programmatically. When shown programmatically, the tooltips feature a "close"
+                        button and clicking it will be the only way of closing tooltips opened this way. This is useful
+                        for drawing users' attention to specific areas of a page (like error messages after validating a
+                        form).
+                    </p>
+
+                    <p>
+                        Tooltips can be aligned left, center or right, relative to the parent element, as well as above
+                        or below the parent element. The library detects the browser window's edges and will make sure
+                        that the tooltips are always in the viewport.
+                    </p>
+                        The tooltips are created using <strong>NO IMAGES</strong> and falls back gracefully for browsers
+                        that don't support  all the fancy stuff.
+                    </p>
+
+                    <p>
+                        Works in pretty much any browser - Firefox, Chrome, Safari, Edge, Opera and Internet Explorer 6+
                     </p>
 
                     <hr>
@@ -69,7 +87,8 @@
                             2. <a href="#tooltip-alignment">Tooltip alignment</a><br>
                             3. <a href="#html-content">HTML content</a><br>
                             4. <a href="#custom-width">Custom width</a><br>
-                            5. <a href="#show-programatically">Show tooltips programatically</a><br>
+                            5. <a href="#data-attributes">Data attributes</a><br>
+                            6. <a href="#show-programatically">Show tooltips programatically</a><br>
                         </div>
                         <div class="col-sm-6">
                         </div>
@@ -271,7 +290,7 @@
                         });
 
                         new $.Zebra_Tooltips($('.zebra_tooltips_custom_width_more'), {
-                            max_width:  470
+                            max_width:  90
                         });
 
                     });
@@ -289,7 +308,46 @@
 
                     <!-- =========================================================================================== -->
 
-                    <h3><a name="show-programmatically"></a><strong>5.</strong> Show tooltips programatically</h3>
+                    <h3><a name="data-attributes"></a><strong>5.</strong> Data attributes</h3>
+
+                    <br><p>HTML</p>
+
+                    <pre class="brush:xml">
+                    &lt;p>
+                        &lt;a href="javascript: void(0)"
+                           class="zebra_tooltips"
+                           title=&quot;All my settings are set through data attributes and made me have a maximum width of 500px,
+                                  .5 opacity and be aligned to the right of my parent element&quot;
+                           data-ztt_max_width=&quot;500&quot;
+                           data-ztt_opacity=&quot;.5&quot;
+                           data-ztt_position=&quot;right&quot;>
+                        Over here!&lt;/a>
+                    &lt;/p>
+                    </pre>
+
+                    <p>JavaScript</p>
+
+                    <pre class="brush:js">
+                    $(document).ready(function() {
+
+                        new $.Zebra_Tooltips($('.zebra_tooltips_data_attributes'));
+
+                    });
+                    </pre>
+
+                    <p>Result</p>
+
+                    <div class="well">
+                        <a href="javascript: void(0)" class="zebra_tooltips_data_attributes" title="All my settings are set through data attributes and made me have a maximum width of 500px, .5 opacity and be aligned to the right of my parent element" data-ztt_max_width="500" data-ztt_opacity=".5" data-ztt_position="right">Over here!</a>
+                    </div>
+
+                    <a href="#top" class="pull-right clearfix top small">To the top</a>
+
+                    <hr>
+
+                    <!-- =========================================================================================== -->
+
+                    <h3><a name="show-programmatically"></a><strong>6.</strong> Show tooltips programatically</h3>
 
                     <br><p>HTML</p>
 
@@ -327,6 +385,10 @@
                     <hr>
 
                     <br><br><br>
+
+                    <p class="text-center"><small>copyright &copy; 2012-2018 <a href="https://github.com/stefangabos/">stefan gabos</a></small></p>
+
+                    <br>
 
                 </div>
 
