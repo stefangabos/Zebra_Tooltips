@@ -10,11 +10,6 @@ body {
     font-size: 14px !important;
 }
 
-p a {
-    text-decoration: underline;
-    font-weight: bold;
-}
-
 .top {
     position: relative;
     margin-left: 10px;
