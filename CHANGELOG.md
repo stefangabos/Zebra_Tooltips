@@ -1,3 +1,8 @@
+## version 2.0.2 (July 09, 2018)
+
+- added version number as a public property - useful to find out the version number even if all you have is the minified source code
+- properties can now also be set through data attributes
+
 ## version 2.0.0 (July 07, 2018)
 
 - removed the `background-color` and `color` properties
