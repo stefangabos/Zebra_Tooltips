@@ -16,7 +16,7 @@ The tooltips are created using **NO IMAGES** and falls back gracefully for brows
 
 Works in pretty much any browser - Firefox, Chrome, Safari, Edge, Opera and Internet Explorer 6+
 
-![Screenshot](https://raw.github.com/stefangabos/Zebra_Tooltips/master/examples/screenshot.png)
+[![Screenshot](https://raw.github.com/stefangabos/Zebra_Tooltips/master/examples/screenshot.png)](https://stefangabos.github.io/Zebra_Tooltips/)
 
 ## Features
 
