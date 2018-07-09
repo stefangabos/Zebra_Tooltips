@@ -1,12 +1,12 @@
 <img src="https://raw.githubusercontent.com/stefangabos/zebrajs/master/docs/images/logo.png" alt="zebrajs" align="right">
 
-# Zebra_Tooltips &nbsp;[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Zebra_Tooltips%20-%20A%20lightweight%20and%20highly%20configurable%20jQuery%20tooltips%20plugin&url=https://github.com/stefangabos/Zebra_Tooltips&via=stefangabos&hashtags=jquery,tooltips,javascript)
+# Zebra Tooltips &nbsp;[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Zebra_Tooltips%20-%20A%20lightweight%20and%20highly%20configurable%20jQuery%20tooltips%20plugin&url=https://github.com/stefangabos/Zebra_Tooltips&via=stefangabos&hashtags=jquery,tooltips,javascript)
 
 *A lightweight and highly configurable jQuery tooltips plugin*
 
 [![npm](https://img.shields.io/npm/v/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![Total](https://img.shields.io/npm/dt/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![Monthly](https://img.shields.io/npm/dm/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![](https://data.jsdelivr.com/v1/package/npm/zebra_tooltips/badge?style=rounded)](https://www.jsdelivr.com/package/npm/zebra_tooltips) [![License](https://img.shields.io/npm/l/zebra_tooltips.svg)](https://github.com/stefangabos/Zebra_Tooltips/blob/master/LICENSE.md)
 
-Zebra_Tooltips is a lightweight (around 6KB minified, 1.9KB gzipped) jQuery tooltips plugin for creating simple but smart and visually attractive tooltips, featuring nice transitions, 4 themes, and offering a wide range of configuration options.
+Zebra Tooltips is a lightweight (around 6KB minified, 1.9KB gzipped) jQuery tooltips plugin for creating simple but smart and visually attractive tooltips, featuring nice transitions, 4 themes, and offering a wide range of configuration options.
 
 Besides the default behavior of tooltips showing when user hovers the element, tooltips may also be shown and hidden programmatically. When shown programmatically, the tooltips feature a "close" button and clicking it will be the only way of closing tooltips opened this way. This is useful for drawing users' attention to specific areas of a page (like error messages after validating a form).
 
@@ -33,30 +33,20 @@ Works in pretty much any browser - Firefox, Chrome, Safari, Edge, Opera and Inte
 
 See the [demos](https://stefangabos.github.io/Zebra_Tooltips/)
 
-## Support the development of this project
-
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4MP9EBKNTF9E)
-
-## Sponsors
-
-Cross browser/device testing is done with
-
-[![BrowserStack](https://github.com/stefangabos/Zebra_Dialog/raw/master/examples/browserstack.png)](https://www.browserstack.com/)
-
 ## Requirements
 
-Zebra_Tooltips has no dependencies other than jQuery 1.7+
+Zebra Tooltips has no dependencies other than jQuery 1.7+
 
 ## Installation
 
-Zebra_Tooltips is available as a [npm package](https://www.npmjs.com/package/zebra_tooltips). To install it use:
+Zebra Tooltips is available as a [npm package](https://www.npmjs.com/package/zebra_tooltips). To install it use:
 
 ```bash
 # the "--save" argument adds the plugin as a dependency in packages.json
 npm install zebra_tooltips --save
 ```
 
-Zebra_Tooltips is also available as a [Bower package](http://bower.io/). To install it use:
+Zebra Tooltips is also available as a [Bower package](http://bower.io/). To install it use:
 
 ```bash
 # the "--save" argument adds the plugin as a dependency in bower.json
@@ -72,20 +62,22 @@ First, load jQuery from a CDN and provide a fallback to a local source like:
 <script>window.jQuery || document.write('<script src="path/to/jquery-3.3.1.js"><\/script>')</script>
 ```
 
-Load the Zebra_Tooltips jQuery plugin
+Load the Zebra Tooltips jQuery plugin
 
 ```html
 <script type="text/javascript" src="path/to/zebra_tooltips.min.js"></script>
 ```
 
-Alternatively, you can load Zebra_Tooltips from [JSDelivr CDN](https://www.jsdelivr.com/package/npm/zebra_tooltips) like this:
+Alternatively, you can load Zebra Tooltips from [JSDelivr CDN](https://www.jsdelivr.com/package/npm/zebra_tooltips) like this:
 
 ```html
 <!-- for the most recent version, not recommended in production -->
-<script src="https://cdn.jsdelivr.net/npm/zebra_tooltips@latest/dist/zebra_tooltips.min.js"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/zebra_tooltips@latest/dist/zebra_tooltips.min.js"></script>
 
 <!-- for a specific version -->
-<script src="https://cdn.jsdelivr.net/npm/zebra_tooltips@1.3.1/dist/zebra_tooltips.min.js"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/zebra_tooltips@1.3.1/dist/zebra_tooltips.min.js"></script>
 
 <!-- replacing "min" with "src" will serve you the non-compressed version -->
 ```
@@ -99,8 +91,9 @@ Load one the plugin's theme
 ...or from [JSDelivr CDN](https://www.jsdelivr.com/package/npm/zebra_tooltips)
 
 ```html
-<link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/zebra_tooltips@latest/dist/css/default/zebra_tooltips.min.css">
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/zebra_tooltips@latest/dist/css/default/zebra_tooltips.min.css">
 
 <!-- replacing "min" with "src" will serve you the non-compressed version -->
 ```
@@ -342,3 +335,14 @@ var element = $('#tooltip'),
 
 tooltip.hide(element);
 ```
+
+## Support the development of this project
+
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4MP9EBKNTF9E)
+
+## Sponsors
+
+Cross browser/device testing is done with
+
+[![BrowserStack](https://github.com/stefangabos/Zebra_Dialog/raw/master/examples/browserstack.png)](https://www.browserstack.com/)
+
