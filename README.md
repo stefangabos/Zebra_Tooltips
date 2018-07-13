@@ -65,7 +65,7 @@ First, load jQuery from a CDN and provide a fallback to a local source like:
 Load the Zebra Tooltips jQuery plugin
 
 ```html
-<script type="text/javascript" src="path/to/zebra_tooltips.min.js"></script>
+<script src="path/to/zebra_tooltips.min.js"></script>
 ```
 
 Alternatively, you can load Zebra Tooltips from [JSDelivr CDN](https://www.jsdelivr.com/package/npm/zebra_tooltips) like this:
