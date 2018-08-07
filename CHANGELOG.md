@@ -1,3 +1,8 @@
+## version 2.0.3 (August 07, 2018)
+
+- reduced CSS size by using [Clean CSS](https://www.npmjs.com/package/clean-css)
+- improved examples
+
 ## version 2.0.2 (July 09, 2018)
 
 - added version number as a public property - useful to find out the version number even if all you have is the minified source code
