@@ -59,6 +59,77 @@ module.exports = function(grunt) {
         },
 
         /***************************************************************************************************************
+         *  CSSMIN
+         *  https://github.com/gruntjs/grunt-contrib-cssmin
+         **************************************************************************************************************/
+        'cssmin': {
+            beutify: {
+                options: {
+                    compatibility: {
+                        properties: {
+                            ieBangHack: true,
+                            ieFilters: true,
+                            iePrefixHack: true,
+                            ieSuffixHack: true
+                        },
+                        selectors: {
+                            ie7Hack: true
+                        }
+                    },
+                    format: {
+                        breaks: {
+                            afterAtRule: true,
+                            afterBlockBegins: true,
+                            afterBlockEnds: true,
+                            afterComment: true,
+                            afterProperty: true,
+                            afterRuleBegins: true,
+                            afterRuleEnds: true,
+                            beforeBlockEnds: true,
+                            betweenSelectors: true
+                        },
+                        indentBy: 4,
+                        indentWith: 'space',
+                        spaces: {
+                            aroundSelectorRelation: true,
+                            beforeBlockBegins: true,
+                            beforeValue: true
+                        }
+                    },
+                    level: 2
+                },
+                files: {
+                    'dist/css/default/zebra_tooltips.css': 'dist/css/default/zebra_tooltips.css',
+                    'dist/css/bubble/zebra_tooltips.css': 'dist/css/bubble/zebra_tooltips.css',
+                    'dist/css/mariner/zebra_tooltips.css': 'dist/css/mariner/zebra_tooltips.css',
+                    'dist/css/milan/zebra_tooltips.css': 'dist/css/milan/zebra_tooltips.css'
+                }
+            },
+            minify: {
+                options: {
+                    compatibility: {
+                        properties: {
+                            ieBangHack: true,
+                            ieFilters: true,
+                            iePrefixHack: true,
+                            ieSuffixHack: true
+                        },
+                        selectors: {
+                            ie7Hack: true
+                        }
+                    },
+                    level: 2
+                },
+                files: {
+                    'dist/css/default/zebra_tooltips.min.css': 'dist/css/default/zebra_tooltips.min.css',
+                    'dist/css/bubble/zebra_tooltips.min.css': 'dist/css/bubble/zebra_tooltips.min.css',
+                    'dist/css/mariner/zebra_tooltips.min.css': 'dist/css/mariner/zebra_tooltips.min.css',
+                    'dist/css/milan/zebra_tooltips.min.css': 'dist/css/milan/zebra_tooltips.min.css'
+                }
+            }
+        },
+
+        /***************************************************************************************************************
          *  ESLINT
          *  http://eslint.org/docs/rules/
          **************************************************************************************************************/
@@ -148,6 +219,7 @@ module.exports = function(grunt) {
 
     // register plugins
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -156,6 +228,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-notify');
     grunt.loadNpmTasks('grunt-sass');
 
-    grunt.registerTask('default', ['sass', 'eslint', 'jshint', 'uglify', 'copy', 'watch']);
+    grunt.registerTask('default', ['sass', 'cssmin', 'eslint', 'jshint', 'uglify', 'copy', 'watch']);
 
 };
