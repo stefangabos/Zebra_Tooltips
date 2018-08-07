@@ -175,7 +175,9 @@ module.exports = function(grunt) {
                 compress: true,
                 mangle: true,
                 beautify: false,
-                ie8: true
+                output: {
+                    ie8: true
+                }
             },
             build: {
                 src: 'src/zebra_tooltips.src.js',
