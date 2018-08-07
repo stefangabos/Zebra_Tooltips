@@ -7,10 +7,12 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-431275-9"></script>
         <script>
+        if (document.location.hostname !== '' && document.location.hostname.indexOf('localhost') !== 0) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'UA-431275-9');
+        }
         </script>
 
         <meta charset="utf-8">
@@ -24,7 +26,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/united/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCoreDefault.css" />
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/zebra_tooltips@latest/dist/css/bubble/zebra_tooltips.min.css" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/zebra_tooltips@2.0.3/dist/css/bubble/zebra_tooltips.min.css" type="text/css">
         <link rel="stylesheet" href="examples.css" type="text/css">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shCore.min.js"></script>
@@ -97,19 +99,25 @@
                             3. <a href="#html-content">HTML content</a><br>
                             4. <a href="#custom-width">Custom width</a><br>
                             5. <a href="#data-attributes">Data attributes</a><br>
+                            <a name="basic-usage"></a>
                             6. <a href="#show-programmatically">Show tooltips programmatically</a><br>
                         </div>
                         <div class="col-sm-6">
                         </div>
                     </div>
 
-                    <hr>
 
                     <!-- =========================================================================================== -->
 
-                    <h3><a name="basic-usage"></a><strong>1.</strong> Basic usage</h3>
+                    <br><h3><strong>1.</strong> Basic usage</h3>
 
-                    <br><p>HTML</p>
+                    <p>
+                        The simplest way to get going is simply attaching the tooltips to one or more elements. As far as
+                        the HTML markup goes, the <code>title</code> attribute is required as it contains the tooltip's
+                        content.
+                    </p>
+
+                    <p>HTML</p>
 
                     <pre class="brush:xml">
                     &lt;p>
@@ -136,15 +144,22 @@
                         <a href="javascript: void(0)" class="zebra_tooltips" title="Zebra Tooltips is a lightweight and highly configurable jQuery tooltips plugin">Over here!</a>
                     </div>
 
-                    <a href="#top" class="pull-right clearfix top small">To the top</a>
+                    <a name="tooltip-alignment"></a>
 
-                    <hr>
+                    <div class="top">
+                        <a href="#top" class="small">⯅ To the top</a>
+                    </div>
 
                     <!-- =========================================================================================== -->
 
-                    <h3><a name="tooltip-alignment"></a><strong>2.</strong> Tooltip alignment</h3>
+                    <h3><strong>2.</strong> Tooltip alignment</h3>
 
-                    <br><p>HTML</p>
+                    <p>
+                        Tooltips can be positioned horizontally on the <code>left</code> or on the <code>right</code> of
+                        an element, and <code>above</code> or <code>below</code> the element, vertically.
+                    </p>
+
+                    <p>HTML</p>
 
                     <pre class="brush:xml">
                     &lt;p>
@@ -217,17 +232,23 @@
                         Tooltip on the <a href="javascript: void(0)" class="zebra_tooltips_right_below" title="I am a tooltip that tries to be positioned below the parent element. If there is not enough space below the parent element I will be positioned above it. Try scrolling the page so there is not enough space below the parent element.">right</a>
                     </div>
 
-                    <a href="#top" class="pull-right clearfix top small">To the top</a>
+                    <a name="html-content"></a>
 
-                    <hr>
+                    <div class="top">
+                        <a href="#top" class="small">⯅ To the top</a>
+                    </div>
 
                     <!-- =========================================================================================== -->
 
-                    <h3><a name="html-content"></a><strong>3.</strong> HTML content</h3>
+                    <h3><strong>3.</strong> HTML content</h3>
 
-                    <br><p>HTML</p>
+                    <p>
+                        You can add any HTML as the tooltip's content. All you have to do is to replace <code>&lt;</code>
+                        with <code>&amp;lt;</code>, <code>&gt;</code> with <code>&amp;gt;</code> and <code>&quot;</code>
+                        with <code>&amp;quot;</code>
+                    </p>
 
-                    <p>You can add any HTML as the tooltip's content. All you have to do is to replace <code>&lt;</code> with <code>&amp;lt;</code>, <code>&gt;</code> with <code>&amp;gt;</code> and <code>&quot;</code> with <code>&amp;quot;</code></p>
+                    <p>HTML</p>
 
                     <pre class="brush:xml">
                     &lt;p>
@@ -260,15 +281,22 @@
                         <a href="javascript: void(0)" class="zebra_tooltips_html_content" title="&lt;p&gt;Lorem ipsum &lt;strong&gt;dolor sit&lt;/strong&gt;, amet consectetur &lt;em&gt;adipisicing elit&lt;/em&gt;. Minus modi impedit ratione a nostrum harum animi, &lt;del&gt;voluptatibus&lt;/del&gt; laborum consequatur architecto corrupti sit nulla porro culpa aspernatur saepe non quas temporibus.&lt;/p&gt;&lt;p&gt;And yes, of course, an image:&lt;/p&gt;&lt;p&gt;&lt;img src=&quot;https://placeimg.com/100/100/animals&quot; height=&quot;100&quot;&gt;&lt;/p&gt;&lt;em&gt;IT IS VERY IMPORTANT TO EXPLICITLY SPECIFY THE HEIGHT OF THE IMAGE OR THE TOOLTIP WILL NOT BE RENDERED CORRECTLY!&lt;/em&gt;">Hover me!</a>
                     </div>
 
-                    <a href="#top" class="pull-right clearfix top small">To the top</a>
+                    <a name="custom-width"></a>
 
-                    <hr>
+                    <div class="top">
+                        <a href="#top" class="small">⯅ To the top</a>
+                    </div>
 
                     <!-- =========================================================================================== -->
 
-                    <h3><a name="custom-width"></a><strong>4.</strong> Custom width</h3>
+                    <h3><strong>4.</strong> Custom width</h3>
 
-                    <br><p>HTML</p>
+                    <p>
+                        The default width of the tooltips is set in the CSS file but it can be set to any other value when
+                        initializing the tooltips.
+                    </p>
+
+                    <p>HTML</p>
 
                     <pre class="brush:xml">
                     &lt;p>
@@ -311,15 +339,22 @@
                         When the content of your tooltips is longer, you might want to have <a href="javascript: void(0)" class="zebra_tooltips_custom_width_more" title="When the content of your tooltips is longer, you might want to have wider tooltips, whereas when you less content, you might want to reduce the tooltip's width">wider tooltips</a>, whereas when you have less content you might want to <a href="javascript: void(0)" class="zebra_tooltips_custom_width_less" title="I don't have much to say">reduce the tooltip's width</a>
                     </div>
 
-                    <a href="#top" class="pull-right clearfix top small">To the top</a>
+                    <a name="data-attributes"></a>
 
-                    <hr>
+                    <div class="top">
+                        <a href="#top" class="small">⯅ To the top</a>
+                    </div>
 
                     <!-- =========================================================================================== -->
 
-                    <h3><a name="data-attributes"></a><strong>5.</strong> Data attributes</h3>
+                    <h3><strong>5.</strong> Data attributes</h3>
 
-                    <br><p>HTML</p>
+                    <p>
+                        Any of the properties of a tooltip can be set via <code>data attributes</code>. All you have to
+                        do is prefix any of the properties with <code>ztt_</code>.
+                    </p>
+
+                    <p>HTML</p>
 
                     <pre class="brush:xml">
                     &lt;p>
@@ -350,13 +385,15 @@
                         <a href="javascript: void(0)" class="zebra_tooltips_data_attributes" title="All my settings are set through data attributes and made me have a maximum width of 500px, .5 opacity and be aligned to the right of my parent element" data-ztt_max_width="500" data-ztt_opacity=".5" data-ztt_position="right">Over here!</a>
                     </div>
 
-                    <a href="#top" class="pull-right clearfix top small">To the top</a>
+                    <a name="show-programmatically"></a>
 
-                    <hr>
+                    <div class="top">
+                        <a href="#top" class="small">⯅ To the top</a>
+                    </div>
 
                     <!-- =========================================================================================== -->
 
-                    <h3><a name="show-programmatically"></a><strong>6.</strong> Show tooltips programmatically</h3>
+                    <h3><strong>6.</strong> Show tooltips programmatically</h3>
 
                     <br><p>HTML</p>
 
@@ -389,13 +426,11 @@
                         <a href="javascript: void(0)" class="zebra_tooltips_programmatically pull-right" title="I am tooltip which was shown programmatically instead of when hovering the parent element. As a consequence, I have a close button. Additionally - just this once - once I am closed I will not show anymore.">Over here!</a>
                     </div>
 
-                    <a href="#top" class="pull-right clearfix top small">To the top</a>
+                    <div class="top">
+                        <a href="#top" class="small">⯅ To the top</a>
+                    </div>
 
-                    <hr>
-
-                    <br><br><br>
-
-                    <p class="text-center"><small>copyright &copy; 2012-2018 <a href="https://github.com/stefangabos/">stefan gabos</a></small></p>
+                    <p class="text-center">copyright &copy; 2012 - 2018 <a href="https://github.com/stefangabos/">stefan gabos</a></p>
 
                     <br>
 
@@ -406,7 +441,8 @@
         </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/zebra_tooltips@latest/dist/zebra_tooltips.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/zebra_pin@2.0.0/dist/zebra_pin.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/zebra_tooltips@2.0.3/dist/zebra_tooltips.min.js"></script>
         <script src="examples.js"></script>
 
     </body>
