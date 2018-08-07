@@ -35,4 +35,8 @@ $(document).ready(function() {
     var tooltip = new $.Zebra_Tooltips($('.zebra_tooltips_programmatically'));
     tooltip.show($('.zebra_tooltips_programmatically'), true);
 
+    setTimeout(function() {
+        $.Zebra_Pin($('blockquote.bg-warning'));
+    }, 500);
+
 });
