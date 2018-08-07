@@ -27,6 +27,7 @@
     "bower.json",
     "eslint.json",
     "Gruntfile.js",
-    "package.json"
+    "package.json",
+    "package-json.json"
   ]
 }
