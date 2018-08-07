@@ -1,3 +1,7 @@
+## version 2.0.4 (August 07, 2018)
+
+- reduced CSS size by using [Clean CSS](https://www.npmjs.com/package/clean-css) (previously I somehow committed the old versions...)
+
 ## version 2.0.3 (August 07, 2018)
 
 - reduced CSS size by using [Clean CSS](https://www.npmjs.com/package/clean-css)
