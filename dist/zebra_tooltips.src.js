@@ -300,8 +300,8 @@
                     // or the message contained in the "title" attribute of the parent element
                     }).html(plugin.settings.content ? plugin.settings.content : tooltip_info.content)
 
-                    // append the element to the main container
-                    .appendTo(tooltip);
+                        // append the element to the main container
+                        .appendTo(tooltip);
 
                     // create the tooltip's arrow container
                     arrow_container = $('<div>', {
@@ -465,14 +465,14 @@
 
                 // compute tooltip's and the arrow's positions
                 tooltip_left = plugin.settings.position === 'left' ? tooltip_info.element_left - tooltip_info.tooltip_width + tooltip_info.arrow_width :
-                                (plugin.settings.position === 'right' ? tooltip_info.element_left + tooltip_info.element_width - tooltip_info.arrow_width :
-                                (tooltip_info.element_left + (tooltip_info.element_width - tooltip_info.tooltip_width) / 2));
+                    (plugin.settings.position === 'right' ? tooltip_info.element_left + tooltip_info.element_width - tooltip_info.arrow_width :
+                        (tooltip_info.element_left + (tooltip_info.element_width - tooltip_info.tooltip_width) / 2));
 
                 tooltip_top = tooltip_info.element_top - tooltip_info.tooltip_height;
 
                 arrow_left = plugin.settings.position === 'left' ? tooltip_info.tooltip_width - tooltip_info.arrow_width - (tooltip_info.arrow_width / 2) :
-                                (plugin.settings.position === 'right' ? (tooltip_info.arrow_width / 2) :
-                                ((tooltip_info.tooltip_width - tooltip_info.arrow_width) / 2));
+                    (plugin.settings.position === 'right' ? (tooltip_info.arrow_width / 2) :
+                        ((tooltip_info.tooltip_width - tooltip_info.arrow_width) / 2));
 
                 // if tooltip's right side is outside te visible part of the browser's window
                 if (tooltip_left + tooltip_info.tooltip_width > window_width + horizontal_scroll) {
