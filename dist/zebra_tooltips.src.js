@@ -1,7 +1,7 @@
 /**
  *  Zebra_Tooltips
  *
- *  Zebra_Tooltips is a lightweight (around 6KB minified, 1.9KB gzipped) jQuery tooltips plugin for creating simple but
+ *  Zebra_Tooltips is a lightweight (around 5KB minified, 1.9KB gzipped) jQuery tooltips plugin for creating simple but
  *  smart and visually attractive tooltips, featuring nice transitions, 4 themes, and offering a wide range of configuration
  *  options.
  *
@@ -21,7 +21,7 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Tooltips/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    2.0.5 (last revision: August 07, 2018)
+ *  @version    2.1.0 (last revision: August 28, 2018)
  *  @copyright  (c) 2012 - 2018 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Tooltips
@@ -33,7 +33,7 @@
     $.Zebra_Tooltips = function(elements, options) {
 
         // so you can tell the version number even if all you have is the minified source
-        this.version = '2.0.5';
+        this.version = '2.1.0';
 
         var defaults = {
 
@@ -165,8 +165,6 @@
             _init = function() {
 
                 // the plugin's final properties are the merged default and user-provided options (if any)
-                plugin.settings = $.extend({}, defaults, options);
-
                 // iterate through the elements we need to attach the plugin to
                 elements.each(function() {
 
@@ -178,7 +176,10 @@
                         // the element's title attribute (if any)
                         title = $element.attr('title'),
 
-                        data_attributes = $element.data(), data;
+                        // get any options given as data attributes
+                        data_attributes = $element.data(),
+
+                        data, tooltip_settings = {};
 
                     // iterate through the element's data attributes (if any)
                     for (data in data_attributes)
@@ -193,15 +194,19 @@
                             if (undefined !== defaults[data])
 
                                 // update the property's value
-                                plugin.settings[data] = $element.data('ztt_' + data);
+                                tooltip_settings[data] = data_attributes['ztt_' + data];
 
                         }
 
-                    // if the element's title attribute is set, use that for content
-                    if (title) plugin.settings.content = $element.attr('title');
+                    // the current tooltip's settings are the default ones merged with the ones set when initializing
+                    // the plugin and merged with any data attributes set for the parent element
+                    tooltip_settings = $.extend(defaults, plugin.settings, tooltip_settings);
+
+                    // if the element's title attribute is set, that has the highest priority for content
+                    if (title) tooltip_settings.content = $element.attr('title');
 
                     // if tooltip has any content
-                    if (undefined !== plugin.settings.content && plugin.settings.content.trim() !== '') {
+                    if (undefined !== tooltip_settings.content && tooltip_settings.content.trim() !== '') {
 
                         // handlers for some of the element's events
                         $element.on({
@@ -231,19 +236,17 @@
                         });
 
                         // initialize and cache tooltip data
-                        $element.data('Zebra_Tooltip', {
+                        $element.data('Zebra_Tooltip', $.extend({
                             tooltip:            null,
-                            content:            plugin.settings.content,
                             show_timeout:       null,
                             hide_timeout:       null,
-                            animation_offset:   plugin.settings.animation_offset,
                             sticky:             false,
                             destroy:            false,
                             muted:              false
-                        });
+                        }, tooltip_settings));
 
                         // if tooltips are to be pre-generated, generate them now
-                        if (plugin.settings.prerender) _create_tooltip($element);
+                        if (tooltip_settings.prerender) _create_tooltip($element);
 
                     }
 
@@ -267,12 +270,12 @@
             _create_tooltip = function($element) {
 
                 // get a reference to the tooltip and its components, if available
-                var tooltip_info = $element.data('Zebra_Tooltip'),
+                var tooltip_settings = $element.data('Zebra_Tooltip'),
                     tooltip, message, arrow_container, arrow, tooltip_width, tooltip_height, arrow_width, arrow_height,
                     tmp_width, tmp_height, browser_window = $(window), element_position, tooltip_left, tooltip_top, arrow_left;
 
                 // if tooltip's HTML was not yet created
-                if (!tooltip_info.tooltip) {
+                if (!tooltip_settings.tooltip) {
 
                     // create the tooltip's main container
                     tooltip = $('<div>', {
@@ -292,13 +295,13 @@
                         class: 'Zebra_Tooltip_Message',
 
                         css: {
-                            maxWidth:   plugin.settings.max_width
+                            maxWidth:   tooltip_settings.max_width
                         }
 
                     // add the content of the tooltip
                     // using either the message given as argument when instantiating the object,
                     // or the message contained in the "title" attribute of the parent element
-                    }).html(plugin.settings.content ? plugin.settings.content : tooltip_info.content)
+                    }).html(tooltip_settings.content)
 
                         // append the element to the main container
                         .appendTo(tooltip);
@@ -319,10 +322,10 @@
                     $('<div>').appendTo(arrow_container);
 
                     // if tooltip is to be kept visible when mouse cursor is over the tooltip
-                    if (plugin.settings.keep_visible) {
+                    if (tooltip_settings.keep_visible) {
 
                         // when mouse leaves the tooltip's surface or the tooltip is clicked
-                        tooltip.on('mouseleave' + (plugin.settings.close_on_click ? ' click' : ''), function() {
+                        tooltip.on('mouseleave' + (tooltip_settings.close_on_click ? ' click' : ''), function() {
 
                             // hide the tooltip
                             _hide($element);
@@ -345,7 +348,7 @@
 
                     // if the "close" button needs to be shown
                     // we need to add a class to extend the padding on the right side of the tooltip in order to accommodate the button's presence
-                    if (tooltip_info.sticky) message.addClass('Zebra_Tooltip_Has_Close');
+                    if (tooltip_settings.sticky) message.addClass('Zebra_Tooltip_Has_Close');
 
                     // get tooltip's width and height
                     tooltip_width = tooltip.outerWidth();
@@ -363,7 +366,7 @@
                     tmp_height = message.outerHeight();
 
                     // group all data together
-                    tooltip_info = {
+                    tooltip_settings = {
                         tooltip:            tooltip,
                         tooltip_width:      tooltip_width,
                         tooltip_height:     tooltip_height + (arrow_height / 2),
@@ -377,31 +380,31 @@
                     // hard-code the tooltip's width and height so it doesn't gets broken due to word wrapping when the
                     // tooltip is too close to the edges of the browser's window
                     tooltip.css({
-                        width:  tooltip_info.tooltip_width,
-                        height: tooltip_info.tooltip_height
+                        width:  tooltip_settings.tooltip_width,
+                        height: tooltip_settings.tooltip_height
                     });
 
                     // adjust, if needed, the values representing the tooltip's width/height
-                    tooltip_info.tooltip_width = tooltip_info.tooltip_width + (message.outerWidth() - tmp_width);
-                    tooltip_info.tooltip_height = tooltip_info.tooltip_height + (message.outerHeight() - tmp_height);
+                    tooltip_settings.tooltip_width = tooltip_settings.tooltip_width + (message.outerWidth() - tmp_width);
+                    tooltip_settings.tooltip_height = tooltip_settings.tooltip_height + (message.outerHeight() - tmp_height);
 
                     // adjust, if needed, the tooltip's width/height, and hide it for now
                     tooltip.css({
-                        width:      tooltip_info.tooltip_width,
-                        height:     tooltip_info.tooltip_height,
+                        width:      tooltip_settings.tooltip_width,
+                        height:     tooltip_settings.tooltip_height,
                         display:    'none'
                     });
 
                     // merge new tooltip data with tooltip data created when instantiating the library
-                    tooltip_info = $.extend($element.data('Zebra_Tooltip'), tooltip_info);
+                    tooltip_settings = $.extend($element.data('Zebra_Tooltip'), tooltip_settings);
 
                     // cache updated tooltip data
-                    $element.data('Zebra_Tooltip', tooltip_info);
+                    $element.data('Zebra_Tooltip', tooltip_settings);
 
                 }
 
                 // if tooltip was triggered programmatically and the "close" button was not yet added
-                if (tooltip_info.sticky && !tooltip_info.close) {
+                if (tooltip_settings.sticky && !tooltip_settings.close) {
 
                     // create the "close" button
                     $('<a>', {
@@ -415,28 +418,28 @@
                         e.preventDefault();
 
                         // get a reference to the attached tooltip and its components
-                        var tooltip_info = $element.data('Zebra_Tooltip');
+                        var tooltip_settings = $element.data('Zebra_Tooltip');
 
                         // set this flag to FALSE so we can hide the tooltip
-                        tooltip_info.sticky = false;
+                        tooltip_settings.sticky = false;
 
                         // cache updated tooltip data
-                        $element.data('Zebra_Tooltip', tooltip_info);
+                        $element.data('Zebra_Tooltip', tooltip_settings);
 
                         // hide the tooltip
                         _hide($element);
 
                     // add the "close" button to the tooltip
-                    }).appendTo(tooltip_info.message);
+                    }).appendTo(tooltip_settings.message);
 
                     // make sure we only create the "close" button once
-                    tooltip_info.close = true;
+                    tooltip_settings.close = true;
 
                     // update tooltip data
-                    tooltip_info = $.extend($element.data('Zebra_Tooltip'), tooltip_info);
+                    tooltip_settings = $.extend($element.data('Zebra_Tooltip'), tooltip_settings);
 
                     // cache updated tooltip data
-                    $element.data('Zebra_Tooltip', tooltip_info);
+                    $element.data('Zebra_Tooltip', tooltip_settings);
 
                 }
 
@@ -450,7 +453,7 @@
                 element_position = $element.offset();
 
                 // cache element's position and size
-                $.extend(tooltip_info, {
+                $.extend(tooltip_settings, {
 
                     element_left:   element_position.left,
                     element_top:    element_position.top,
@@ -464,33 +467,33 @@
                 horizontal_scroll = browser_window.scrollLeft();
 
                 // compute tooltip's and the arrow's positions
-                tooltip_left = plugin.settings.position === 'left' ? tooltip_info.element_left - tooltip_info.tooltip_width + tooltip_info.arrow_width :
-                    (plugin.settings.position === 'right' ? tooltip_info.element_left + tooltip_info.element_width - tooltip_info.arrow_width :
-                        (tooltip_info.element_left + (tooltip_info.element_width - tooltip_info.tooltip_width) / 2));
+                tooltip_left = tooltip_settings.position === 'left' ? tooltip_settings.element_left - tooltip_settings.tooltip_width + tooltip_settings.arrow_width :
+                    (tooltip_settings.position === 'right' ? tooltip_settings.element_left + tooltip_settings.element_width - tooltip_settings.arrow_width :
+                        (tooltip_settings.element_left + (tooltip_settings.element_width - tooltip_settings.tooltip_width) / 2));
 
-                tooltip_top = tooltip_info.element_top - tooltip_info.tooltip_height;
+                tooltip_top = tooltip_settings.element_top - tooltip_settings.tooltip_height;
 
-                arrow_left = plugin.settings.position === 'left' ? tooltip_info.tooltip_width - tooltip_info.arrow_width - (tooltip_info.arrow_width / 2) :
-                    (plugin.settings.position === 'right' ? (tooltip_info.arrow_width / 2) :
-                        ((tooltip_info.tooltip_width - tooltip_info.arrow_width) / 2));
+                arrow_left = tooltip_settings.position === 'left' ? tooltip_settings.tooltip_width - tooltip_settings.arrow_width - (tooltip_settings.arrow_width / 2) :
+                    (tooltip_settings.position === 'right' ? (tooltip_settings.arrow_width / 2) :
+                        ((tooltip_settings.tooltip_width - tooltip_settings.arrow_width) / 2));
 
                 // if tooltip's right side is outside te visible part of the browser's window
-                if (tooltip_left + tooltip_info.tooltip_width > window_width + horizontal_scroll) {
+                if (tooltip_left + tooltip_settings.tooltip_width > window_width + horizontal_scroll) {
 
                     // adjust the arrow's position
-                    arrow_left -= (window_width + horizontal_scroll) - (tooltip_left + tooltip_info.tooltip_width) - 6;
+                    arrow_left -= (window_width + horizontal_scroll) - (tooltip_left + tooltip_settings.tooltip_width) - 6;
 
                     // adjust the tooltip's position
-                    tooltip_left = (window_width + horizontal_scroll) - tooltip_info.tooltip_width - 6;
+                    tooltip_left = (window_width + horizontal_scroll) - tooltip_settings.tooltip_width - 6;
 
                     // if after the adjustment, the arrow still needs to be adjusted
-                    if (arrow_left + tooltip_info.arrow_width > tooltip_info.tooltip_width - 6)
+                    if (arrow_left + tooltip_settings.arrow_width > tooltip_settings.tooltip_width - 6)
 
                         // adjust the arrow's position
-                        arrow_left = tooltip_info.tooltip_width - 6 - tooltip_info.arrow_width;
+                        arrow_left = tooltip_settings.tooltip_width - 6 - tooltip_settings.arrow_width;
 
                     // if there is no space to show the arrow, hide it
-                    if (tooltip_left + arrow_left + (tooltip_info.arrow_width / 2) < tooltip_info.element_left) arrow_left = -10000;
+                    if (tooltip_left + arrow_left + (tooltip_settings.arrow_width / 2) < tooltip_settings.element_left) arrow_left = -10000;
 
                 }
 
@@ -507,20 +510,20 @@
                     if (arrow_left < 0)
 
                         // adjust the arrow's position
-                        arrow_left = (tooltip_info.arrow_width / 2);
+                        arrow_left = (tooltip_settings.arrow_width / 2);
 
                     // if there is no space to show the arrow, hide it
-                    if (tooltip_left + arrow_left + (tooltip_info.arrow_width / 2) > tooltip_info.element_left + tooltip_info.element_width) arrow_left = -10000;
+                    if (tooltip_left + arrow_left + (tooltip_settings.arrow_width / 2) > tooltip_settings.element_left + tooltip_settings.element_width) arrow_left = -10000;
 
                 }
 
                 // by default, we assume the tooltip is centered above the element and therefore the arrow is at bottom of the tooltip
                 // (we remove everything that might have been set on a previous iteration)
-                tooltip_info.message.css('margin-top', '');
+                tooltip_settings.message.css('margin-top', '');
 
                 // in this case, the arrow need to point downwards rather than upwards
                 // and be placed beneath the body of the tooltip and not above
-                tooltip_info.arrow_container.removeClass('Zebra_Tooltip_Arrow_Top').addClass('Zebra_Tooltip_Arrow_Bottom');
+                tooltip_settings.arrow_container.removeClass('Zebra_Tooltip_Arrow_Top').addClass('Zebra_Tooltip_Arrow_Bottom');
 
                 // if
                 if (
@@ -529,45 +532,45 @@
                     tooltip_top < vertical_scroll ||
 
                     // tooltips are to be shown from below the element, and there is enough space below the element to show the tooltip
-                    (plugin.settings.vertical_alignment === 'below' && tooltip_info.element_top + tooltip_info.element_height + plugin.settings.vertical_offset + tooltip_info.tooltip_height + tooltip_info.animation_offset < window_height + vertical_scroll)
+                    (tooltip_settings.vertical_alignment === 'below' && tooltip_settings.element_top + tooltip_settings.element_height + tooltip_settings.vertical_offset + tooltip_settings.tooltip_height + tooltip_settings.animation_offset < window_height + vertical_scroll)
 
                 ) {
 
                     // place the tooltip beneath the element, rather than above, also account for the offset
-                    tooltip_top = tooltip_info.element_top + tooltip_info.element_height - plugin.settings.vertical_offset;
+                    tooltip_top = tooltip_settings.element_top + tooltip_settings.element_height - tooltip_settings.vertical_offset;
 
                     // the tooltip will slide upwards, rather than downwards
-                    tooltip_info.animation_offset = Math.abs(tooltip_info.animation_offset);
+                    tooltip_settings.animation_offset = Math.abs(tooltip_settings.animation_offset);
 
                     // the body of the tooltip needs to be vertically aligned at the bottom
-                    tooltip_info.message.css('margin-top', (tooltip_info.arrow_height / 2));
+                    tooltip_settings.message.css('margin-top', (tooltip_settings.arrow_height / 2));
 
                     // in this case, the arrow need to point upwards rather than downwards
                     // and be placed above the body of the tooltip and not beneath
-                    tooltip_info.arrow_container.removeClass('Zebra_Tooltip_Arrow_Bottom').addClass('Zebra_Tooltip_Arrow_Top');
+                    tooltip_settings.arrow_container.removeClass('Zebra_Tooltip_Arrow_Bottom').addClass('Zebra_Tooltip_Arrow_Top');
 
                 // if top of the tooltip is inside the visible part of the browser's window
                 } else {
 
                     // the tooltip will slide downwards
-                    tooltip_info.animation_offset = -Math.abs(tooltip_info.animation_offset);
+                    tooltip_settings.animation_offset = -Math.abs(tooltip_settings.animation_offset);
 
                     // account for the offset
-                    tooltip_top += plugin.settings.vertical_offset;
+                    tooltip_top += tooltip_settings.vertical_offset;
 
                 }
 
                 // set the arrow's horizontal position within the tooltip
-                tooltip_info.arrow_container.css('left', arrow_left);
+                tooltip_settings.arrow_container.css('left', arrow_left);
 
                 // set the tooltip's final position
-                tooltip_info.tooltip.css({
+                tooltip_settings.tooltip.css({
                     left:   tooltip_left,
                     top:    tooltip_top
                 });
 
                 // update tooltip data
-                $.extend(tooltip_info, {
+                $.extend(tooltip_settings, {
 
                     tooltip_left:   tooltip_left,
                     tooltip_top:    tooltip_top,
@@ -576,13 +579,13 @@
                 });
 
                 // update tooltip data
-                tooltip_info = $.extend($element.data('Zebra_Tooltip'), tooltip_info);
+                tooltip_settings = $.extend($element.data('Zebra_Tooltip'), tooltip_settings);
 
                 // cache updated tooltip data
-                $element.data('Zebra_Tooltip', tooltip_info);
+                $element.data('Zebra_Tooltip', tooltip_settings);
 
                 // return an object with tooltip data
-                return tooltip_info;
+                return tooltip_settings;
 
             },
 
@@ -598,63 +601,63 @@
             _show = function($element) {
 
                 // get a reference to the attached tooltip and its components
-                var tooltip_info = $element.data('Zebra_Tooltip');
+                var tooltip_settings = $element.data('Zebra_Tooltip');
 
                 // if there is already a timeout for showing the tooltip, cancel it
-                clearTimeout(tooltip_info.show_timeout);
+                clearTimeout(tooltip_settings.show_timeout);
 
                 // if tooltip is not "muted" (case in which can only be shown using the API)
-                if (!tooltip_info.muted) {
+                if (!tooltip_settings.muted) {
 
                     // clear the timeout for hiding the tooltip (if any)
-                    clearTimeout(tooltip_info.hide_timeout);
+                    clearTimeout(tooltip_settings.hide_timeout);
 
                     // show the tooltip, using the specified delay (if any)
-                    tooltip_info.show_timeout = setTimeout(function() {
+                    tooltip_settings.show_timeout = setTimeout(function() {
 
                         // if not already created, create the tooltip
-                        tooltip_info = _create_tooltip($element);
+                        tooltip_settings = _create_tooltip($element);
 
                         // if a callback function exists to be run before showing a tooltip
-                        if (plugin.settings.onBeforeShow && typeof plugin.settings.onBeforeShow === 'function')
+                        if (tooltip_settings.onBeforeShow && typeof tooltip_settings.onBeforeShow === 'function')
 
                             // execute the callback function
                             // don't go further if the callback function returned boolean FALSE
-                            if (plugin.settings.onBeforeShow($element, tooltip_info.tooltip) === false) return;
+                            if (tooltip_settings.onBeforeShow($element, tooltip_settings.tooltip) === false) return;
 
                         // if tooltip is not already being animated
-                        if (tooltip_info.tooltip.css('display') !== 'block')
+                        if (tooltip_settings.tooltip.css('display') !== 'block')
 
                             // set the tooltip's top so we can "slide" it in
-                            tooltip_info.tooltip.css({
-                                top:    tooltip_info.tooltip_top + tooltip_info.animation_offset
+                            tooltip_settings.tooltip.css({
+                                top:    tooltip_settings.tooltip_top + tooltip_settings.animation_offset
                             });
 
                         // set the tooltip's "display" property to "block"
-                        tooltip_info.tooltip.css('display', 'block');
+                        tooltip_settings.tooltip.css('display', 'block');
 
                         // if the tooltip was in the midst of an animation, stop that
-                        tooltip_info.tooltip.stop();
+                        tooltip_settings.tooltip.stop();
 
                         // animate the tooltip
-                        tooltip_info.tooltip.animate({
+                        tooltip_settings.tooltip.animate({
 
-                            top:        tooltip_info.tooltip_top,
-                            opacity:    plugin.settings.opacity
+                            top:        tooltip_settings.tooltip_top,
+                            opacity:    tooltip_settings.opacity
 
                         // using the specified speed
-                        }, plugin.settings.animation_speed, function() {
+                        }, tooltip_settings.animation_speed, function() {
 
                             // if a callback function exists to be run after showing a tooltip
-                            if (plugin.settings.onShow && typeof plugin.settings.onShow === 'function')
+                            if (tooltip_settings.onShow && typeof tooltip_settings.onShow === 'function')
 
                                 // execute the callback function
-                                plugin.settings.onShow($element, tooltip_info.tooltip);
+                                tooltip_settings.onShow($element, tooltip_settings.tooltip);
 
                         });
 
                     // the delay after which to show the plugin
-                    }, plugin.settings.show_delay);
+                    }, tooltip_settings.show_delay);
 
                 }
 
@@ -672,81 +675,79 @@
             _hide = function($element) {
 
                 // get information about the tooltip attached to the element given as argument
-                var tooltip_info = $element.data('Zebra_Tooltip');
+                var tooltip_settings = $element.data('Zebra_Tooltip');
 
                 // if there is already a timeout for hiding the tooltip, cancel it
-                clearTimeout(tooltip_info.hide_timeout);
+                clearTimeout(tooltip_settings.hide_timeout);
 
                 // if tooltip is not sticky (when it can only be closed by the user)
-                if (!tooltip_info.sticky) {
+                if (!tooltip_settings.sticky) {
 
                     // clear the timeout for showing the tooltip (if any)
-                    clearTimeout(tooltip_info.show_timeout);
+                    clearTimeout(tooltip_settings.show_timeout);
 
                     // hide the tooltip, using the specified delay (if any)
-                    tooltip_info.hide_timeout = setTimeout(function() {
+                    tooltip_settings.hide_timeout = setTimeout(function() {
 
                         // if there is a tooltip attached to the element
                         // (as one can call the hide() method method prior of the tooltip being ever shown)
-                        if (tooltip_info.tooltip) {
+                        if (tooltip_settings.tooltip) {
 
                             // if a callback function exists to be run before hiding a tooltip
-                            if (plugin.settings.onBeforeHide && typeof plugin.settings.onBeforeHide === 'function')
+                            if (tooltip_settings.onBeforeHide && typeof tooltip_settings.onBeforeHide === 'function')
 
                                 // execute the callback function
                                 // don't go further if the callback function returned boolean FALSE
-                                if (plugin.settings.onBeforeHide($element, tooltip_info.tooltip) === false) return;
+                                if (tooltip_settings.onBeforeHide($element, tooltip_settings.tooltip) === false) return;
 
                             // set this flag to FALSE so that the script knows that it has to add the "close" button again
                             // if the tooltip is shown using the API
-                            tooltip_info.close = false;
+                            tooltip_settings.close = false;
 
                             // if tooltip needs to be destroyed once it fades out
-                            if (tooltip_info.destroy)
+                            if (tooltip_settings.destroy)
 
                                 // set this flag now so that the tooltip is not shown again if the user quickly hovers
                                 // the element while if fades out
-                                tooltip_info.muted = true;
+                                tooltip_settings.muted = true;
 
                             // cache updated tooltip data
-                            $element.data('Zebra_Tooltip', tooltip_info);
+                            $element.data('Zebra_Tooltip', tooltip_settings);
 
                             // remove the "close" button
-                            $('a.Zebra_Tooltip_Close', tooltip_info.tooltip).remove();
+                            $('a.Zebra_Tooltip_Close', tooltip_settings.tooltip).remove();
 
                             // if the tooltip was in the midst of an animation, stop that
-                            tooltip_info.tooltip.stop();
+                            tooltip_settings.tooltip.stop();
 
                             // animate the tooltip
-                            tooltip_info.tooltip.animate({
+                            tooltip_settings.tooltip.animate({
 
                                 opacity:    0,
-                                top:        tooltip_info.tooltip_top + tooltip_info.animation_offset
+                                top:        tooltip_settings.tooltip_top + tooltip_settings.animation_offset
 
                             // using the specified speed
-                            }, plugin.settings.animation_speed, function() {
+                            }, tooltip_settings.animation_speed, function() {
 
                                 // set the tooltip's "display" property to "none"
                                 $(this).css('display', 'none');
 
                                 // if a callback function exists to be run after hiding a tooltip
-                                if (plugin.settings.onHide && typeof plugin.settings.onHide === 'function')
+                                if (tooltip_settings.onHide && typeof tooltip_settings.onHide === 'function')
 
                                     // execute the callback function
-                                    plugin.settings.onHide($element, tooltip_info.tooltip);
+                                    tooltip_settings.onHide($element, tooltip_settings.tooltip);
 
                             });
 
                         }
 
                     // the delay after which to hide the plugin
-                    }, plugin.settings.hide_delay);
+                    }, tooltip_settings.hide_delay);
 
                 }
 
             };
-
-        plugin.settings = {};
 
         /**
          *  Hides the tooltips attached to the element(s) given as argument.
@@ -774,19 +775,19 @@
                     $element = $(this),
 
                     // get a reference to the attached tooltip and its components
-                    tooltip_info = $element.data('Zebra_Tooltip');
+                    tooltip_settings = $element.data('Zebra_Tooltip');
 
                 // if there is a tooltip attached
-                if (tooltip_info) {
+                if (tooltip_settings) {
 
                     // set this flag to FALSE so we can hide the tooltip
-                    tooltip_info.sticky = false;
+                    tooltip_settings.sticky = false;
 
                     // set a flag if tooltip needs to be "muted" after hiding it
-                    if (destroy) tooltip_info.destroy = true;
+                    if (destroy) tooltip_settings.destroy = true;
 
                     // cache updated tooltip data
-                    $element.data('Zebra_Tooltip', tooltip_info);
+                    $element.data('Zebra_Tooltip', tooltip_settings);
 
                     // show the tooltip
                     _hide($element);
@@ -830,22 +831,22 @@
                     $element = $(this),
 
                     // get a reference to the attached tooltip and its components
-                    tooltip_info = $element.data('Zebra_Tooltip');
+                    tooltip_settings = $element.data('Zebra_Tooltip');
 
                 // if there is a tooltip attached
-                if (tooltip_info) {
+                if (tooltip_settings) {
 
                     // when shown using the API, the tooltip can be hidden only by clicking on the "close" button
-                    tooltip_info.sticky = true;
+                    tooltip_settings.sticky = true;
 
                     // set this to FALSE so we can show the tooltip
-                    tooltip_info.muted = false;
+                    tooltip_settings.muted = false;
 
                     // set a flag if tooltip needs to "muted" after hiding
-                    if (destroy) tooltip_info.destroy = true;
+                    if (destroy) tooltip_settings.destroy = true;
 
                     // cache updated tooltip data
-                    $element.data('Zebra_Tooltip', tooltip_info);
+                    $element.data('Zebra_Tooltip', tooltip_settings);
 
                     // show the tooltip
                     _show($element);
