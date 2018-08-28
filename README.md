@@ -6,7 +6,7 @@
 
 [![npm](https://img.shields.io/npm/v/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![Total](https://img.shields.io/npm/dt/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![Monthly](https://img.shields.io/npm/dm/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![](https://data.jsdelivr.com/v1/package/npm/zebra_tooltips/badge?style=rounded)](https://www.jsdelivr.com/package/npm/zebra_tooltips) [![License](https://img.shields.io/npm/l/zebra_tooltips.svg)](https://github.com/stefangabos/Zebra_Tooltips/blob/master/LICENSE.md)
 
-Zebra Tooltips is a lightweight (around 6KB minified, 1.9KB gzipped) jQuery tooltips plugin for creating simple but smart and visually attractive tooltips, featuring nice transitions, 4 themes, and offering a wide range of configuration options.
+Zebra Tooltips is a lightweight (around 5KB minified, 1.7KB gzipped) jQuery tooltips plugin for creating simple but smart and visually attractive tooltips, featuring nice transitions, 4 themes, and offering a wide range of configuration options.
 
 Besides the default behavior of tooltips showing when user hovers the element, tooltips may also be shown and hidden programmatically. When shown programmatically, the tooltips feature a "close" button and clicking it will be the only way of closing tooltips opened this way. This is useful for drawing users' attention to specific areas of a page (like error messages after validating a form).
 
@@ -20,7 +20,7 @@ Works in pretty much any browser - Firefox, Chrome, Safari, Edge, Opera and Inte
 
 ## Features
 
- - lightweight - it weights around 6KB minified and 1.9KB gzipped
+ - lightweight - it weights around 5KB minified and 1.7KB gzipped
  - includes 4 themes
  - features nice transitions
  - detects the edges of the browser window and makes sure that the tooltips always stay in the viewport
