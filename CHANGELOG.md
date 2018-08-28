@@ -1,3 +1,7 @@
+## version 2.1.0 (August 28, 2018)
+
+- Fixed bug [#15](https://github.com/stefangabos/Zebra_Tooltips/issues/15) where multiple tooltips would all use the same content; thanks [@Kotsuha](https://github.com/Kotsuha)!
+
 ## version 2.0.5 (August 07, 2018)
 
 - forgot to update version number...
