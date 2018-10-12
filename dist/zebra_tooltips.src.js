@@ -21,7 +21,7 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Tooltips/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    2.1.0 (last revision: August 28, 2018)
+ *  @version    2.1.0 (last revision: October 12, 2018)
  *  @copyright  (c) 2012 - 2018 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Tooltips
@@ -200,7 +200,7 @@
 
                     // the current tooltip's settings are the default ones merged with the ones set when initializing
                     // the plugin and merged with any data attributes set for the parent element
-                    tooltip_settings = $.extend(defaults, plugin.settings, tooltip_settings);
+                    tooltip_settings = $.extend(defaults, plugin.settings, options, tooltip_settings);
 
                     // if the element's title attribute is set, that has the highest priority for content
                     if (title) tooltip_settings.content = $element.attr('title');
