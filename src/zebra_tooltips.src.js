@@ -200,7 +200,7 @@
 
                     // the current tooltip's settings are the default ones merged with the ones set when initializing
                     // the plugin and merged with any data attributes set for the parent element
-                    tooltip_settings = $.extend(defaults, plugin.settings, options, tooltip_settings);
+                    tooltip_settings = $.extend(defaults, options, tooltip_settings);
 
                     // if the element's title attribute is set, that has the highest priority for content
                     if (title) tooltip_settings.content = $element.attr('title');
