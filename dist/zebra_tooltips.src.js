@@ -21,8 +21,8 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Tooltips/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    2.1.0 (last revision: October 12, 2018)
- *  @copyright  (c) 2012 - 2018 Stefan Gabos
+ *  @version    2.1.0 (last revision: April 21, 2019)
+ *  @copyright  (c) 2012 - 2019 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Tooltips
  */
