@@ -1,6 +1,7 @@
-## version 2.1.0 (August 28, 2018)
+## version 2.1.0 (April 21, 2019)
 
-- Fixed bug [#15](https://github.com/stefangabos/Zebra_Tooltips/issues/15) where multiple tooltips would all use the same content; thanks [@Kotsuha](https://github.com/Kotsuha)!
+- fixed bug [#15](https://github.com/stefangabos/Zebra_Tooltips/issues/15) where multiple tooltips would all use the same content; thanks [@Kotsuha](https://github.com/Kotsuha)!
+- fixed [#16](https://github.com/stefangabos/Zebra_Tooltips/issues/16) where the options passed to the constructor were not being applied anymore, since the previous commit; thanks [Gianluca Finocchiaro](https://github.com/gfinocchiaro)!
 
 ## version 2.0.5 (August 07, 2018)
 
