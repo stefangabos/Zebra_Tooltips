@@ -58,8 +58,8 @@ bower install zebra_tooltips --save
 First, load jQuery from a CDN and provide a fallback to a local source like:
 
 ```html
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script>window.jQuery || document.write('<script src="path/to/jquery-3.3.1.js"><\/script>')</script>
+<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+<script>window.jQuery || document.write('<script src="path/to/jquery-3.5.0.js"><\/script>')</script>
 ```
 
 Load the Zebra Tooltips jQuery plugin
@@ -77,7 +77,7 @@ Alternatively, you can load Zebra Tooltips from [JSDelivr CDN](https://www.jsdel
 
 <!-- for a specific version -->
 <script
-  src="https://cdn.jsdelivr.net/npm/zebra_tooltips@2.0.5/dist/zebra_tooltips.min.js"></script>
+  src="https://cdn.jsdelivr.net/npm/zebra_tooltips@2.1.0/dist/zebra_tooltips.min.js"></script>
 
 <!-- replacing "min" with "src" will serve you the non-compressed version -->
 ```
@@ -93,7 +93,7 @@ Load one the plugin's theme
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/zebra_tooltips@2.0.5/dist/css/default/zebra_tooltips.min.css">
+  href="https://cdn.jsdelivr.net/npm/zebra_tooltips@2.1.0/dist/css/default/zebra_tooltips.min.css">
 
 <!-- replacing "min" with "src" will serve you the non-compressed version -->
 ```
