@@ -21,8 +21,8 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Tooltips/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    2.1.0 (last revision: April 21, 2019)
- *  @copyright  (c) 2012 - 2019 Stefan Gabos
+ *  @version    2.1.1 (last revision: July 19, 2020)
+ *  @copyright  (c) 2012 - 2020 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Tooltips
  */
@@ -33,7 +33,7 @@
     $.Zebra_Tooltips = function(elements, options) {
 
         // so you can tell the version number even if all you have is the minified source
-        this.version = '2.1.0';
+        this.version = '2.1.1';
 
         var defaults = {
 
