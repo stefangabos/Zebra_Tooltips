@@ -190,9 +190,39 @@ module.exports = function(grunt) {
          *  https://github.com/gruntjs/grunt-contrib-copy
          **************************************************************************************************************/
         'copy': {
-            all: {
-                src: 'src/zebra_tooltips.src.js',
-                dest: 'dist/zebra_tooltips.src.js'
+            js: {
+                files: [
+                    { src: 'src/zebra_tooltips.src.js', dest: 'dist/zebra_tooltips.src.js' }
+                ]
+            },
+            css: {
+                files: [
+                    { expand: true, cwd: 'src/css/bubble/', src: ['*.scss'], dest: 'dist/css/bubble/' },
+                    { expand: true, cwd: 'src/css/default/', src: ['*.scss'], dest: 'dist/css/default/' },
+                    { expand: true, cwd: 'src/css/mariner/', src: ['*.scss'], dest: 'dist/css/mariner/' },
+                    { expand: true, cwd: 'src/css/milan/', src: ['*.scss'], dest: 'dist/css/milan/' }
+                ]
+            }
+        },
+
+        /***************************************************************************************************************
+         *  INCLUDES
+         *  https://github.com/vanetix/grunt-includes
+         **************************************************************************************************************/
+        'includes': {
+            css: {
+                options: {
+                    includeRegexp: /\@import \'(.*?)\'/,
+                    includePath: 'src/css/default/',
+                    filenameSuffix: '.scss',
+                    silent: true
+                },
+                files: [
+                    { cwd: 'dist/css/bubble', src: '*.scss', dest: 'dist/css/bubble/zebra_tooltips.scss' },
+                    { cwd: 'dist/css/default', src: '*.scss', dest: 'dist/css/default/zebra_tooltips.scss' },
+                    { cwd: 'dist/css/mariner', src: '*.scss', dest: 'dist/css/mariner/zebra_tooltips.scss' },
+                    { cwd: 'dist/css/milan', src: '*.scss', dest: 'dist/css/milan/zebra_tooltips.scss' }
+                ]
             }
         },
 
@@ -203,14 +233,14 @@ module.exports = function(grunt) {
         'watch': {
             js: {
                 files: ['src/zebra_tooltips.src.js'],
-                tasks: ['newer:eslint', 'newer:jshint', 'newer:uglify', 'copy', 'notify:done'],
+                tasks: ['newer:eslint', 'newer:jshint', 'newer:uglify', 'copy:js', 'notify:done'],
                 options: {
                     livereload: true
                 }
             },
             css: {
                 files: ['src/css/**/*.scss'],
-                tasks: ['sass', 'cssmin', 'notify:done'],
+                tasks: ['sass', 'cssmin', 'copy:css', 'includes:css', 'notify:done'],
                 options: {
                     livereload: true
                 }
@@ -226,10 +256,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-eslint');
+    grunt.loadNpmTasks('grunt-includes');
     grunt.loadNpmTasks('grunt-newer');
     grunt.loadNpmTasks('grunt-notify');
     grunt.loadNpmTasks('grunt-sass');
 
-    grunt.registerTask('default', ['sass', 'cssmin', 'eslint', 'jshint', 'uglify', 'copy', 'watch']);
+    grunt.registerTask('default', ['sass', 'cssmin', 'eslint', 'jshint', 'uglify', 'copy', 'includes', 'watch']);
 
 };
