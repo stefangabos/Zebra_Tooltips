@@ -1,3 +1,7 @@
+## version 2.1.1 (July 19, 2020)
+
+- added SASS files to `dist` folder
+
 ## version 2.1.0 (April 21, 2019)
 
 - fixed bug [#15](https://github.com/stefangabos/Zebra_Tooltips/issues/15) where multiple tooltips would all use the same content; thanks [@Kotsuha](https://github.com/Kotsuha)!
