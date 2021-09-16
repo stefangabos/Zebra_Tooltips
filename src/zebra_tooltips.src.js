@@ -209,10 +209,20 @@
                     if (undefined !== tooltip_settings.content && tooltip_settings.content.trim() !== '') {
 
                         // handlers for some of the element's events
-                        $element.on({
+                        $element.bind({
 
                             // when mouse cursor enters the parent element
-                            mouseenter: function() {
+                            'mouseenter': function() {
+
+                                // clear the "title" attribute (if present) to prevent browser's default behavior
+                                if (title) $(this).attr('title', '');
+
+                                // show the attached tooltip
+                                _show($element);
+
+                            },
+                            // when the parent element receives focus
+                            'focusin': function() {
 
                                 // clear the "title" attribute (if present) to prevent browser's default behavior
                                 if (title) $(this).attr('title', '');
@@ -223,7 +233,7 @@
                             },
 
                             // when mouse cursor leaves the parent element
-                            mouseleave: function() {
+                            'mouseleave': function() {
 
                                 // hide the attached tooltip
                                 _hide($element);
@@ -232,6 +242,16 @@
                                 if (title) $(this).attr('title', title);
 
                             }
+                            // when the parent element loses focus
+                            'focusout': function() {
+
+                                // hide the attached tooltip
+                                _hide($element);
+
+                                // if "title" attribute was present, set it back to its original state
+                                if (title) $(this).attr('title', title);
+
+                            },
 
                         });
 
@@ -325,7 +345,7 @@
                     if (tooltip_settings.keep_visible) {
 
                         // when mouse leaves the tooltip's surface or the tooltip is clicked
-                        tooltip.on('mouseleave' + (tooltip_settings.close_on_click ? ' click' : ''), function() {
+                        tooltip.bind('mouseleave' + (tooltip_settings.close_on_click ? ' click' : ''), function() {
 
                             // hide the tooltip
                             _hide($element);
@@ -333,7 +353,7 @@
                         });
 
                         // when mouse enters the tooltip's surface
-                        tooltip.on('mouseenter', function() {
+                        tooltip.bind('mouseenter', function() {
 
                             // keep the tooltip visible
                             _show($element);
