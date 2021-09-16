@@ -1,9 +1,9 @@
 /**
  *  Zebra_Tooltips
  *
- *  Zebra_Tooltips is a lightweight (around 5KB minified, 1.9KB gzipped) jQuery tooltips plugin for creating simple but
- *  smart and visually attractive tooltips, featuring nice transitions, 4 themes, and offering a wide range of configuration
- *  options.
+ *  Zebra_Tooltips is a lightweight (around 5KB minified, 1.9KB gzipped) and accessible jQuery tooltips plugin for creating
+ *  simple but smart and visually attractive tooltips, featuring nice transitions, 4 themes, and offering a wide range of
+ *  configuration options.
  *
  *  Besides the default behavior of tooltips showing when user hovers the element, tooltips may also be shown and hidden
  *  programmatically. When shown programmatically, the tooltips feature a "close" button and clicking it will be the only
@@ -21,8 +21,8 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Tooltips/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    2.1.1 (last revision: July 19, 2020)
- *  @copyright  (c) 2012 - 2020 Stefan Gabos
+ *  @version    2.2.0 (last revision: September 17, 2021)
+ *  @copyright  (c) 2012 - 2021 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Tooltips
  */
