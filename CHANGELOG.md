@@ -1,3 +1,6 @@
+## version 2.2.0 (September 17, 2021)
+
+- bind focus events to the parent element to get the tooltip to open and close when using the `TAB` key, making the tooltips more accessible; see [#40](https://github.com/stefangabos/Zebra_Tooltips/pull/40); thank you [Amogh Kulkarni](https://github.com/xmlns)!
 ## version 2.1.1 (July 19, 2020)
 
 - added SASS files to `dist` folder
