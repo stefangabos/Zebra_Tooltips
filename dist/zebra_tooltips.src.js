@@ -208,30 +208,25 @@
                     // if tooltip has any content
                     if (undefined !== tooltip_settings.content && tooltip_settings.content.trim() !== '') {
 
-                        // handlers for some of the element's events
-                        $element.on({
+                        // when mouse cursor enters the parent element (or element receives focus)
+                        $element.on('mouseenter, focus', function() {
 
-                            // when mouse cursor enters the parent element
-                            mouseenter: function() {
+                            // clear the "title" attribute (if present) to prevent browser's default behavior
+                            if (title) $(this).attr('title', '');
 
-                                // clear the "title" attribute (if present) to prevent browser's default behavior
-                                if (title) $(this).attr('title', '');
+                            // show the attached tooltip
+                            _show($element);
 
-                                // show the attached tooltip
-                                _show($element);
+                        });
 
-                            },
+                        // when mouse cursor leaves the parent element (or looses focus)
+                        $element.on('mouseleave, blur', function() {
 
-                            // when mouse cursor leaves the parent element
-                            mouseleave: function() {
+                            // hide the attached tooltip
+                            _hide($element);
 
-                                // hide the attached tooltip
-                                _hide($element);
-
-                                // if "title" attribute was present, set it back to its original state
-                                if (title) $(this).attr('title', title);
-
-                            }
+                            // if "title" attribute was present, set it back to its original state
+                            if (title) $(this).attr('title', title);
 
                         });
 
