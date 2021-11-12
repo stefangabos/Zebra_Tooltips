@@ -135,7 +135,7 @@ module.exports = function(grunt) {
          **************************************************************************************************************/
         'eslint' : {
             options: {
-                configFile: 'eslint.json'
+                overrideConfigFile: 'eslint.json'
             },
             src: ['src/zebra_tooltips.src.js']
         },
