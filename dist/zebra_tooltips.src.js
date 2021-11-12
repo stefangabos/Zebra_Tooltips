@@ -209,7 +209,7 @@
                     if (undefined !== tooltip_settings.content && tooltip_settings.content.trim() !== '') {
 
                         // when mouse cursor enters the parent element (or element receives focus)
-                        $element.on('mouseenter, focus', function() {
+                        $element.on('mouseenter focus', function() {
 
                             // clear the "title" attribute (if present) to prevent browser's default behavior
                             if (title) $(this).attr('title', '');
@@ -220,7 +220,7 @@
                         });
 
                         // when mouse cursor leaves the parent element (or looses focus)
-                        $element.on('mouseleave, blur', function() {
+                        $element.on('mouseleave blur', function() {
 
                             // hide the attached tooltip
                             _hide($element);
