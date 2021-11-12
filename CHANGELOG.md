@@ -1,4 +1,4 @@
-## version 2.2.0 (October 05, 2021)
+## version 2.2.0 (November 12, 2021)
 
 - bind focus events to the parent element to get the tooltip to open and close when using the `TAB` key, making the tooltips more accessible; see [#40](https://github.com/stefangabos/Zebra_Tooltips/pull/40); thank you [Amogh Kulkarni](https://github.com/xmlns)!
 - added support for jQuery in noConflict mode; see [#18](https://github.com/stefangabos/Zebra_Tooltips/pull/18); thanks [Caprico85](https://github.com/Caprico85)!
