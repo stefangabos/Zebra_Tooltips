@@ -1,8 +1,8 @@
 <img src="https://raw.githubusercontent.com/stefangabos/zebrajs/master/docs/images/logo.png" alt="zebrajs" align="right">
 
-# Zebra Tooltips &nbsp;[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Zebra_Tooltips%20-%20A%20lightweight%20and%20highly%20configurable%20jQuery%20tooltips%20plugin&url=https://github.com/stefangabos/Zebra_Tooltips&via=stefangabos&hashtags=jquery,tooltips,javascript)
+# Zebra Tooltips &nbsp;[![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=A+lightweight,+accessible,+and+highly+configurable+jQuery+plugin+for+creating+beautiful+tooltips&url=https://github.com/stefangabos/Zebra_Tooltips&via=stefangabos&hashtags=jquery,tooltips,javascript)
 
-*A lightweight and highly configurable jQuery tooltips plugin*
+*A lightweight, accessible, and highly configurable jQuery plugin for creating beautiful tooltips*
 
 [![npm](https://img.shields.io/npm/v/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![Total](https://img.shields.io/npm/dt/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![Monthly](https://img.shields.io/npm/dm/zebra_tooltips.svg)](https://www.npmjs.com/package/zebra_tooltips) [![](https://data.jsdelivr.com/v1/package/npm/zebra_tooltips/badge?style=rounded)](https://www.jsdelivr.com/package/npm/zebra_tooltips) [![License](https://img.shields.io/npm/l/zebra_tooltips.svg)](https://github.com/stefangabos/Zebra_Tooltips/blob/master/LICENSE.md)
 
@@ -28,6 +28,15 @@ Works in pretty much any browser - Firefox, Chrome, Safari, Edge, Opera and Inte
  - tooltips can be aligned left, center or right, relative to the parent element, as well as above or below the parent element
  - uses **NO IMAGES** and falls back gracefully for browsers that don't support all the fancy stuff
  - works in pretty much any browser - Firefox, Chrome, Safari, Edge, Opera and Internet Explorer 6+
+
+## 🎂 Support the development of this project
+
+Your support means a lot and it keeps me motivated to keep working on open source projects.<br>
+If you like this project please ⭐ it by clicking on the star button at the top of the page.<br>
+If you are feeling generous, you can buy me a coffee by donating through PayPal, or you can become a sponsor.<br>
+Either way - **Thank you!** 🎉
+
+[<img src="https://img.shields.io/github/stars/stefangabos/zebra_tooltips?color=green&label=star%20it%20on%20GitHub" width="132" height="20" alt="Star it on GitHub">](https://github.com/stefangabos/Zebra_Tooltips) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4MP9EBKNTF9E) [<img src="https://img.shields.io/badge/-Sponsor-fafbfc?logo=GitHub%20Sponsors">](https://github.com/sponsors/stefangabos)
 
 ## Demo
 
@@ -335,10 +344,6 @@ var element = $('#tooltip'),
 
 tooltip.hide(element);
 ```
-
-## Support the development of this project
-
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=K4MP9EBKNTF9E)
 
 ## Sponsors
 
