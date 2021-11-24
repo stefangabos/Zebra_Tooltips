@@ -1,6 +1,6 @@
 {
   "name": "zebra_tooltips",
-  "description": "A lightweight, accessible, and highly configurable jQuery tooltips plugin",
+  "description": "A lightweight, accessible, and highly configurable jQuery plugin for creating beautiful tooltips",
   "author": {
     "name": "Stefan Gabos",
     "email": "contact@stefangabos.ro"
