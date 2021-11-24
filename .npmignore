@@ -3,6 +3,7 @@ examples/screenshot.png
 examples/screenshot.psd
 node_modules/*
 src/*
+.github/*
 .gitattributes
 .gitignore
 .npmignore
