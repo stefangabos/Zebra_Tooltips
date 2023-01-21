@@ -21,8 +21,8 @@
  *  Read more {@link https://github.com/stefangabos/Zebra_Tooltips/ here}
  *
  *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    2.2.0 (last revision: November 12, 2021)
- *  @copyright  (c) 2012 - 2021 Stefan Gabos
+ *  @version    2.3.0 (last revision: January 21, 2023)
+ *  @copyright  (c) 2012 - 2023 Stefan Gabos
  *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
  *  @package    Zebra_Tooltips
  */
@@ -33,7 +33,7 @@
     $.Zebra_Tooltips = function(elements, options) {
 
         // so you can tell the version number even if all you have is the minified source
-        this.version = '2.2.0';
+        this.version = '2.3.0';
 
         var defaults = {
 
@@ -384,8 +384,9 @@
                     tooltip_settings.tooltip_height = tooltip_settings.tooltip_height + (message.outerHeight() - tmp_height);
 
                     // adjust, if needed, the tooltip's width/height, and hide it for now
+                    // (we need to add 1px just to be sure or otherwise wrapping may occur)
                     tooltip.css({
-                        width:      tooltip_settings.tooltip_width,
+                        width:      tooltip_settings.tooltip_width + 1,
                         height:     tooltip_settings.tooltip_height,
                         display:    'none'
                     });
