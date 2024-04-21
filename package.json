@@ -9,7 +9,7 @@
   "main": "dist/zebra_tooltips.min.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/stefangabos/Zebra_Tooltips.git"
+    "url": "git+https://github.com/stefangabos/Zebra_Tooltips.git"
   },
   "license": "LGPL-3.0",
   "version": "2.3.1",
