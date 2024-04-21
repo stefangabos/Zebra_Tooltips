@@ -16,7 +16,7 @@
     padding: 15px;
     position: relative;
     text-align: left;
-    _width: expression(document.body.clientWidth > 250px ? '250px': 'auto');
+    _width: expression(document.body.clientWidth > 250px ? "250px": "auto");
     border: 4px solid #317cc5
 }
 .Zebra_Tooltip .Zebra_Tooltip_Message.Zebra_Tooltip_Has_Close {
