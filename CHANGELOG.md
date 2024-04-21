@@ -1,3 +1,7 @@
+## version 2.3.1 (April 21, 2024)
+
+- minor maitenance release
+
 ## version 2.3.0 (January 21, 2023)
 
 - fixed a long standing issue where wrapping would occur for no apparent reason, mostly happening for tooltips with short messages
