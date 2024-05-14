@@ -55,13 +55,6 @@ Zebra Tooltips is available as a [npm package](https://www.npmjs.com/package/zeb
 npm install zebra_tooltips --save
 ```
 
-Zebra Tooltips is also available as a [Bower package](http://bower.io/). To install it use:
-
-```bash
-# the "--save" argument adds the plugin as a dependency in bower.json
-bower install zebra_tooltips --save
-```
-
 ## How to use
 
 First, load jQuery from a CDN and provide a fallback to a local source like:

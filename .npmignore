@@ -8,7 +8,6 @@ src/*
 .gitignore
 .npmignore
 Gruntfile.js
-bower.json
 eslint.json
 package.json
 package-lock.json
