@@ -5,6 +5,7 @@
 }
 .Zebra_Tooltip .Zebra_Tooltip_Message {
     background: #ffffa3;
+    border: 2px solid #f1d031;
     box-shadow: 0 0 6px rgba(153,129,11,.6);
     color: #444;
     font-size: 12px;
@@ -14,8 +15,7 @@
     max-width: 250px;
     padding: 10px;
     position: relative;
-    _width: expression(document.body.clientWidth > 250px ? "250px": "auto");
-    border: 2px solid #f1d031
+    _width: expression(document.body.clientWidth > 250px ? "250px": "auto")
 }
 .Zebra_Tooltip .Zebra_Tooltip_Message.Zebra_Tooltip_Has_Close {
     padding-right: 23px
