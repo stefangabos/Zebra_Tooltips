@@ -1,3 +1,7 @@
+## version 2.3.2 (May 14, 2024)
+
+- minor maintenance release
+
 ## version 2.3.1 (April 21, 2024)
 
 - minor maintenance release
