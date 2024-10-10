@@ -56,6 +56,36 @@ module.exports = function(grunt) {
         },
 
         /***************************************************************************************************************
+         *  STRING REPLACE
+         *  https://github.com/eruizdechavez/grunt-string-replace
+         **************************************************************************************************************/
+        'string-replace': {
+            all: {
+                files: {
+                    'dist/css/default/zebra_tooltips.css': 'dist/css/default/zebra_tooltips.css',
+                    'dist/css/bubble/zebra_tooltips.css': 'dist/css/bubble/zebra_tooltips.css',
+                    'dist/css/mariner/zebra_tooltips.css': 'dist/css/mariner/zebra_tooltips.css',
+                    'dist/css/milan/zebra_tooltips.css': 'dist/css/milan/zebra_tooltips.css',
+                    'dist/css/default/zebra_tooltips.min.css': 'dist/css/default/zebra_tooltips.min.css',
+                    'dist/css/bubble/zebra_tooltips.min.css': 'dist/css/bubble/zebra_tooltips.min.css',
+                    'dist/css/mariner/zebra_tooltips.min.css': 'dist/css/mariner/zebra_tooltips.min.css',
+                    'dist/css/milan/zebra_tooltips.min.css': 'dist/css/milan/zebra_tooltips.min.css'
+                },
+                options: {
+                    replacements: [{
+                        pattern: /(rgba?|hsla?)\(\s*([0-9]*\.?[0-9]+)?(\%)?\s*,\s*([0-9]*\.?[0-9]+)?(\%)?\s*,\s*([0-9]*\.?[0-9]+)?(\%)?/g,
+                        replacement: function(match, p1, p2, p3, p4, p5, p6, p7) {
+                            p2 = p2 ? Math.floor(parseFloat(p2)) : '0';
+                            p4 = p4 ? Math.floor(parseFloat(p4)) : '0';
+                            p6 = p6 ? Math.floor(parseFloat(p6)) : '0';
+                            return p1 + '(' + p2 + (p3 || '') + ',' + p4 + (p5 || '') + ',' + p6 + (p7 || '');
+                        }}
+                    ]
+                }
+            },
+        },
+
+        /***************************************************************************************************************
          *  CSSMIN
          *  https://github.com/gruntjs/grunt-contrib-cssmin
          **************************************************************************************************************/
@@ -232,7 +262,7 @@ module.exports = function(grunt) {
             },
             css: {
                 files: ['src/css/**/*.scss'],
-                tasks: ['sass', 'cssmin', 'copy:css', 'includes:css', 'notify:done'],
+                tasks: ['sass', 'string-replace', 'cssmin', 'copy:css', 'includes:css', 'notify:done'],
                 options: {
                     livereload: true
                 }
@@ -242,6 +272,7 @@ module.exports = function(grunt) {
     });
 
     // register plugins
+    grunt.loadNpmTasks('grunt-string-replace');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -253,6 +284,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-notify');
     grunt.loadNpmTasks('grunt-sass');
 
-    grunt.registerTask('default', ['sass', 'cssmin', 'eslint', 'jshint', 'uglify', 'copy', 'includes', 'watch']);
+    grunt.registerTask('default', ['sass', 'string-replace', 'cssmin', 'eslint', 'jshint', 'uglify', 'copy', 'includes', 'watch']);
 
 };
