@@ -30,6 +30,7 @@ module.exports = function(grunt) {
         'sass': {
             expanded: {
                 options: {
+                    api: 'modern',
                     implementation: sass,
                     outputStyle: 'expanded',
                     indentWidth: 4
@@ -43,6 +44,7 @@ module.exports = function(grunt) {
             },
             minified: {
                 options: {
+                    api: 'modern',
                     implementation: sass,
                     outputStyle: 'compressed'
                 },
