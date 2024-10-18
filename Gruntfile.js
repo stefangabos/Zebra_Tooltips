@@ -36,10 +36,10 @@ module.exports = function(grunt) {
                     indentWidth: 4
                 },
                 files: {
-                    'dist/css/bubble/zebra_tooltips.css': 'src/css/bubble/zebra_tooltips.scss',
-                    'dist/css/default/zebra_tooltips.css': 'src/css/default/zebra_tooltips.scss',
-                    'dist/css/mariner/zebra_tooltips.css': 'src/css/mariner/zebra_tooltips.scss',
-                    'dist/css/milan/zebra_tooltips.css': 'src/css/milan/zebra_tooltips.scss'
+                    'dist/css/bubble/zebra_tooltips.css': 'dist/css/bubble/zebra_tooltips.scss',
+                    'dist/css/default/zebra_tooltips.css': 'dist/css/default/zebra_tooltips.scss',
+                    'dist/css/mariner/zebra_tooltips.css': 'dist/css/mariner/zebra_tooltips.scss',
+                    'dist/css/milan/zebra_tooltips.css': 'dist/css/milan/zebra_tooltips.scss'
                 }
             },
             minified: {
@@ -49,10 +49,10 @@ module.exports = function(grunt) {
                     outputStyle: 'compressed'
                 },
                 files: {
-                    'dist/css/bubble/zebra_tooltips.min.css': 'src/css/bubble/zebra_tooltips.scss',
-                    'dist/css/default/zebra_tooltips.min.css': 'src/css/default/zebra_tooltips.scss',
-                    'dist/css/milan/zebra_tooltips.min.css': 'src/css/milan/zebra_tooltips.scss',
-                    'dist/css/mariner/zebra_tooltips.min.css': 'src/css/mariner/zebra_tooltips.scss'
+                    'dist/css/bubble/zebra_tooltips.min.css': 'dist/css/bubble/zebra_tooltips.scss',
+                    'dist/css/default/zebra_tooltips.min.css': 'dist/css/default/zebra_tooltips.scss',
+                    'dist/css/milan/zebra_tooltips.min.css': 'dist/css/milan/zebra_tooltips.scss',
+                    'dist/css/mariner/zebra_tooltips.min.css': 'dist/css/mariner/zebra_tooltips.scss'
                 }
             }
         },
@@ -218,14 +218,6 @@ module.exports = function(grunt) {
                 files: [
                     { src: 'src/zebra_tooltips.src.js', dest: 'dist/zebra_tooltips.src.js' }
                 ]
-            },
-            css: {
-                files: [
-                    { expand: true, cwd: 'src/css/bubble/', src: ['*.scss'], dest: 'dist/css/bubble/' },
-                    { expand: true, cwd: 'src/css/default/', src: ['*.scss'], dest: 'dist/css/default/' },
-                    { expand: true, cwd: 'src/css/mariner/', src: ['*.scss'], dest: 'dist/css/mariner/' },
-                    { expand: true, cwd: 'src/css/milan/', src: ['*.scss'], dest: 'dist/css/milan/' }
-                ]
             }
         },
 
@@ -242,10 +234,10 @@ module.exports = function(grunt) {
                     silent: true
                 },
                 files: [
-                    { cwd: 'dist/css/bubble', src: '*.scss', dest: 'dist/css/bubble/zebra_tooltips.scss' },
-                    { cwd: 'dist/css/default', src: '*.scss', dest: 'dist/css/default/zebra_tooltips.scss' },
-                    { cwd: 'dist/css/mariner', src: '*.scss', dest: 'dist/css/mariner/zebra_tooltips.scss' },
-                    { cwd: 'dist/css/milan', src: '*.scss', dest: 'dist/css/milan/zebra_tooltips.scss' }
+                    { cwd: 'src/css/bubble', src: '*.scss', dest: 'dist/css/bubble/zebra_tooltips.scss' },
+                    { cwd: 'src/css/default', src: '*.scss', dest: 'dist/css/default/zebra_tooltips.scss' },
+                    { cwd: 'src/css/mariner', src: '*.scss', dest: 'dist/css/mariner/zebra_tooltips.scss' },
+                    { cwd: 'src/css/milan', src: '*.scss', dest: 'dist/css/milan/zebra_tooltips.scss' }
                 ]
             }
         },
@@ -264,7 +256,7 @@ module.exports = function(grunt) {
             },
             css: {
                 files: ['src/css/**/*.scss'],
-                tasks: ['sass', 'string-replace', 'cssmin', 'copy:css', 'includes:css', 'notify:done'],
+                tasks: ['includes:css', 'sass', 'string-replace', 'cssmin', 'copy:css', 'notify:done'],
                 options: {
                     livereload: true
                 }
@@ -286,6 +278,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-notify');
     grunt.loadNpmTasks('grunt-sass');
 
-    grunt.registerTask('default', ['sass', 'string-replace', 'cssmin', 'eslint', 'jshint', 'uglify', 'copy', 'includes', 'watch']);
+    grunt.registerTask('default', ['includes', 'sass', 'string-replace', 'cssmin', 'eslint', 'jshint', 'uglify', 'copy', 'watch']);
 
 };
