@@ -16,6 +16,8 @@ $zt_close_button_hover_background: #C2D076;
 $zt_close_button_hover_border_radius: 5px;
 $zt_close_button_hover_color: #000;
 
+@use "sass:meta";
+
 $zt_arrow_width: 20px !default;
 $zt_border_width: 0 !default;
 $zt_border_color: $zt_content_background !default;
@@ -29,19 +31,19 @@ $zt_max_width: 250px;
     .Zebra_Tooltip_Message {
         border-color: $zt_border_color;
         background: $zt_content_background;
-        @if variable-exists(zt_border_radius) { border-radius: $zt_border_radius; }
+        @if meta.variable-exists(zt_border_radius) { border-radius: $zt_border_radius; }
         border-style: solid;
         border-width: $zt_border_width;
-        @if variable-exists(zt_box_shadow) { box-shadow: $zt_box_shadow; }
+        @if meta.variable-exists(zt_box_shadow) { box-shadow: $zt_box_shadow; }
         color: $zt_content_color;
-        @if variable-exists(zt_content_font_size) { font-size: $zt_content_font_size; }
+        @if meta.variable-exists(zt_content_font_size) { font-size: $zt_content_font_size; }
         font-family: Tahoma, Arial, Helvetica, sans-serif;
-        @if variable-exists(zt_content_line_height) { line-height: $zt_content_line_height; }
+        @if meta.variable-exists(zt_content_line_height) { line-height: $zt_content_line_height; }
         *margin-right: 0;
         max-width: $zt_max_width;
         padding: $zt_content_padding;
         position: relative;
-        @if variable-exists(zt_content_align) { text-align: $zt_content_align; }
+        @if meta.variable-exists(zt_content_align) { text-align: $zt_content_align; }
         _width: expression(document.body.clientWidth > #{$zt_max_width} ? '#{$zt_max_width}': 'auto'); /* max-width for IE6 */
 
         &.Zebra_Tooltip_Has_Close {
@@ -96,16 +98,16 @@ $zt_max_width: 250px;
 
             &.Zebra_Tooltip_Arrow_Border {
                 border-width: calc($zt_arrow_width / 2);
-                @if variable-exists(zt_box_shadow) { box-shadow: $zt_box_shadow; }
+                @if meta.variable-exists(zt_box_shadow) { box-shadow: $zt_box_shadow; }
                 left: 0;
             }
         }
     }
 
     .Zebra_Tooltip_Close {
-        @if variable-exists(zt_close_button_color) { color: $zt_close_button_color; }
-        @if variable-exists(zt_close_button_background) { background: $zt_close_button_background; }
-        @if variable-exists(zt_close_button_border_radius) { border-radius: $zt_close_button_border_radius; }
+        @if meta.variable-exists(zt_close_button_color) { color: $zt_close_button_color; }
+        @if meta.variable-exists(zt_close_button_background) { background: $zt_close_button_background; }
+        @if meta.variable-exists(zt_close_button_border_radius) { border-radius: $zt_close_button_border_radius; }
         font-family: Arial, sans-serif;
         font-size: 18px;
         line-height: 1;
@@ -116,9 +118,9 @@ $zt_max_width: 250px;
         top: 2px;
 
         &:hover {
-            @if variable-exists(zt_close_button_hover_color) and $zt_close_button_hover_color != if(variable_exists(zt_close_button_color), $zt_close_button_color, "") { color: $zt_close_button_hover_color; }
-            @if variable-exists(zt_close_button_hover_background) and $zt_close_button_hover_background != if(variable_exists(zt_close_button_background), $zt_close_button_background, "") { background: $zt_close_button_hover_background; }
-            @if variable-exists(zt_close_button_hover_border_radius) and $zt_close_button_hover_border_radius != if(variable_exists(zt_close_button_border_radius), $zt_close_button_border_radius, "") { border-radius: $zt_close_button_hover_border_radius; }
+            @if meta.variable-exists(zt_close_button_hover_color) and $zt_close_button_hover_color != if(meta.variable-exists(zt_close_button_color), $zt_close_button_color, "") { color: $zt_close_button_hover_color; }
+            @if meta.variable-exists(zt_close_button_hover_background) and $zt_close_button_hover_background != if(meta.variable-exists(zt_close_button_background), $zt_close_button_background, "") { background: $zt_close_button_hover_background; }
+            @if meta.variable-exists(zt_close_button_hover_border_radius) and $zt_close_button_hover_border_radius != if(meta.variable-exists(zt_close_button_border_radius), $zt_close_button_border_radius, "") { border-radius: $zt_close_button_hover_border_radius; }
         }
     }
 }
