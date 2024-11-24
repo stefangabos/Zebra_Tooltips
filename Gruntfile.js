@@ -91,19 +91,21 @@ module.exports = function(grunt) {
          *  https://github.com/gruntjs/grunt-contrib-cssmin
          **************************************************************************************************************/
         'cssmin': {
-            beutify: {
-                options: {
-                    compatibility: {
-                        properties: {
-                            ieBangHack: true,
-                            ieFilters: true,
-                            iePrefixHack: true,
-                            ieSuffixHack: true
-                        },
-                        selectors: {
-                            ie7Hack: true
-                        }
+            options: {
+                compatibility: {
+                    properties: {
+                        ieBangHack: true,
+                        ieFilters: true,
+                        iePrefixHack: true,
+                        ieSuffixHack: true
                     },
+                    selectors: {
+                        ie7Hack: true
+                    }
+                },
+            },
+            beautify: {
+                options: {
                     format: {
                         breaks: {
                             afterAtRule: true,
@@ -135,17 +137,6 @@ module.exports = function(grunt) {
             },
             minify: {
                 options: {
-                    compatibility: {
-                        properties: {
-                            ieBangHack: true,
-                            ieFilters: true,
-                            iePrefixHack: true,
-                            ieSuffixHack: true
-                        },
-                        selectors: {
-                            ie7Hack: true
-                        }
-                    },
                     level: 2
                 },
                 files: {
