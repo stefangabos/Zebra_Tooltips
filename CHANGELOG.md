@@ -1,3 +1,7 @@
+## version 2.4.0 (January 31, 2025)
+
+- updates required by latest versions of SASS which is moving away from global functions
+
 ## version 2.3.2 (May 14, 2024)
 
 - minor maintenance release
