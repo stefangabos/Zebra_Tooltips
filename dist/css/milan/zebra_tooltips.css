@@ -15,7 +15,7 @@
     max-width: 250px;
     padding: 10px;
     position: relative;
-    _width: expression(document.body.clientWidth > 250px ? "250px": "auto")
+    _width: expression(document.body.clientWidth > 250px ? '250px': 'auto')
 }
 .Zebra_Tooltip .Zebra_Tooltip_Message.Zebra_Tooltip_Has_Close {
     padding-right: 23px

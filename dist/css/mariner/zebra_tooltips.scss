@@ -120,9 +120,9 @@ $zt_max_width: 250px;
         top: 2px;
 
         &:hover {
-            @if meta.variable-exists(zt_close_button_hover_color) and $zt_close_button_hover_color != if(meta.variable-exists(zt_close_button_color), $zt_close_button_color, "") { color: $zt_close_button_hover_color; }
-            @if meta.variable-exists(zt_close_button_hover_background) and $zt_close_button_hover_background != if(meta.variable-exists(zt_close_button_background), $zt_close_button_background, "") { background: $zt_close_button_hover_background; }
-            @if meta.variable-exists(zt_close_button_hover_border_radius) and $zt_close_button_hover_border_radius != if(meta.variable-exists(zt_close_button_border_radius), $zt_close_button_border_radius, "") { border-radius: $zt_close_button_hover_border_radius; }
+            @if meta.variable-exists(zt_close_button_hover_color) and (not meta.variable-exists(zt_close_button_color) or $zt_close_button_hover_color != $zt_close_button_color) { color: $zt_close_button_hover_color; }
+            @if meta.variable-exists(zt_close_button_hover_background) and (not meta.variable-exists(zt_close_button_background) or $zt_close_button_hover_background != $zt_close_button_background) { background: $zt_close_button_hover_background; }
+            @if meta.variable-exists(zt_close_button_hover_border_radius) and (not meta.variable-exists(zt_close_button_border_radius) or $zt_close_button_hover_border_radius != $zt_close_button_border_radius) { border-radius: $zt_close_button_hover_border_radius; }
         }
     }
 }
