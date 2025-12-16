@@ -1,3 +1,7 @@
+## version 2.4.1 (December 16, 2025)
+
+- updates required by [latest versions of SASS](https://sass-lang.com/documentation/breaking-changes/if-function/)
+
 ## version 2.4.0 (January 31, 2025)
 
 - updates required by latest versions of SASS which is moving away from global functions
