@@ -229,6 +229,13 @@
                             if (title) $(this).attr('title', title);
 
                         });
+                        
+                        // hide tooltip when ESC is pressed
+                        $element.on('keyup', function (e) {
+                            if (e.key === 'Escape') {
+                                _hide($element);
+                            }
+                        });
 
                         // initialize and cache tooltip data
                         $element.data('Zebra_Tooltip', $.extend({
